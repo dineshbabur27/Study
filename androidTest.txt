@@ -1,0 +1,1881 @@
+﻿1. Android Characteristics
+Criteria	Result
+Type of Operating System	Open Source
+OS Fragmentation	Multiple OS versions & interoperability concerns
+Customization	Heightened customization possible
+2. Why cannot you run standard Java bytecode on Android?
+Android uses Dalvik Virtual Machine (DVM) which requires a special bytecode. First of all, we have to convert Java class files into Dalvik Executable files using an Android tool called “dx”. In normal circumstances, developers will not be using this tool directly and build tools will care for the generation of DVM compatible files.
+
+3. Can Android application only be programmed in Java?
+No, it is not necessary. You can program Android apps can be created using NDK in C/C++. The NDK is a toolset that allows you to implement parts of your app using native-code languages such as C and C++. Typically, good use cases for the NDK are CPU-intensive applications such as game engines, signal processing, and physics simulation.
+
+4. Where will you declare your activity so the system can access it?
+Activity is to be declared in the manifest file. For example:
+
+<manifest></manifest>
+<application></application>
+<activity android:name=”.MyIntellipaat”>
+5. What is the difference between a regular .png and a nine-patch image?
+It is a resizable bitmap resource that can be used for backgrounds or other images on the device. NinePatch class permits drawing a bitmap in nine sections. The nine patch images have extension as.9.png. It allows extension in 9 ways, i.e. 4 corners that are unscaled, 4 edges that are scaled in 1 axis, and the middle one that can be scaled into both axes.
+
+6. What is the difference between an implicit intent and explicit intent?
+There are two types of Intent implicit and explicit intent, let see some more difference between them.
+
+Implicit: Implicit intent is when you call system default intent like send email, send SMS, dial number.
+
+For example,
+
+Intent sendIntent = new Intent();
+sendIntent.setAction(Intent.ACTION_SEND);
+sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
+sendIntent.setType("text/plain")
+startactivity(sendIntent);
+
+Explicit: Explicit intent when you call you're on application activity from one activity to another
+ For example, first activity to second activity:
+Intent intent = new Intent(first.this, second.class);
+startactivity(intent);
+ 
+
+7. Where can you define the icon for your Activity?
+The icon for an Activity is defined in the manifest file.
+
+Code
+<activity android:icon="@drawable/app_icon" android:name=".MyTestActivity"></activity>
+which means you have to Open AndroidManifest.xml.Right under the root “manifest” node of the XML, we can see the “application” node. We have added this attribute to “application”. (The “icon” in “@drawable/icon” refers to the file name of the icon.)
+android:icon=”@drawable/icon”
+
+8. What is ADB?
+ADB stands for Android Debug Bridge. It is a command line tool that is used to communicate with the emulator instance. ADB can control your device over USB from a computer, copy files back and forth, install and uninstall apps, run shell commands, and more. It is a client-server program that includes three components:
+• A client, which runs on your development machine. You can invoke a client from a shell by issuing an ADB command. Other Android tools such as DDMS also create ADB clients.
+• A server, which runs as a background process on your development machine. The server manages communication between the client and the ADB daemon running on an emulator or device.
+• A daemon, which runs as a background process on each emulator or device instance.
+
+Read this blog, to get an idea about Android Game Developing.
+
+ 
+
+9. What are the different storage methods in Android?
+Android offers several different options for data persistence. Shared Preferences – Store private primitive data in key-value pairs. This sometimes gets limited as it offers only key-value pairs. You cannot save your own java types. Internal Storage – Store private data on the device memory.
+
+Download Android Interview Questions asked by top MNCs in 2018
+GET PDF
+10. What is action in Android?
+In Android, the action is a description of something that an intent sender desires.
+SYNTAX:
+
+CONTAINED IN:
+DESCRIPTION:
+Adds an action to an intent filter. An element must contain one or more elements. If it doesn’t contain any, no Intent objects will get through the filter.
+
+11. What is an ANR notification in Android?
+ANR is short for Application Not Responding. Android systems show this dialog if the application is performing too much of task on the main thread and has been unresponsive from a long time.
+
+12. Enumerate three key loops when monitoring an activity?
+• Entire lifetime – activity happens between onCreate and onDestroy
+• Visible lifetime – activity happens between onStart and onStop
+• Foreground lifetime – activity happens between onResume and onPause
+
+13. How do you find any view element into your program?
+Findviewbyid : Finds a view that was identified by the id attribute from the XML processed inActivity.OnCreate(Bundle).
+
+Syntax
+
+[Android.Runtime.Register("findViewById", "(I)Landroid/view/View;", "GetFindViewById_IHandler")]
+public virtual View FindViewById (Int32 id)
+Learn Android from Experts! Enrol Today
+
+Advanced Questions
+1. Which dialog boxes can you use in your Android application?
+AlertDialog : An alert dialogue box supports 0 to 3 buttons and a list of selectable elements.
+ProgressDialog : An extension to AlertDialog and you may add buttons to it. It shows a progress wheel or a progress bar.
+DatePickerDialog : It is used for selecting a date by the user.
+TimePickerDialog : It is used for selecting time by the user.
+Learn more about Android in this Android Developer training course.
+
+2. Name the resource that is a compiled visual resource and can be used as a background, title, or in other part of the screen.
+Drawable is the virtual resource that can be used as a background, title, or in other parts of the screen. It is compiled into an android.graphics.drawable subclass. A Drawable resource is a general concept for a graphic which can be drawn. The simplest case is a graphical file (bitmap), which would be represented in Android via a BitmapDrawable class.
+The Drawable is stored as individual files in one of the res/drawable folders. The ADT project creation wizard creates these folders by default. You would store bitmaps for different resolutions in the -mdpi, -hdpi, -xhdpi, -xxhdpi subfolders of res/drawable If these bitmaps are provided in a different folder, the Android system selects the correct one automatically based on the device configuration.
+
+3. How can two Android applications share same Linux user ID and share same VM?
+The applications must sign with the same certificate in order to share same Linux user ID and share same VM.
+
+4. Can you deploy executable JARs on Android? Which packaging is supported by Android?
+No, Android platform does not support JAR deployments. Applications are packed into Android Package (.apk) using Android Asset Packaging Tool (AAPT) and then deployed onto Android platform. Google provides Android Development Tools for Eclipse that can be used to generate Android Package.
+
+5. Is it okay to change the name of an application after its deployment?
+It is not recommended to change the application name after its deployment because this action may break some functionality. For example, shortcuts will not work if you change application name.
+
+6. How can ANR be prevented?
+One technique that prevents the Android system from concluding a code that has been responsive for a long period of time is to create a child thread. Within the child thread, most of the actual tasks of the codes can be placed, so that the main thread runs with minimal periods of unresponsive time.
+
+Click here, to become a certified Android developer.
+
+7. How can your application perform actions that are provided by other application e.g. sending email?
+Intents are created to define an action that we want to perform and launches the appropriate activity from another application.
+
+Code
+
+Intent intent = new Intent(Intent.ACTION_SEND);intent.putExtra(Intent.EXTRA_EMAIL, recipientArray);
+
+startActivity(intent);
+8. How will you pass data to sub-activities?
+We can use Bundles to pass data to sub-activities. There are like HashMaps that and take trivial data types. These Bundles transport information from one Activity to another
+
+Code
+
+Bundle b=new Bundle();
+b.putString(“Email”, “abc@xyz.com”);
+i.putExtras(b); //where I is intent
+
+
+
+
+There are four Java classes related to the use of sensors on the Android platform. List them and explain the purpose of each.
+
+Hide answer
+answer badge
+The four Java classes related to the use of sensors on the Android platform areL
+
+Sensor: Provides methods to identify which capabilities are available for a specific sensor.
+SensorManager: Provides methods for registering sensor event listeners and calibrating sensors.
+SensorEvent: Provides raw sensor data, including information regarding accuracy.
+SensorEventListener: Interface that defines callback methods that will receive sensor event notifications.
+To learn more about sensors, refer to Android developer’s guide.
+
+question badge
+What is a ContentProvider and what is it typically used for?
+
+Hide answer
+answer badge
+A ContentProvider manages access to a structured set of data. It encapsulates the data and provide mechanisms for defining data security. ContentProvider is the standard interface that connects data in one process with code running in another process.
+
+More information about content providers can be found here in the Android Developer’s Guide.
+
+question badge
+Under what condition could the code sample below crash your application? How would you modify the code to avoid this potential problem? Explain your answer.
+
+    Intent sendIntent = new Intent();
+    sendIntent.setAction(Intent.ACTION_SEND);
+    sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
+    sendIntent.setType(HTTP.PLAIN_TEXT_TYPE); // "text/plain" MIME type
+    startActivity(sendIntent);
+Hide answer
+answer badge
+An implicit intent specifies an action that can invoke any app on the device able to perform the action. Using an implicit intent is useful when your app cannot perform the action, but other apps probably can. If there is more than one application registered that can handle this request, the user will be prompted to select which one to use.
+
+However, it is possible that there are no applications that can handle your intent. In this case, your application will crash when you invoke startActivity(). To avoid this, before calling startActivity() you should first verify that there is at least one application registered in the system that can handle the intent. To do this use resolveActivity() on your intent object:
+
+    // Verify that there are applications registered to handle this intent
+    // (resolveActivity returns null if none are registered)
+    if (sendIntent.resolveActivity(getPackageManager()) != null) {
+        startActivity(sendIntent);
+    } 
+See the Android developer’s guide for more information about implicit intents.
+
+Find top Android developers today. Toptal can match you with the best engineers to finish your project.
+
+HIRE TOPTAL’S ANDROID DEVELOPERS
+question badge
+The last callback in the lifecycle of an activity is onDestroy(). The system calls this method on your activity as the final signal that your activity instance is being completely removed from the system memory. Usually, the system will call onPause() and onStop() before calling onDestroy(). Describe a scenario, though, where onPause() and onStop() would not be invoked.
+
+Hide answer
+answer badge
+onPause() and onStop() will not be invoked if finish() is called from within the onCreate() method. This might occur, for example, if you detect an error during onCreate() and call finish() as a result. In such a case, though, any cleanup you expected to be done in onPause() and onStop() will not be executed.
+
+Although onDestroy() is the last callback in the lifecycle of an activity, it is worth mentioning that this callback may not always be called and should not be relied upon to destroy resources. It is better have the resources created in onStart() and onResume(), and have them destroyed in onStop() and onPause(), respectively.
+
+See the Android developer’s guide for more information about the activity lifecycle.
+
+question badge
+Which of the code snippets below is the correct way to check if a Compass sensor is present on the system? Explain your answer.
+
+Answer 1:
+
+    PackageManager m = getPackageManager();
+    if (!m.hasSystemFeature(PackageManager.FEATURE_SENSOR_COMPASS)) {
+        // This device does not have a compass, turn off the compass feature
+    }
+Answer 2:
+
+    SensorManager m = getSensorManager();
+    if (!m.hasSystemFeature(SensorManager.FEATURE_SENSOR_COMPASS)) {
+        // This device does not have a compass, turn off the compass feature
+    }
+Answer 3:
+
+    Sensor s = getSensor();
+    if (!s.hasSystemFeature(Sensor.FEATURE_SENSOR_COMPASS)) {
+        // This device does not have a compass, turn off the compass feature
+    }
+View the answer →
+question badge
+Describe three common use cases for using an Intent.
+
+Hide answer
+answer badge
+Common use cases for using an Intent include:
+
+To start an activity: You can start a new instance of an Activity by passing an Intent to startActivity() method.
+To start a service: You can start a service to perform a one-time operation (such as download a file) by passing an Intent to startService().
+To deliver a broadcast: You can deliver a broadcast to other apps by passing an Intent to sendBroadcast(), sendOrderedBroadcast(), or sendStickyBroadcast().
+More information about intents can be found in Android developer’s guide.
+
+question badge
+Suppose that you are starting a service in an Activity as follows:
+
+Intent service = new Intent(context, MyService.class);             
+startService(service);
+where MyService accesses a remote server via an Internet connection.
+
+If the Activity is showing an animation that indicates some kind of progress, what issue might you encounter and how could you address it?
+
+Hide answer
+answer badge
+Responses from a remote service via the Internet can often take some time, either due to networking latencies, or load on the remote server, or the amount of time it takes for the remote service to process and respond to the request.
+
+As a result, if such a delay occurs, the animation in the activity (and even worse, the entire UI thread) could be blocked and could appear to the user to be “frozen” while the client waits for a response from the service. This is because the service is started on the main application thread (or UI thread) in the Activity.
+
+The problem can (and should) be avoided by relegating any such remote requests to a background thread or, when feasible, using an an asynchronous response mechanism.
+
+Note well: Accessing the network from the UI thread throws a runtime exception in newer Android versions which causes the app to crash.
+
+question badge
+Normally, in the process of carrying out a screen reorientation, the Android platform tears down the foreground activity and recreates it, restoring each of the view values in the activity’s layout.
+
+In an app you’re working on, you notice that a view’s value is not being restored after screen reorientation. What could be a likely cause of the problem that you should verify, at a minimum, about that particular view?
+
+Hide answer
+answer badge
+You should verify that it has a valid id. In order for the Android system to restore the state of the views in your activity, each view must have a unique ID, supplied by the android:id attribute.
+
+More information is available here.
+
+question badge
+What is DDMS? Describe some of its capabilities.
+
+Hide answer
+answer badge
+DDMS is the Dalvik Debug Monitor Server that ships with Android. It provides a wide array of debugging features including:
+
+port-forwarding services
+screen capture
+thread and heap information
+network traffic tracking
+incoming call and SMS spoofing
+simulating network state, speed, and latency
+location data spoofing
+question badge
+What is the relationship between the life cycle of an AsyncTask and an Activity? What problems can this result in? How can these problems be avoided?
+
+Hide answer
+answer badge
+An AsyncTask is not tied to the life cycle of the Activity that contains it. So, for example, if you start an AsyncTask inside an Activity and the user rotates the device, the Activity will be destroyed (and a new Activity instance will be created) but the AsyncTask will not die but instead goes on living until it completes.
+
+Then, when the AsyncTask does complete, rather than updating the UI of the new Activity, it updates the former instance of the Activity (i.e., the one in which it was created but that is not displayed anymore!). This can lead to an Exception (of the type java.lang.IllegalArgumentException: View not attached to window manager if you use, for instance, findViewById to retrieve a view inside the Activity).
+
+There’s also the potential for this to result in a memory leak since the AsyncTask maintains a reference to the Activty, which prevents the Activity from being garbage collected as long as the AsyncTask remains alive.
+
+For these reasons, using AsyncTasks for long-running background tasks is generally a bad idea . Rather, for long-running background tasks, a different mechanism (such as a service) should be employed.
+
+question badge
+What is an Intent? Can it be used to provide data to a ContentProvider? Why or why not?
+
+Hide answer
+answer badge
+The Intent object is a common mechanism for starting new activity and transferring data from one activity to another. However, you cannot start a ContentProvider using an Intent.
+
+When you want to access data in a ContentProvider, you must instead use the ContentResolver object in your application’s Context to communicate with the provider as a client. The ContentResolver object communicates with the provider object, an instance of a class that implements ContentProvider. The provider object receives data requests from clients, performs the requested action, and returns the results.
+
+question badge
+What is the difference between a fragment and an activity? Explain the relationship between the two.
+
+Hide answer
+answer badge
+An activity is typically a single, focused operation that a user can perform (such as dial a number, take a picture, send an email, view a map, etc.). Yet at the same time, there is nothing that precludes a developer from creating an activity that is arbitrarily complex.
+
+Activity implementations can optionally make use of the Fragment class for purposes such as producing more modular code, building more sophisticated user interfaces for larger screens, helping scale applications between small and large screens, and so on. Multiple fragments can be combined within a single activity and, conversely, the same fragment can often be reused across multiple activities. This structure is largely intended to foster code reuse and facilitate economies of scale.
+
+A fragment is essentially a modular section of an activity, with its own lifecycle and input events, and which can be added or removed at will. It is important to remember, though, that a fragment’s lifecycle is directly affected by its host activity’s lifecycle; i.e., when the activity is paused, so are all fragments in it, and when the activity is destroyed, so are all of its fragments.
+
+More information is available here in the Android Developer’s Guide.
+
+question badge
+What is difference between Serializable and Parcelable ? Which is best approach in Android ?
+
+Hide answer
+answer badge
+Serializable is a standard Java interface. You simply mark a class Serializable by implementing the interface, and Java will automatically serialize it in certain situations.
+
+Parcelable is an Android specific interface where you implement the serialization yourself. It was created to be far more efficient than Serializable, and to get around some problems with the default Java serialization scheme.
+
+question badge
+What are “launch modes”? What are the two mechanisms by which they can be defined? What specific types of launch modes are supported?
+
+Hide answer
+answer badge
+A “launch mode” is the way in which a new instance of an activity is to be associated with the current task.
+
+Launch modes may be defined using one of two mechanisms:
+
+Manifest file. When declaring an activity in a manifest file, you can specify how the activity should associate with tasks when it starts. Supported values include:
+
+standard (default). Multiple instances of the activity class can be instantiated and multiple instances can be added to the same task or different tasks. This is the common mode for most of the activities.
+singleTop. The difference from standard is, if an instance of the activity already exists at the top of the current task and the system routes the intent to this activity, no new instance will be created because it will fire off an onNewIntent() method instead of creating a new object.
+singleTask. A new task will always be created and a new instance will be pushed to the task as the root. However, if any activity instance exists in any tasks, the system routes the intent to that activity instance through the onNewIntent() method call. In this mode, activity instances can be pushed to the same task. This mode is useful for activities that act as the entry points.
+singleInstance. Same as singleTask, except that the no activities instance can be pushed into the same task of the singleInstance’s. Accordingly, the activity with launch mode is always in a single activity instance task. This is a very specialized mode and should only be used in applications that are implemented entirely as one activity.
+Intent flags. Calls to startActivity() can include a flag in the Intent that declares if and how the new activity should be associated with the current task. Supported values include:
+
+FLAG_ACTIVITY_NEW_TASK. Same as singleTask value in Manifest file (see above).
+FLAG_ACTIVITY_SINGLE_TOP. Same as singleTop value in Manifest file (see above).
+FLAG_ACTIVITY_CLEAR_TOP. If the activity being started is already running in the current task, then instead of launching a new instance of that activity, all of the other activities on top of it are destroyed and this intent is delivered to the resumed instance of the activity (now on top), through onNewIntent(). There is no corresponding value in the Manifest file that produces this behavior.
+More information about launch modes is available here.
+
+question badge
+What is the difference between Service and IntentService? How is each used?
+
+Hide answer
+answer badge
+Service is the base class for Android services that can be extended to create any service. A class that directly extends Service runs on the main thread so it will block the UI (if there is one) and should therefore either be used only for short tasks or should make use of other threads for longer tasks.
+
+IntentService is a subclass of Service that handles asynchronous requests (expressed as “Intents”) on demand. Clients send requests through startService(Intent) calls. The service is started as needed, handles each Intent in turn using a worker thread, and stops itself when it runs out of work. Writing an IntentService can be quite simple; just extend the IntentService class and override the onHandleIntent(Intent intent) method where you can manage all incoming requests.
+
+question badge
+How do you supply construction arguments into a Fragment?
+
+Hide answer
+answer badge
+Construction arguments for a Fragment are passed via Bundle using the Fragment#setArgument(Bundle) method. The passed-in Bundle can then be retrieved through the Fragment#getArguments() method in the appropriate Fragment lifecycle method.
+
+It is a common mistake to pass in data through a custom constructor. Non-default constructors on a Fragment are not advisable because the Fragment may be destroyed and recreated due to a configuration change (e.g. orientation change). Using #setArguments()/getArguments() ensures that when the Fragment needs to be recreated, the Bundle will be appropriately serialized/deserialized so that construction data is restored.
+
+question badge
+What is ANR, and why does it happen?
+
+Hide answer
+answer badge
+‘ANR’ in Android is ‘Application Not Responding.’ It means when the user is interacting with the activity, and the activity is in the onResume() method, a dialog appears displaying “application not responding.”
+
+It happens because we start a heavy and long running task like downloading data in the main UI thread. The solution of the problem is to start your heavy tasks in the backbround using Async Task class.
+
+question badge
+Which method is called only once in a fragment life cycle?
+
+Hide answer
+answer badge
+onAttached()
+
+question badge
+Is it possible to create an activity in Android without a user interface ?
+
+Hide answer
+answer badge
+Yes, an activity can be created without any user interface. These activities are treated as abstract activities.
+
+question badge
+What is a broadcast receiver?
+
+Hide answer
+answer badge
+The broadcast receiver communicates with the operation system messages such as “check whether an internet connection is available,” what the battery label should be, etc.
+
+
+
+Broadcast receivers - Interview questions:
+
+1) what is broadcast receiver?
+
+ans : It is a component of android, which is used to receive/ listen important system events.
+
+eg: BATTERY LOW, POWER CONNECTED, ....
+
+2) How do you start a receiver?
+
+ans : By using Intent, and sendBroadcast() method
+
+3) How do you kill a receiver?
+
+ans : abortBroadcast() method.
+
+4) types of receivers?
+
+ans : static receivers, dynamic receivers, ordered receivers, sticky receivers.
+
+6) What are the life cycle methods of broacast receiver?
+
+ans : onreceive()
+
+Database related interview questions:
+
+1. What is database?
+
+ans : It is a logical container of data/ information.
+
+2. Which database do we use in android?
+
+ans : SQLite - RDBMS
+
+3. Where is database stored?
+
+ans : Database is stored within the application, in Internal memory.
+
+4. How to store images/ audios/ videos in a table using SQLite?
+
+ans : by using BLOB datatype = binary large object .
+
+First we have to convert images to 0101, then store in tablee using BLOB data type. Later while reading the image we will read 0101 and recreate the image by using BitMapFactory class.
+
+5. what is primary key?
+
+ans : unique + not null.
+
+Primary key is used to uniquely identify each row.
+
+6. what is foreign key?
+
+ans : used to maintain relationship between tables. If a primary key of one tables comes to other table then it becomes foreign key.
+
+Every RDBMS should support foreign key. But by default SQLite doesn’t have support for foreign key. To enable foreign key support below command should be issued.
+
+db.execSQL("pragma FOREIGN KEY;");
+
+7. how to upgrade database? (imp)
+
+ans :
+
+a. change application version code and version name in build.gradle.
+
+b. change database version in helper parameter.
+
+c. go to inner helper class, go to onupgrade() method, use if-else condition and we can add/ remove/ alter tables based on the version.
+
+8. Difference between delete and drop? (imp)
+
+ans : delete is DML statement. drop is DDL command.
+
+drop = delete the rows + delete the table.
+
+delete = will delete only rows.
+
+9. Difference between update and upgrade?
+
+ans : update is DML statement. but upgrade is related to DDL.
+
+update = will update the rows.
+
+upgrade = create table/ drop table/ alter table in the future application releases.
+
+note : upgrade terminology is used for databases.
+
+Activity & Fragment Interview questions:
+
+1. how do you start an activity?
+
+ans:Using intent class& startActivity() method
+
+2. how do you start a fragment?
+
+ans:by using FragmentManager, fragmentTransaction & add() method.
+
+[or]
+
+using <Fragment ..tag> in xml.
+
+Note : first approach is dynamic fragment, 2nd is static fragment.
+
+3. how do you kill an activity?
+
+ans: finish() method
+
+4. how do you kill a fragment?
+
+ans:
+
+fragmenttransaction.popBackstack() method [or]
+
+fragmenttransaction.replace() [or]
+
+fragmenttransaction.remove()
+
+5. how do you pass data to an activity?
+
+ans: By using Intent & putExtra() method.
+
+6. how do you pass data to fragment?
+
+ans: By using Bundle, setArguments() method.
+
+6.1: What is fragment?
+
+def: Fragment is a "re-usable UI component". Fragments are introduced in android 3.0. Fragments are used to design UI for mobiles & tablets.
+
+7. User clicks back button, which life cycle methods will be called for activity?
+
+ans : onpause, onstop, ondestroy.
+
+8. User clicks home button, which life cycle methods will be called for activity?
+
+ans : onpause, onstop
+
+9. User is looking at screen & suddenly call comes which life cycle methods will be called for an activity?
+
+ans : onpause, onstop
+
+10. User rotates the phone, life cycle methods of an activity? [IMP]
+
+ans : onpause, onsaveinstancestate, onstop, ondestroy,
+
+oncreate, onstart, onrestoreinstancestate, onresume.
+
+same for virtual kyeboard up/down & language changes also. same for low memory also.
+
+11. write one line about each life cycle method.
+
+oncreate()
+
+a. first life cycle method
+
+b. we will load screen design here
+
+c. we will initialize all views here
+
+onapuse()
+
+a. when user is moving away from the screen this method will be called.
+
+b. eg: popup displayed, new screen comes, etc..
+
+c. important data has to be saved here. eg: saving database, saving files etc..
+
+onsaveinstancestate()
+
+a. this is called in configuration changes
+
+b. eg: phone rotation, language changes, etc.
+
+c. programmer has to save activity states here and restore in onRestoreinstancestate() method.
+
+12) What is the use of frgment?
+
+ans: For designing applications for mobile phones & tablets, we use fragments.
+
+Material Design Api classes & definitions:
+
+CoOrdinatorLayout :
+
+a. It is inherited from FrameLayout
+
+b. It is used to place elements on one-on-top of other, with shadow/3d effect.
+
+c. If coordinator layout is removed, then 3d layering will not happen properly.
+
+AppBarLayout:
+
+a. It is used to club ActionBar+Tabs.
+
+b. It is used to have parallox effect on actionbar. Parallox effect means - when user scrolls up / down, then actionbar will be moved out of screen.
+
+ToolBar :
+
+a. it is introduced in android 5.0
+
+b. it is actionbar with shadow effect.
+
+c. toolbar can be placed anywhere on the screen.in olden days, action bar used to stick at top.
+
+TabLayout :
+
+a. it is used mostly with viewpager.
+
+b. it inherits from horizontal scrollview.
+
+c. mostly it is attached to actionbar/toolbar.
+
+FloatActionButton:
+
+a. it appears at right corner of the screen.
+
+b. Most important item should be placed as FAB.
+
+eg: gmail app places "compose mail" as FAB.
+
+c. this is highest priority icon.
+
+NagivationView :
+
+a. It is used to attach sliding menu with actionbar.
+
+b. it will have header and menu body portions.
+
+SnackBar :
+
+a. it is advanced version of Toast.
+
+b. it comes with colors & buttons.
+
+c. it can be swipe deleted. [not possible with toast
+
+RecyclerView :
+
+a. Advanced version of listview.
+
+b. it is faster & memory efficient compared to list view.
+
+c. It comes with viewholder design pattern.
+
+d. can be used as listview/ gridview/ staggered grid
+
+CardView :
+
+a. it inherits from framelayout.
+
+b. it is is used to design round cornered - cards, with 3d shadow effect.
+
+c. mostly used along with recyclerview - to show good looking rows.
+
+Network related questions:
+
+1. what is URL api?
+
+a) it is used to represent website url.
+
+2. what is HttpUrlConnection api?
+
+a) it is used to establish connection between android application & server.
+
+3. what is InputStream api?
+
+a) this API is used for GET request. if we want to read some data from server, we will use this API. this is where the actual data will come from server.
+
+Note : this may take some time, depending on internet connection.
+
+4. what is InputStreamReader API?
+
+a) it is used to convert/read the raw data [bits] coming in the input stream.
+
+note : this api converts bits to ascii chars.
+
+note : it is not efficient as it reads each character one by one.
+
+5. what is BufferedReader API?
+
+a) this api provides an efficient way to read data coming from server in big chunks, in line by line fashion.
+
+Note : InputStreamReader vs BufferedReader is interview question.
+
+Terminology used in websites:
+
+Server/Webserver : it is combination of hardware & software where websites [website code] will run.
+
+eg : apache webserver, tomcat webserver - for J2EE websites.
+
+IIS webserver - for .NET websites.
+
+webconfig : it is a small xml file in the server, which is similar to our android manifest xml file. this xml file contains, which URL is mapped to which Servlet this xml file also contains, which URL is mapped to which webservice.
+
+Servlet : full form is serving the request.
+
+Servlet is a small java file, which sits in server.
+
+Servlet class will generally extend a predefined class HTTPServlet.
+
+Servlet will handle all incoming requests from BROWSER.
+
+Servlet is the first entry point in the server, which handles incoming request.
+
+JSP : Java server pages. It is a small java file which sits in server. Main responsibility of JSP class is to prepare HTML content.
+
+MVC : Model View Controller, is a design pattern used while designing web sites. Controller -is- servlet. View -is- JSP/ JSF. Model -is- Database connection logic.
+
+WebServices: It is a small java file which sits in server.
+
+Webservices will handle all incoming requests from non-browser applications.
+
+Eg: if an android application sends a request to server, it most likely hits a web service.
+
+Note : A website can have n-num of servlets/ webservices.
+
+Note : Each servlet/ webservice will have one URL.
+
+Types of webservices: RESTful & SOAP
+
+RESTful Webservices: Representational State Transfer web services. Faster than SOAP services. Most of the RESTful services uses JSON format to transfer the data.
+
+SOAP: Simple object access protocol. Slower compared to REST. Mostly SOAP services uses XML format to transfer the data.
+
+HTTP : is a common language/ protocol used over internet for communicating between client & server systems.
+
+HTTPRequest : it is a class representing request going from client to server.
+
+HTTPResponse : it is a class representing response coming from server to client.
+
+interview questions on services
+
+1. what is service?
+
+ans : component android used to do background task.
+
+eg: connecting to internet.
+
+2. types of services?
+
+ans : Service & IntentService
+
+3. service life cycle methods?
+
+ans : oncreate, onstartcommand, ondestroy, onbind.
+
+4. what is intent service?
+
+ans : Service with 1 background thread.
+
+lifecycle methods - constructor, onhandleintent
+
+5. how to kill a service?
+
+ans : stopservice(intent);
+
+6. what is a thread?
+
+ans : thred is a light weight process [or]
+
+thread is an independent path of execution.
+
+7. thread vs service?
+
+ans : thread is os component, service is android component
+
+interview questions on services - part 2
+
+1. what is ANR?
+
+ans : Application Not Responding is a famous error
+
+in android.
+
+2. why ANR error will occur?
+
+ans : if key events are not delivered in 5 seconds time limit, then O.S will show this error popup to user.
+
+3. What is the root cause for ANR errors?
+
+ans : if service is not having its own thread, then service will use main thread for doing background task. when main thread is busy in the service, it can't handle key events. That leads to ANR.
+
+4. what precautions to take to avoid ANR errors?
+
+ans : when we create a service, create a thread also in the service.
+
+Note : 1 thread handling too many taks is not good design.
+
+Activities - will always use - MainThread.
+
+Services - should always use - separate thread.
+
+5. Some other scenarios where ANR may occur?
+
+ans : opening, inserting, reading database in activity is danger. It might lead to ANR.
+
+Activities - will use - main thread.
+
+database - also using - main thread.
+
+6. what is the time limit of ANR?
+
+ans : 5 seconds. [set by google]
+
+but phone manifacturer can reduce it for more efficiency. but should not increase it.
+
+Shared preferences
+
+1) What is preferences/ sharedPreferences?
+
+ans : It is a small xml file which is used to store small amount of data permenantly.
+
+eg: Storing user registration details/ credentials.
+
+Note : we can only store primitive data types.
+
+2) Which API we have to use to create a preference file?
+
+ans : getSharedPreferences()
+
+3) What is the 2nd parameter while creating
+
+new preference file?
+
+ans : 1st - file name, 2nd - PRIVATE MODE [0]
+
+4) Which API we have to use to open preference file?
+
+ans : getSharedPreferences()
+
+5) Can I store array of strings in a preference file? how?
+
+ans : putStringSet() - convert array to set and store.
+
+6) How do you save a preference file?
+
+ans : apply() [or] commit()
+
+7) What is the difference between commit() & apply().
+
+ans : commit() is slow, because it runs on main thread. apply() is fast, as it runs on different thread.
+
+8) Is preference files secured?
+
+ans : yes, but we have to use 2nd parameter 0 - PRIVATE MODE
+
+9) How do you store multiple user credentials using preferences?
+
+ans : op1 : for each user create a seperate pref file.
+
+op2 : use 1 pref file but use different keys/tags for each user -
+
+et.putString("user1",...);
+
+et.putString("user2",...);
+
+10)List all the methods of SharedPreferences class?
+
+ans : getInt, getstring, getboolean, getfloat, getlong, getStringset
+
+11)List all the methods of Editor class?
+
+ans : putint, putstring, putboolean, putfloat, putlong, putstringset, apply, commit
+
+12)How to create a preference file without name?
+
+ans : SharedPreferences sp = getSharedPreferences("abc",0);
+
+SharedPreferences sp = getPreferences(0);
+
+13)what is the extension of preference file?
+
+ans : xml
+
+14)Can other applications access our preference file?
+
+ans : generally no.
+
+a. if other app has root permission
+
+b. if second parameter is 1/2 [world readable/writab]
+
+15)Can other activity of same application access pref file?
+
+ans : yes
+
+Interview questions on starting screens:
+
+1. How do you start other activity/ screen?
+
+ans : Intent class, startActivity() method.
+
+2. How do you pass data from one screen to other screen?
+
+ans : putExtra() method.
+
+3. What is Bundle?
+
+ans : Bundle is a container which carries data.
+
+4. How do you kill a screen?
+
+ans : finish() method.
+
+Interview questions on passing data:
+
+1. How do we pass data from one screen to other screen?
+
+a) using Intent class, & putExtra() method.
+
+2. Is there any other way to pass data to other screen?
+
+a) yes, Serialization. [For passing objects]
+
+note : Serialization also uses intent & putextra.
+
+3. What is Serialization?
+
+a) The process of converting "java object -to- bits & bytes".
+
+4. what is De-Serialization?
+
+a) The process of converting "bits & bytes -to- java object".
+
+5. what is Serializable?
+
+a) It is a marker interface [empty interface] in JDK s/w.
+
+6. What is difference between Serializable vs Serialization?
+
+a) Serializable is predefined interface [empty] of java. Serialization is a process of converting "java obj to bits". Serialization is done by JVM.
+
+7) What is Parcellable?
+
+a) It is predefined interface of Android.
+
+8) What is parcelling? [or] what is the use of Parcellable?
+
+a) Serialization is a java technique, which takes more memory and it is slower. Parcellable is an android technique, to pass objects faster and with less memory wastage.
+
+Company interview questions - part 1
+
+1. DIF between ART & DVM
+
+ans : ART is replacement for DVM, in android 5.0
+
+ART is 4times faster than DVM.
+
+ART uses Ahead of Time compiler, DVM uses JIT compiler
+
+2. what is dx file, how it is generated?
+
+ans : dx = dalvik executeable file.
+
+generated by build.gradle.
+
+apk = android application package file.
+
+generated by apkgen tool.
+
+3. what is intent-filter?
+
+4. what is broadcast receiver?
+
+ans : it is a component of android which is used to listen or receive important system events.
+
+ways : static - through xml
+
+dynamic - through java code
+
+5. where will you catch announcements / system events.
+
+ans : using broadcast receiver.
+
+6. what is content provider?
+
+ans : it is used to share data from one application to other application.
+
+eg : contact application is sharing numbers to whatsp
+
+7. is there any other way to share data between 2 apps.
+
+ans : using server. [or] cloud.
+
+8. service life cycle methods?
+
+ans : oncreate/ onstartcommand/ ondestroy.
+
+9. types of services?
+
+ans : service & IntentService.
+
+10. when to service & when to use intentservice?
+
+ans : Service does not come with default thread. Service depends on Main thread. Service has 4 life cycle methods. Using only service will lead to ANR error. Service need to be stopped explicitly either by stopserver [or] stopselfresult() methods.
+
+IntentService class inherits from Service class. IntentService class comes with one thread. Using IntentService solves ANR problem. IntentService will kill itself when there are no more requests to start the service.
+
+Some java related questions asked for android engineers:
+
+1. dif between abs class & interface.
+
+ans : abstract class can have abstract methods & concrete methods. abstract class is partial abstraction. Abstract class should be extended. interface can have only method declarations. interface is used to achieve pure abstraction. interface should be implemented.
+
+2. dif bw hashmap & hashtable?
+
+ans : HashMap part of collection framework library.jdk1.2
+
+HashTable is legacy class. JDK 1.0
+
+HashMap allows 1 null key, but HashTable will not.
+
+HashMap is not synchronized, HashTable is synchronizd
+
+Some more android questions
+
+1. what is intent? types of intent?
+
+ans : Intent is predefined class which is used to start other activities.
+
+types : implicit, explicit, pending, sticky.
+
+2. how will you start activity if you are expecting data back?
+
+ans : startactivityforresult(in, requestcode).
+
+3. what is child activity?
+
+ans : Each screen in android is called as an activity.
+
+4. can we use intent to start content provider?
+
+ans : using intent you can start activity/service/receiver. we can't start content providers using intent. We use ContentResolver to start content provider.
+
+5. does java support multiple inheritance?
+
+ans : no for class, yes for interfaces. because it leads to function ambiguity.
+
+6. how many ways we can store data in android. What all the different data storage options available in android?
+
+ans : preferences[offline], sqlite db [offline], server[online], cloud[online], sd card[offline], internal memory[offline].
+
+7. what manifest file contains?
+
+ans : <manifest>
+
+<uses-permission>
+
+<application>
+
+<activity>
+
+<intent-filter>
+
+8. types of access modfiers?
+
+ans : private, default, protected, public.
+
+9. can we access protected variables in child class?
+
+ans : yes.
+
+10. string vs stringbuilder vs stringbuffer
+
+ans : Strings are immutable, stored in s.c.pool
+
+stringbuilder is mutable, stored in heap, not sync
+
+stringbuffer is mutable, stoerd in heap, synchronized
+
+Interview questions part 2:
+
+1. What is activity & write activity life cycle methods?
+
+ans : Each screen in android is an Activity.
+
+2. what is fragment & write fragment life cycle methods?
+
+ans : fragment is a modular & reusable UI component.
+
+[or]
+
+fragment is used to design screens/applications for
+
+mobles & tablets.
+
+3. write string polyndrome logic?
+
+ans :
+
+4. User is going back from second activity to main activity, draw life cycle methods?
+
+ans : onrestart, onstart, onresume
+
+5. what is recyclerview?
+
+ans : RecyclerView is introduced in MaterialDesign [5.0]
+
+RecyclerView is faster than ListView, because of
+
+ViewHolder design pattern.
+
+6. how to pass data from one activity to other?
+
+ans : intent, putextra.
+
+7. what is intent filter?
+
+ans : <intent-filter> tag will be in manifest file.
+
+use case not yet covered. will be covered later.
+
+8. what is broadcast receiver? can we create custom
+
+broadcast receiver?
+
+ans : it is component of android. it is used to receive important system events.
+
+eg : I want to listen charger plugged.
+
+eg : I want to listne when battery low.
+
+9. what is asynctask? and draw life cycle methods of async task?
+
+ans : It is used to create threads in android application.
+
+onpreexecute, doinbackground, onprogressupdate, onpostexecute.
+
+10.What are the components of android?
+
+ans : activity, service, Broadcast Receiver, ContentProvider.
+
+11.what is database.
+
+ans : Database is a container of data in table format.
+
+12.what is service? how many types of services are there?
+
+ans : Service is a component of android, Which is used to do background task.
+
+types : Service and IntentService.
+
+Interview questions part-3:
+
+1. What is activity & Intent?
+
+ans : Each screen in android is an Activity.
+
+Intent is a predefined class of android, which is used to start other activities & pass data.
+
+2. Difference between activity & Intent?
+
+ans : Activity is a component of android, it has life cycle methods. Intent is a predefined class to start activities.
+
+3. Explain different types of intents?
+
+ans : 4.
+
+Implicit Intent, Explicit Intent, Pending Intent,
+
+Sticky Intent.
+
+4. What is the use of ViewGroup?
+
+ans : ViewGroup is a predefined class extending from View class
+
+It is used to design screens.
+
+Eg of viewgroups - LinearLayout, FrameLayout, RelativLayout, AbsoluteLayout is deprecated.
+
+5. What are different types of notifications?
+
+ans : will be covered later
+
+6. What is GCM notification & what is the Use?
+
+ans : will be covered later
+
+7. What is the us of 9-Patch image?
+
+ans : 9-patch images are scalable, without loosing resolution.
+
+nine patch image extension is .9.png
+
+draw9patch.exe file is used to generate 9 patch image.
+
+8. What is launcher activity?
+
+ans : It is the starting screen that gets started, when user opens the applicaiton.
+
+10. How to set first/ default screen?
+
+ans : by going to manifest file, use <intent-filter> with
+
+<category .. LAUNCHER> & <action...MAIN>
+
+9. How to change application language based on phone location?
+
+ans : will be covered later.
+
+11. what is the use Manifest file?
+
+ans : Without manifest, our application & activities will
+
+not start.
+
+12. Tell me about Build.gradle?
+
+ans : already covered.
+
+Interview questions part-4:
+
+1. what is android?
+
+ans : it is an o.s for mobiles and tablets [or]
+
+it is a software which contains 4 layers.
+
+os/ libraries/ framework/ applications.
+
+2. what is a fragment?
+
+ans : fragment is a modular & reusable UI component.
+
+[or]
+
+fragment is used to design screens/applications for
+
+mobles & tablets. i.e for portatit mode & landscape
+
+mode.
+
+3. what is a recycler view?
+
+ans : RecyclerView is introduced in MaterialDesign [5.0]
+
+RecyclerView is faster than ListView, because of
+
+ViewHolder design pattern.
+
+4. how will you pass the data?
+
+ans : Using intent & putextra() - between activities.
+
+[or] bundle & setarguments() - activity to fragment.
+
+5. what is bundle?
+
+ans : bundle is a container which stores data in key,val pairs
+
+we will use Bundle in onsaveinstancestat &
+
+onrestoreinstancestate, when user rotates the phone.
+
+6. what is manifest file?
+
+ans : this file contains <manifest> tag, <application> tag
+
+<activity..> tags.
+
+this file also has <intent filter>
+
+this file also has <uses-permission > tag.
+
+it talks about application components.
+
+7. what is build gradle?
+
+ans : It is a tool/program, which comes along with android
+
+studio, which generates apk file.
+
+In build.gradle, in dependencies section we will
+
+keep libraries used in the application.
+
+eg : YouTubeAndroidPlayerApi.jar
+
+compile 'com.support.recyclerview:26+'
+
+compile 'com.support.cardview:26+'
+
+...material design...
+
+...google maps...
+
+...appcompat v7...
+
+8. what is zomato app?
+
+ans :
+
+9. how do you design 20% overlapping 2 images?
+
+ans : framelayout
+
+10. what are the methods of asynctask? [100%]
+
+ans : onpreexecute, doinbackground, onprogressupdate,
+
+onpostexecute.
+
+11. what is joins?
+
+ans : outer join, inner join, self join.
+
+12. what do you do onpostexecute?
+
+ans : .....
+
+13. how do you use http request/ http response?
+
+ans : .....
+
+14. when I open application, how many life cycle
+
+methods will be called?
+
+ans : oncreate, onstart, onresume.
+
+15. when we press home button what happens?
+
+ans : onpause, onstop will be called.
+
+note : activity is not destroyed, it is still in memry
+
+
+Android Interview Questions:
+1.       Draw architecture diagram of android framework.
+2.       Which kernel(Operating system) is used in android?
+3.       In which language android framework is written?
+4.       What does DVM stand for ?
+5.       Why DVM why not JVM?
+6.       Which layer does DVM sits?
+7.       What is the latest version of android? Can you tell me what is the new concepts added in this version?
+8.       Explain life cycle of activity?
+9.       If I have a broadcast receiver that updates my UI frequently, then where should I register that broadcast receiver in my activity life cycle functions?
+10.   Can I save all my databse tables updations in onStop() of activity? If not explain why and also explain where should I save db tables?
+11.   What is difference between persistent data and transient data, give one example. Also tell me which activity life cycle function I need to use to save them?
+12.   What will happen if I remove super.oncreate() from oncreate() function of activity?
+13.   What is the purpose f super.oncreate() ?
+14.   Show me how does intent-filter of main activity looks like? What is the action and what is the category?
+15.   What is the importance of version code and version name attributes in manifest file?
+16.   Can one application have more than on manifest file?
+17.   Can I create activity without xml file?
+18.   How to create ui without using xml file, show with one example on how to create activity with a linear layout and with two buttons and without having xml file?
+19.   Give me two examples of configuration changes in phone?
+20.   What is the mandatory life cycle function that will get called in case of configuration changes?
+21.   Can I save large images downloaded from internet in onsaveinstancestate() ?
+22.   What is the difference between this & getapplicationcontext() ? which one to use when?
+23.   Every application will have by default one thread? True or false?
+24.   What is ANR (application not responding)? What is the reason for this problem and what is the solution for that problem?
+25.   Main thread will have a looper , true or false?
+26.   By default a given process will have how many threads? Who will create those threads?
+27.   What will happen if I remove oncreate() & onstart() from activity? Will it run?
+28.   Can I have an activity without UI?
+29.   What is the difference between intent, sticky intent, pending intent?
+30.   What is the difference between implicit intent and explicit intent, give one example?
+31.   How many components are there in an intent?
+32.   Can I give more than one action in a given intent?
+33.   Can I give more than one category in a given intent?
+34.   Create an intent to start calling a number “12345” ?
+35.   what is the importance of putextras in intent? How is it different from setdata() ? any way both are passing data only , so in that case what is the difference?
+36.   What is the difference between thread and service?
+37.   Can I have a service without thread?
+38.   If I want to touch ui from another thread can I touch directly? What will happen if I do so?
+39.   How to achieve inter thread communication?
+40.   What is the difference between thread and handler thread?
+41.   what will happen if I bind a service from a broad cast receiver, is there any problem?
+42.   Can I start a service from a broadcast receiver?
+43.   How to start a service with foreground priority?
+44.   What is the difference between broadcast receiver and a service, where most of the cases both will not have any UI, in that case which one I should use?
+45.   If I start an activity with implicit intent, and there is no matching intent-filter then what will happen?
+46.   If I send a broad cast with implicit intent, and there is no matching intent-filter then what will happen?
+47.   Write a broadcast receiver that gets triggered once phone boot is done?
+48.   What will happen if I don’t pass any action in an implicit intent, will it trigger any component?
+49.   Can I start a content provider using an intent?
+50.   I have one intent filter without any action, then can I trigger this component from outside of this application?
+51.   Can I have more than one action in my intent-filter?
+52.   Can I have more than one category in my intent-filter?
+53.   Can I have extras in my intent-filter?
+54.   I want to start something in the background in my activity, should I use thread or should I start service? Why?
+55.   If I crate a thread in my activity and if I stop my activity what will happen to that thread, will it be alive or dead?
+56.   If I start a service from my activity and if I stop my activity what will happen to that service, will it be alive or dead?
+57.   How many ways are there to kill a service?
+58.   If I want my service to allow binding, then what is the function that I need to implement in my service class?
+59.   Can I create a customized textview?
+60.   How many ways you can store persistent data?
+61.   What is the use of content provider? Will it support shared preferences?
+62.   If I want to share some data with outside applications then what is the component in android to use?
+63.   Can one application access other app database directly?
+64.   Where does the database get stored?
+65.   What is the extension of your shared preference file? Where is it stored?
+66.   What is the default shared preference file name of an activity?
+67.   What is the difference between task, process, application, and thread?
+68.   Does android support multi tasking? If yes explain how to start a new task when you are already running one task?
+69.   Does android support multi threading?
+70.   What is the mechanism used by android for Inter-process-communication?
+71.   How binder is different from serialization?
+72.   How serialization differ from parcel?
+73.   If I have one application with activity, service, and contentprovider.  Then when I run this program how many process, threads will be created? Is it possible to run these components in more than one process?
+74.   What is looper, message queue, and a Handler? Where do you need these components?
+75.   Can I send a message from thread-a to thread-b, if thread-b didn’t prepare its looper?
+76.   How to avoid synchronization problems in threads?
+77.   What is the difference between synchronized block(statement) and synchronized methods?
+78.   If I want to create a service with one worker thread how to achieve it?
+79.   How to create multi threaded service?
+80.   How to create a service with threads and that updates ui?
+81.   What will happen if you start a service that does heavy functionality without starting a thread?
+82.   What is the UI response time limit in android. (I.E with in how many seconds main thread has to respond for user actions?)
+83.   What is the time limit of a broadcast receiver, what will happen if it crosses that time limit?
+84.   What is the difference between sendbroadcast(), sendorderedbroadcast(), sendstickybroadcast() ?
+85.   If I want to start an activity that gives a response, what is the function I need to use to start that activity?
+86.   If I startactivityforresult() and the child activity gets crashed what is the result code obtained by the parent?
+87.   In case of low memory if android closes a service forcefully, then will it restart automatically or user has to start it?
+88.   What are the various return values of onstartcommand() , and when to use what?
+89.   Let’s say my service supports both starting a service and binding a service, and currently two persons have started my service and one person is binding to my service. After 5 minutes person who bound to my service, unbinds it.And other person stops my service, now is my service running in memory or got moved out from memory?
+90.   What is empty process and what is its priority? When android will use this concept?
+91.   How does android achieves seamlessness. What is the meaning of seamlessness?
+92.   What is the difference between menus and dialogs?
+93.   How many kinds of menus are there in android?
+94.   How many kinds of dialogues are there in android?
+95.   I want to design one application where I take username, password and connect to the gmail and show the status of login to the user. Now how to design this application? How many components will be there?
+96.   What is the use of httpclient class?
+97.   What is the difference between httpget() and httppost() methods, when to use what?
+98.   What does httpclient.execute() return?
+99.   What  are static variables stored in memory segments?
+100.                        If I want to secure my preference file from other activities in my app, then should I use getpreferences() or getsharedpreferences()?
+101.                        I want to store huge structured data in my app that is private to my application, now should I use preferences [or] files [or] sqlite [or] content provider?
+102.                        My application has only a service, and my service performs heavy lift functionality to connect to internet and fetch data, now should I create a thread or not? If so why?
+103.                        I want to write a game where snake is moving in all the directions of screen randomly, now  should I use existing android views or should use canvas? Which is better?
+104.                        Can I have more than one thread in my service? How to achieve this?
+105.                        When lcd goes off, what is the life cycle function gets called in activity?
+106.                        When a new activity comes on top of your activity, what is the life cycle function that gets executed.
+107.                        When a dialog is displayed on top of your activity, is your activity in foreground state or visible state?
+108.                        When your activity is in stopped state, is it still in memory or not?
+109.                        When your activity is destroyed, will it be in memory or moved out of it?
+110.                        I started messaging app –> composer activity -> gallery  -> camera -> press home button. Now which state camera activity is in?
+111.                        Continuation to above question, now If I launch gmail application will it create a new task or is it part of old messaging task?
+112.                        Can I have more than one application in a given task?
+113.                        Can I have more than one process in a given task?
+114.                        Do all the activities and services of my application run in a single process?
+115.                        Do all components of my application run in same thread?
+116.                        How to pass data from activity to service?
+117.                        How to access progress bar from a service?
+118.                        What is the difference between intent and intent-filter?
+119.                        What is the difference between content-provider and content-resolver?
+120.                        What is the difference between cursor & contentvalues ?
+121.                        What is Bundle? What does it contain in oncreate() of your activity?
+122.                        When an activity is being started with an intent action “MY_ACTION”, how can I see that action in triggered component(activity)?
+123.                        How to get contact number from contacts content provider?
+124.                        How to take an image from gallery and if no images available in gallery I should be able to take picture from camera and return that picture to my activity?
+125.                        What is the difference between linear layout and relative layout?
+126.                        How many kinds of linear layouts are there?
+127.                        What is “dp” [or] “dip” means ?
+128.                        What is importance of gravity attribute in the views?
+129.                        What is adapter? What is adapter design pattern?
+130.                        What is adapterview? How many adapter views are available in android?
+131.                        Can you tell me some list adapters?
+132.                        Can I give cursor to an array adapter?
+133.                        What is custom adapter, when should I use it. what are the mandatory functions I need to implement in custom adapter?
+134.                        What is the class that I need to extend to create my own adapter?
+135.                        What is the android compilation and execution process/ cycle?
+136.                        What is adb? What is the command to install one application using adb command prompt?
+137.                        What is the debugging procedures available in android?
+138.                        How will you analyze a crash, how will fix using logcat?
+139.                        What is a break point and how to watch variables while debugging?
+140.                        What is ddms? What are the various components in ddms?
+141.                        What is the difference between started service and binded service?
+142.                        How to achieve bind service using IPC?
+143.                        How will I know if a client is connected to a service or not?
+144.                        I want to access a functionality from one application to other application, then should I use content provider or startservice or bind service?
+145.                        I want to access data of another application in my application, now do I need to implement content providers in my application or other application has to implement it?
+146.                        What is the difference between local variables, instance variables, and class variables?
+147.                        What is anonymous class? Where to use it?
+148.                        What is singleton class, where to use it? show with one example how to use it?
+149.                        If I want to listen to my phone locations, what all the things I need to use? Is it better to use network providers or gps providers?
+150.                        My phone don’t have network signal and satellite signal, now is there any way to fetch my last location where signal was available?
+151.                        I have some data available in docs.google server, and I want to display it in tabular fashion, tell me the sequence of steps to achieve this?
+152.                        If I want to start some heavy weight functionalities that takes lot of battery power like starting animation or starting camera, should I do it in oncreate() or onstart() or onresume() of my activity? And where should I disable it?
+153.                        Why you should not do heavy functionality in onresume and onpause()  of your activity?
+154.                        What things I can do in onrestart() of my activity?
+155.                        What is the life cycle of a service?
+156.                        What is the life cycle of a broadcast receiver?
+157.                        What is the life cycle of a content provider?
+158.                        What is the life cycle of a thread?
+159.                        What is the life cycle of your application process?
+160.                        How to kill one activity?
+161.                        What is log.d ? where to use log functions?
+162.                        Draw the life cycle of an activity in case of configuration change?
+163.                        What is the difference between viewgroup and layout?
+164.                        Draw the key event flow in android?
+165.                        When you fire an intent to start with ACTION_CALL , what is the permission required?
+166.                        What are the permissions required to obtain phone locations?
+167.                        How many levels of security available in android?
+168.                        How to achive security to your service programmatically in such a way that your service should not get triggered from outside applications?
+169.                        What are the sequence of tests done to map intent with an intent-filter?
+170.                        Describe various folders in android project in eclipse?
+171.                        What is raw folder in eclipse project?
+172.                        Under what thread broad cast receiver will run?
+173.                        If I want to notify something to the user from broadcast receiver, should I use dialogs or notifications? Why?
+174.                        Can you create a receiver without registering it in manifest file?
+175.                        If I want to broadcast BATTERY_LOW action, should I use sendbroadcast() or sendstickybroadcast? Why?
+176.                        If I want to set an alarm to trigger after two days, how should I implement it? assume that I may switch off the phone in between.
+177.                        I want to trigger my broadcast receiver as long as my activity is in memory, else it should not get triggered, how should I achieve this?
+178.                        What is sleep mode? What will happened to CPU once screen light goes off?
+179.                        How many kinds of wake locks are available, which one to use when?
+180.                        If I am using full wake lock and user presses screen lights off, what will happen?
+181.                        When phone is in sleep mode, what are the two components that will keep running even though phone is in sleep mode?
+182.                        Every day night at 12 o clock I need to post some images to facebook, in that case I will set repeating alarm for every day night 12 am. But to upload images I want to start service, how should I do this ?
+183.                        When you start an activity from a notification, will it start as new task or old task?
+184.                        Why android follows single threaded ui mode? How other threads can manipulate ui views?
+185.                        What is the purpose of SQLiteOpenHelper?
+186.                        What is the procedure to upgrade database after first release?
+187.                        Show with one example where memory leak possibility in Android?
+188.                        If I want to write one application for both phones and tablets, what should I use in my UI?
+189.                        I have a thousands of items in my array, and I want to display it in listview, what is the most optimized way to achieve this?
+190.                        What is r.java file? What does it contain?
+191.                        Write one application which will get triggered immediately after booting.
+192.                        What does .apk  file contains?
+193.                        How will pass information from one activity to other activity, let’s say pass userid, city, and password to next activity and display it.
+194.                        Write code for an xml file having a relative layout with employee registration form.
+195.                        Get a table information from the database and show it in table UI format.
+196.                        I have thousands of columns and thousands of rows to display it in UI tabular format, how should I show it this dynamically growing UI. Should I load all in single shot or any optimization can be done?
+197.                        When to use String, StringBuffer, & StringBuilder?
+198.                        What is String constant pool? What is the difference between below two statements? 
+                                                               i.      Which is preferred way to use?
+                                                             ii.      String str1 = “hi”;
+                                                            iii.      String str2 = new String(“hi”);
+199.                        If I want to share a String between two threads, and none of threads are modifying my String which class I have to use?
+200.                        If I want to use my String within only one thread which is modifying my String, then which class I have to use? Similarly if I want to my string to be changed by more than one thread then which class I have to use?
+201.                        How does String class look like? What is final class meant for? How will you implement your own String class?
+202.                        What is immutable object? How is it different from immutable class?
+203.                        Depict one example for immutable class in java framework?
+204.                        How will you write a class in such a way that it should generate immutable objects?
+205.                        Does String class uses character array internally in its implementation?
+206.                        What is the difference between char & Character classes? Which one is value type and which one is ref type?
+207.                        What is the meaning of pass by reference? If I have an integer array and if I pass that array name to a function, is it pass by value or pass by reference?
+208.                        I want to use array in my program which has to grow dynamically, in that case should I use Array [or] ArrayList [or] Vector? What is the difference between arraylist and vector? Which one of them is not part of collections framework of JAVA?
+209.                        I want to use dynamically growing array shared between two threads, should I use arraylist or vector?
+210.                        I want to store values of my employees in a data structure using java collections framework in such a way that I should be able to read, write, modify & delete them very fastly. Which datastructure should I use ? arraylist [or] linkedlist [or] hashsets [or] hashmap ?
+211.                        Write a program in such a way that Thread1 will print from 1-1000 & Thread2 will print from 1000-1. Thread1 should sleep for 1 second at every 100th location. Thread2 should interrupt thread1 once thread2 reaches 500.
+212.                        How will you stop a thread, which is currently running?
+213.                        If Thread1 interrputs Thread2, how Thread2 should handle it? (Generally how threads should handle interruptions?) how will thread2 know that other threads are interrupting it?
+214.                        What is interrupted exception? Which functions will throw this exception? How to handle it?
+215.                        Assume that two threads t1, & t2 are running simultaneously in single core CPU. How does t2 will request OS that it wants to wait till t1 is finished?
+216.                        I want to implement threads in my program, should I extend Thread class or implement Runnable interface? Which one is better, justify your answer in terms of design.
+217.                        What will happen if you return from run() function of your thread?
+218.                        What is the difference between checked  & unchecked exceptions? Which one programmer should handle?
+219.                        arrayIndexOutOfBounds, NullPointerException, FileNotFoundException, ArithmeticException, InterruptedException, IOError, IOException. In this list which exceptions programmer has to handler compulsorily? Categorize above exception list into ERROR/ RUNTIME EXCEPTION/ REST categories.
+220.                        Assume that I am writing a function which likely to throw checked exception, in that case if I don’t handle it will compiler throw any error?
+221.                        How one should handle checked exceptions? Mention 2 ways to handle it.
+222.                        I am writing a function where it is likely that checked exception may come, I want to handle it in my function and I want to pass that exception to my parent caller also. How do I achieve it?
+223.                        What is difference between throw, throws?
+224.                        Can I write a try block without catch statement?
+225.                        What is difference between final, finally, & finalize.
+226.                        Will java ensure that finalize will be executed all the time immediately after object is destroyed? How to mandate it?
+227.                        What is 9 patch image, how is it different from .png images? Why we have to use this in android? How will it help in the scalability of an image for various screens?
+228.                        What is the difference between synchronized method and synchronized block? If I have a huge function where only two lines of code is modifying a shared object then should I use synchronized block or method?
+229.                        Implement insertion sort, binary search, and heap sort.
+230.                        How many ways a server can communicate (Send data) to a mobile application? Which is fastest way json or xml?
+231.                        What is JSONArray & JSONObject. Show this with one example by requesting one URL using HTTP, which gives JSON object.
+232.                        Name some sites which extensively use JSON in communicating their data with clients.
+233.                        What is the permission you need to take for fetching GPS locations, & reading contacts. Where will you have to write permissions in manifest file?
+234.                        How will you display data base information in a table kind of architecture in android? Which view will you use?
+235.                        How many kinds of adapter-views, and adapters available in android?
+236.                        What is notifydatasetchanged() function meant for?
+237.                        Take data base cursor of employee (eno, ename, salary) into a cursor, fill into a list view where each item should have a check box also, how will you implement it in android?
+238.                        What is the difference between constructor and static block. Can I initialize static variables in constructor?
+239.                        I want to use a private variable of Class-A in classB directly without using any function. How to achieve this?
+240.                        I want to create a class in such a way that nobody should be able to create object for that class except me. How to do it?
+241.                        Can I access instance variables in a static function? Can I access static function /variable from an instance method?
+242.                        Why is multiple inheritance of classes not allowed in java? If I want to get functions of Class-A & Class-B into class-C. how do I design this program?
+243.                        Does java allow multiple inheritance of interfaces? Can one interface extend other interface ? when should I extend interface from other interface?
+244.                        What is the difference between over loading and over riding?
+245.                        Can I over ride base class constructor in derived class?
+246.                        Can I over load a constructor?
+247.                        How does default constructor look like? What super() call does in a constructor?
+248.                        Why does base class constructor gets executed before executing derived class constructor? Justify this with appropriate example?
+249.                        How will you achieve dynamic polymorphism using over riding? Justify usage by taking some example (note: use client-server example)
+250.                        Why overloading is static polymorphism, justify your answer?
+251.                        What is the difference between static/compile time linking & dynamic/run time linking? Are static functions dynamically linked?
+252.                        Show one Is-A relation with one example.
+253.                        Show one Has-A relation with one example.
+
+
+
+http://skillgun.com/android/questions-and-answers/paper/417
+
+
+) What is Android?
+
+It is an open-sourced operating system that is used primarily on mobile devices, such as cell phones and tablets. It is a Linux kernel-based system that’s been equipped with rich components that allows developers to create and run apps that can perform both basic and advanced functions.
+
+
+2) What Is the Google Android SDK?
+
+The Google Android SDK is a toolset that developers need in order to write apps on Android enabled devices. It contains a graphical interface that emulates an Android driven handheld environment, allowing them to test and debug their codes.
+
+3) What is the Android Architecture?
+
+Android Architecture is made up of 4 key components:
+– Linux Kernel
+– Libraries
+– Android Framework
+– Android Applications
+
+4) Describe the Android Framework.
+
+Android Interview Questions
+
+The Android Framework is an important aspect of the Android Architecture. Here you can find all the classes and methods that developers would need in order to write applications on the Android environment.
+
+5) What is AAPT?
+
+AAPT is short for Android Asset Packaging Tool. This tool provides developers with the ability to deal with zip-compatible archives, which includes creating, extracting as well as viewing its contents.
+
+6) What is the importance of having an emulator within the Android environment?
+
+The emulator lets developers “play” around an interface that acts as if it were an actual mobile device. They can write and test codes, and even debug. Emulators are a safe place for testing codes especially if it is in the early design phase.
+
+7) What is the use of an activityCreator?
+
+
+ 
+An activityCreator is the first step towards the creation of a new Android project. It is made up of a shell script that will be used to create new file system structure necessary for writing codes within the Android IDE.
+
+8 ) Describe Activities.
+
+Activities are what you refer to as the window to a user interface. Just as you create windows in order to display output or to ask for an input in the form of dialog boxes, activities play the same role, though it may not always be in the form of a user interface.
+
+9) What are Intents?
+
+Intents displays notification messages to the user from within the Android enabled device. It can be used to alert the user of a particular state that occurred. Users can be made to respond to intents.
+
+10) Differentiate Activities from Services.
+
+Activities can be closed, or terminated anytime the user wishes. On the other hand, services are designed to run behind the scenes, and can act independently. Most services run continuously, regardless of whether there are certain or no activities being executed.
+
+
+ 
+11) What items are important in every Android project?
+
+These are the essential items that are present each time an Android project is created:
+– AndroidManifest.xml
+– build.xml
+– bin/
+– src/
+– res/
+– assets/
+
+12) What is the importance of XML-based layouts?
+
+The use of XML-based layouts provides a consistent and somewhat standard means of setting GUI definition format. In common practice, layout details are placed in XML files while other items are placed in source files.
+
+13) What are containers?
+
+Containers, as the name itself implies, holds objects and widgets together, depending on which specific items are needed and in what particular arrangement that is wanted. Containers may hold labels, fields, buttons, or even child containers, as examples.
+
+14) What is Orientation?
+
+Orientation, which can be set using setOrientation(), dictates if the LinearLayout is represented as a row or as a column. Values are set as either HORIZONTAL or VERTICAL.
+
+15) What is the importance of Android in the mobile market?
+
+Developers can write and register apps that will specifically run under the Android environment. This means that every mobile device that is Android enabled will be able to support and run these apps. With the growing popularity of Android mobile devices, developers can take advantage of this trend by creating and uploading their apps on the Android Market for distribution to anyone who wants to download it.
+
+16) What do you think are some disadvantages of Android?
+
+Given that Android is an open-source platform, and the fact that different Android operating systems have been released on different mobile devices, there’s no clear cut policy to how applications can adapt with various OS versions and upgrades. One app that runs on this particular version of Android OS may or may not run on another version. Another disadvantage is that since mobile devices such as phones and tabs come in different sizes and forms, it poses a challenge for developers to create apps that can adjust correctly to the right screen size and other varying features and specs.
+
+17) What is adb?
+
+Adb is short for Android Debug Bridge. It allows developers the power to execute remote shell commands. Its basic function is to allow and control communication towards and from the emulator port.
+
+18) What are the four essential states of an activity?
+
+– Active – if the activity is at the foreground
+– Paused – if the activity is at the background and still visible
+– Stopped – if the activity is not visible and therefore is hidden or obscured by another activity
+– Destroyed – when the activity process is killed or completed terminated
+
+19) What is ANR?
+
+ANR is short for Application Not Responding. This is actually a dialog that appears to the user whenever an application have been unresponsive for a long period of time.
+
+20) Which elements can occur only once and must be present?
+
+Among the different elements, the and elements must be present and can occur only once. The rest are optional, and can occur as many times as needed.
+
+21) How are escape characters used as attribute?
+
+Escape characters are preceded by double backslashes. For example, a newline character is created using ‘\\n’
+
+22) What is the importance of settings permissions in app development?
+
+Permissions allow certain restrictions to be imposed primarily to protect data and code. Without these, codes could be compromised, resulting to defects in functionality.
+
+23) What is the function of an intent filter?
+
+Because every component needs to indicate which intents they can respond to, intent filters are used to filter out intents that these components are willing to receive. One or more intent filters are possible, depending on the services and activities that is going to make use of it.
+
+24) Enumerate the three key loops when monitoring an activity
+
+– Entire lifetime – activity happens between onCreate and onDestroy
+– Visible lifetime – activity happens between onStart and onStop
+– Foreground lifetime – activity happens between onResume and onPause
+
+25) When is the onStop() method invoked?
+
+A call to onStop method happens when an activity is no longer visible to the user, either because another activity has taken over or if in front of that activity.
+
+26) Is there a case wherein other qualifiers in multiple resources take precedence over locale?
+
+Yes, there are actually instances wherein some qualifiers can take precedence over locale. There are two known exceptions, which are the MCC (mobile country code) and MNC (mobile network code) qualifiers.
+
+27) What are the different states wherein a process is based?
+
+There are 4 possible states:
+– foreground activity
+– visible activity
+– background activity
+– empty process
+
+28) How can the ANR be prevented?
+
+One technique that prevents the Android system from concluding a code that has been responsive for a long period of time is to create a child thread. Within the child thread, most of the actual workings of the codes can be placed, so that the main thread runs with minimal periods of unresponsive times.
+
+29) What role does Dalvik play in Android development?
+
+Dalvik serves as a virtual machine, and it is where every Android application runs. Through Dalvik, a device is able to execute multiple virtual machines efficiently through better memory management.
+
+30) What is the AndroidManifest.xml?
+
+This file is essential in every application. It is declared in the root directory and contains information about the application that the Android system must know before the codes can be executed.
+
+31) What is the proper way of setting up an Android-powered device for app development?
+
+The following are steps to be followed prior to actual application development in an Android-powered device:
+-Declare your application as “debuggable” in your Android Manifest.
+-Turn on “USB Debugging” on your device.
+-Set up your system to detect your device.
+
+32) Enumerate the steps in creating a bounded service through AIDL.
+
+1. create the .aidl file, which defines the programming interface
+2. implement the interface, which involves extending the inner abstract Stub class as well as implanting its methods.
+3. expose the interface, which involves implementing the service to the clients.
+
+33) What is the importance of Default Resources?
+
+When default resources, which contain default strings and files, are not present, an error will occur and the app will not run. Resources are placed in specially named subdirectories under the project res/ directory.
+
+34) When dealing with multiple resources, which one takes precedence?
+
+Assuming that all of these multiple resources are able to match the configuration of a device, the ‘locale’ qualifier almost always takes the highest precedence over the others.
+
+35) When does ANR occur?
+
+The ANR dialog is displayed to the user based on two possible conditions. One is when there is no response to an input event within 5 seconds, and the other is when a broadcast receiver is not done executing within 10 seconds.
+
+36) What is AIDL?
+
+AIDL, or Android Interface Definition Language, handles the interface requirements between a client and a service so both can communicate at the same level through interprocess communication or IPC. This process involves breaking down objects into primitives that Android can understand. This part is required simply because a process cannot access the memory of the other process.
+
+37) What data types are supported by AIDL?
+
+AIDL has support for the following data types:
+-string
+-charSequence
+-List
+-Map
+-all native Java data types like int,long, char and Boolean
+
+38) What is a Fragment?
+
+A fragment is a part or portion of an activity. It is modular in a sense that you can move around or combine with other fragments in a single activity. Fragments are also reusable.
+
+39) What is a visible activity?
+
+A visible activity is one that sits behind a foreground dialog. It is actually visible to the user, but not necessarily being in the foreground itself.
+
+40) When is the best time to kill a foreground activity?
+
+The foreground activity, being the most important among the other states, is only killed or terminated as a last resort, especially if it is already consuming too much memory. When a memory paging state has been reach by a foreground activity, then it is killed so that the user interface can retain its responsiveness to the user.
+
+41) Is it possible to use or add a fragment without using a user interface?
+
+Yes, it is possible to do that, such as when you want to create a background behavior for a particular activity. You can do this by using add(Fragment,string) method to add a fragment from the activity.
+
+42) How do you remove icons and widgets from the main screen of the Android device?
+
+To remove an icon or shortcut, press and hold that icon. You then drag it downwards to the lower part of the screen where a remove button appears.
+
+43) What are the core components under the Android application architecture?
+
+There are 5 key components under the Android application architecture:
+– services
+– intent
+– resource externalization
+– notifications
+– content providers
+
+44) What composes a typical Android application project?
+
+A project under Android development, upon compilation, becomes an .apk file. This apk file format is actually made up of the AndroidManifest.xml file, application code, resource files, and other related files.
+
+45) What is a Sticky Intent?
+
+A Sticky Intent is a broadcast from sendStickyBroadcast() method such that the intent floats around even after the broadcast, allowing others to collect data from it.
+
+46) Do all mobile phones support the latest Android operating system?
+
+Some Android-powered phone allows you to upgrade to the higher Android operating system version. However, not all upgrades would allow you to get the latest version. It depends largely on the capability and specs of the phone, whether it can support the newer features available under the latest Android version.
+
+47) What is portable wi-fi hotspot?
+
+Portable Wi-Fi Hotspot allows you to share your mobile internet connection to other wireless device. For example, using your Android-powered phone as a Wi-Fi Hotspot, you can use your laptop to connect to the Internet using that access point.
+
+48) What is an action?
+
+In Android development, an action is what the intent sender wants to do or expected to get as a response. Most application functionality is based on the intended action.
+
+49) What is the difference between a regular bitmap and a nine-patch image?
+
+In general, a Nine-patch image allows resizing that can be used as background or other image size requirements for the target device. The Nine-patch refers to the way you can resize the image: 4 corners that are unscaled, 4 edges that are scaled in 1 axis, and the middle one that can be scaled into both axes.
+
+50) What language is supported by Android for application development?
+
+The main language supported is Java programming language. Java is the most popular language for app development, which makes it ideal even for new Android developers to quickly learn to create and deploy applications in the Android environment.
+
+
+
+http://skillgun.com/java/interview-questions-and-answers
+
+
+
+Question 1: Explain .apk extension.
+
+Answer: The .apk extension files are common in Android development. It refers to a file type having compressed information of application code, resource files and AndroidManifest.xml file. APK stands for Application Package and the final project lies within this file.
+
+Question 2: What language is used to develop Android?
+
+Answer: Android is developed mainly using Java however there are lots of SDK’s to translate the Java to code to any language.
+
+Question 3: What is the Open Handset Alliance?
+
+Answer: The OHA is a group of 84 technology and mobile companies including Google, HTC, Sony, Samsung, Dell, Intel, Nvidia and many morewho strive to accelerate innovation in mobile technology and offers the end users a better and richer mobile experience. Android is the main software of the alliance.
+
+Question 4: What are the primary components used in Android architecture?
+
+Answer: The architecture of Android is designed considering four essential components: Linux Kernel, Set of libraries, Android Framework and Android Applications.
+
+Question 5: What do you know about AIDL?
+
+Answer: AIDL stands for Android Interface Definition Language. It offers to define the client’s interface requirements and moreover a service in order to communicate at same level with the help of inter process communications.
+
+Question 6: What is ANR?
+
+Answer: ANR stands for Application Not Responding, a dialog that appears when an application doesn’t respond for more than 10 seconds. It shows the option of force closing the application.
+
+Question 7: What is referred to Explicit and Implicit Intent?
+
+Answer: The role of explicit intent is to specify an activity to respond to intent. Implicit intent on the other hand is declaration of intent. Explicit intent is used for internal messages of an application while implicit intent is used to activate components of another application.
+
+Question 8: What is the role of Orientation?
+
+Answer: Orientation is used to determine the presentation of LinearLayout. It may be presented in rows or columns.
+
+Question 9: List the data types supported in AIDL?
+
+Answer: AIDL supports string, list, map, charSequence and all type of native java type data types.
+
+Question 10: What method does Android follow to track applications?
+
+Answer: It is done by assigning each application with a unique ID (referred as Linux User ID).
+
+The question and answer section above is meant for a newbie to an experienced developer. Moreover these questions are also arranged by surveying the common question types in an interview which may help a candidate to prepare beforehand getting acquainted of some basic queries in relation to implied technology.
+
+
+string pool in java
+difference in java 1.7 and java 1.8
+lambedia expression
+handler and thread 
+handler methods
+23 component in android view
+concurrent thread
+java exception
+listview in linearlayout
+listview usage
+abstraction class
+Interface
+retrofit library 
+http url connection
+kotlin
+coordinate layout
+structured coordinate layout
+difference in marshmallow and lollipop
+
+

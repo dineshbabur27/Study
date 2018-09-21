@@ -1,0 +1,161 @@
+Spring Interview Questions 
+Q1. What is a Spring?
+Wikipedia defines the Spring framework as “an application framework and inversion of control container for the Java platform. The framework’s core features can be used by any Java application, but there are extensions for building web applications on top of the Java EE platform.” Spring is essentially a lightweight, integrated framework that can be used for developing enterprise applications in java.
+
+Q2. Name the different modules of the Spring framework.
+Some of the important Spring Framework modules are:
+
+Spring Context – for dependency injection.
+Spring AOP – for aspect oriented programming.
+Spring DAO – for database operations using DAO pattern
+Spring JDBC – for JDBC and DataSource support.
+Spring ORM – for ORM tools support such as Hibernate
+Spring Web Module – for creating web applications.
+Spring MVC – Model-View-Controller implementation for creating web applications, web services etc.
+SpringFramework - Java Interview Questions - Edureka Q3. List some of the important annotations in annotation-based Spring configuration.
+The important annotations are:
+
+@Required
+@Autowired
+@Qualifier
+@Resource
+@PostConstruct
+@PreDestroy
+Q4. Explain Bean in Spring and List the different Scopes of Spring bean.
+Beans are objects that form the backbone of a Spring application. They are managed by the Spring IoC container. In other words, a bean is an object that is instantiated, assembled, and managed by a Spring IoC container.
+
+There are five Scopes defined in Spring beans.
+
+SpringBean - Java Interview Questions - Edureka
+
+Singleton: Only one instance of the bean will be created for each container. This is the default scope for the spring beans. While using this scope, make sure spring bean doesn’t have shared instance variables otherwise it might lead to data inconsistency issues because it’s not thread-safe.
+Prototype: A new instance will be created every time the bean is requested.
+Request: This is same as prototype scope, however it’s meant to be used for web applications. A new instance of the bean will be created for each HTTP request.
+Session: A new bean will be created for each HTTP session by the container.
+Global-session: This is used to create global session beans for Portlet applications.
+Q5. Explain the role of DispatcherServlet and ContextLoaderListener.
+DispatcherServlet is basically the front controller in the Spring MVC application as it loads the spring bean configuration file and initializes all the beans that have been configured. If annotations are enabled, it also scans the packages to configure any bean annotated with @Component, @Controller, @Repository or @Service annotations.
+
+DispatcherServlet - Java Interview Questions - EdurekaContextLoaderListener, on the other hand, is the listener to start up and shut down the WebApplicationContext in Spring root. Some of its important functions includes tying up the lifecycle of Application Context to the lifecycle of the ServletContext and automating the creation of ApplicationContext.
+
+ContextLoader - Java Interview Questions - Edureka
+Q6. What are the differences between constructor injection and setter injection?
+No.	Constructor Injection	Setter Injection
+ 1)	 No Partial Injection	 Partial Injection
+ 2)	 Desn’t override the setter property	 Overrides the constructor property if both are defined.
+ 3)	Creates new instance if any modification occurs	Doesn’t create new instance if you change the property value
+ 4) 	 Better for too many properties	 Better for few properties.
+ 
+
+Q7. What is autowiring in Spring? What are the autowiring modes?
+Autowiring enables the programmer to inject the bean automatically. We don’t need to write explicit injection logic. Let’s see the code to inject bean using dependency injection.
+
+<bean id=“emp” class=“com.javatpoint.Employee” autowire=“byName” />  
+The autowiring modes are given below:
+
+No.	Mode	Description
+ 1)	 no	 this is the default mode, it means autowiring is not enabled.
+ 2)	 byName	 Injects the bean based on the property name. It uses setter method.
+ 3)	 byType	 Injects the bean based on the property type. It uses setter method.
+ 4)	 constructor	 It injects the bean using constructor
+Q8. How to handle exceptions in Spring MVC Framework?
+Spring MVC Framework provides following ways to help us achieving robust exception handling.
+
+Controller Based:
+We can define exception handler methods in our controller classes. All we need is to annotate these methods with @ExceptionHandler annotation.
+
+Global Exception Handler:
+Exception Handling is a cross-cutting concern and Spring provides @ControllerAdvice annotation that we can use with any class to define our global exception handler.
+
+HandlerExceptionResolver implementation: 
+For generic exceptions, most of the times we serve static pages. Spring Framework provides HandlerExceptionResolver interface that we can implement to create global exception handler. The reason behind this additional way to define global exception handler is that Spring framework also provides default implementation classes that we can define in our spring bean configuration file to get spring framework exception handling benefits.
+
+Q9. What are some of the important Spring annotations which you have used?
+Some of the Spring annotations that I have used in my project are:
+
+@Controller – for controller classes in Spring MVC project.
+
+@RequestMapping – for configuring URI mapping in controller handler methods. This is a very important annotation, so you should go through Spring MVC RequestMapping Annotation Examples
+
+@ResponseBody – for sending Object as response, usually for sending XML or JSON data as response.
+
+@PathVariable – for mapping dynamic values from the URI to handler method arguments.
+
+@Autowired – for autowiring dependencies in spring beans.
+
+@Qualifier – with @Autowired annotation to avoid confusion when multiple instances of bean type is present.
+
+@Service – for service classes.
+
+@Scope – for configuring scope of the spring bean.
+
+@Configuration, @ComponentScan and @Bean – for java based configurations.
+
+AspectJ annotations for configuring aspects and advices, @Aspect, @Before, @After, @Around, @Pointcut etc.
+
+Q10. How to integrate Spring and Hibernate Frameworks?
+We can use Spring ORM module to integrate Spring and Hibernate frameworks, if you are using Hibernate 3+ where SessionFactory provides current session, then you should avoid using HibernateTemplate or HibernateDaoSupport classes and better to use DAO pattern with dependency injection for the integration.
+
+Also Spring ORM provides support for using Spring declarative transaction management, so you should utilize that rather than going for hibernate boiler-plate code for transaction management.
+
+In case you are facing any challenges with these java interview questions, please comment your problems in the section below. Apart from this Java Interview Questions Blog, if you want to get trained from professionals on this technology, you can opt for a structured training from edureka! Click below to know more.
+
+
+Dependency Injection (DI) is a design pattern that removes the dependency from the programming code so that it can be easy to manage and test the application.
+ Dependency Injection makes our programming code loosely coupled. To understand the DI better, Let's understand the Dependency Lookup (DL) first
+ 
+Two ways to perform Dependency Injection in Spring framework
+Spring framework provides two ways to inject dependency
+1 ) By Constructor
+2 ) By Setter method
+
+Creational Design Patterns
+Creational design patterns provide solution to instantiate a object in the best possible way for specific situations.
+Singleton Pattern
+Singleton pattern restricts the instantiation of a class and ensures that only one instance of the class exists in the java virtual machine.
+It seems to be a very simple design pattern but when it comes to implementation, it comes with a lot of implementation concerns.
+The implementation of Singleton pattern has always been a controversial topic among developers. Check out Singleton Design Pattern to learn 
+about different ways to implement Singleton pattern and pros and cons of each of the method. This is one of the most discussed java design patterns.
+
+Factory Pattern
+Factory design pattern is used when we have a super class with multiple sub-classes and based on input, we need to return one of the sub-class. 
+This pattern take out the responsibility of instantiation of a class from client program to the factory class. We can apply Singleton pattern on 
+Factory class or make the factory method static. Check out Factory Design Pattern for example program and factory pattern benefits. 
+This is one of the most widely used java design pattern.
+
+Abstract Factory Pattern
+Abstract Factory pattern is similar to Factory pattern and it’s factory of factories. If you are familiar with factory design pattern in java,
+ you will notice that we have a single Factory class that returns the different sub-classes based on the input provided and factory class uses 
+ if-else or switch statement to achieve this.
+In Abstract Factory pattern, we get rid of if-else block and have a factory class for each sub-class and then an Abstract
+ Factory class that will return the sub-class based on the input factory class. Check out Abstract Factory Pattern to know how to implement this pattern with example program.
+ 
+ 
+Spring IoC Container
+Spring IoC is the mechanism to achieve loose-coupling between Objects dependencies. To achieve loose coupling and dynamic binding of the objects at runtime, 
+objects dependencies are injected by other assembler objects.
+AnnotationConfigApplicationContext: If we are using Spring in standalone java applications and using annotations for Configuration, 
+
+
+
+then we can use this to initialize the container and get the bean objects.
+ClassPathXmlApplicationContext: If we have spring bean configuration xml file in standalone application, then we can use this class to load the file and get the container object.
+FileSystemXmlApplicationContext: This is similar to ClassPathXmlApplicationContext except that the xml configuration file can be loaded from anywhere in the file system.
+AnnotationConfigWebApplicationContext and XmlWebApplicationContext for web applications.
+
+
+Binary Search in Java
+Binary search is used to search a key element from multiple elements. Binary search is faster than linear search.
+In case of binary search, array elements must be in ascending order. If you have unsorted array, you can sort the array using Arrays.sort(arr) method.
+
+What is transaction
+A transaction is a very small unit of a program and it may contain several lowlevel tasks.
+ A transaction in a database system must maintain Atomicity, Consistency, Isolation, and Durability - commonly known as ACID properties - 
+ in order to ensure accuracy, completeness, and data integ
+
+Developing with TDD has valuable advantages:
+You have a better understanding of a feature you implement.
+You have robust indicators of feature completeness.
+Code is covered with tests and has less chance to be corrupted by fixes or new features.
+The cost of these advantages is pretty high – inconvenience related to switching to a new development manner and time which you spend for developing each new feature. It’s a price of quality.
+So that’s how TDD works – write red unit tests, start implementing a feature, make the tests green, and refactor the code.

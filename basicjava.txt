@@ -1,0 +1,224 @@
+Basic Java Interview Questions
+Q1. Explain JDK, JRE and JVM?
+JDK vs JRE vs JVM
+JDK	JRE	JVM
+It stands for Java Development Kit.	It stands for Java Runtime Environment.	It stands for Java Virtual Machine.
+It is the tool necessary to compile, document and package Java programs.	JRE refers to a runtime environment in which java bytecode can be executed.	It is an abstract machine. It is a specification that provides run-time environment in which java bytecode can be executed.
+Along with JRE, it includes an interpreter/loader, a compiler (javac), an archiver (jar), a documentation generator (javadoc) and other tools needed in Java development. In short, it contains JRE + development tools.	It implements the JVM (Java Virtual Machine) and provides all the class libraries and other support files that JVM uses at runtime. So JRE is a software package that contains what is required to run a Java program. Basically, it’s an implementation of the JVM which physically exists.	JVM follows three notations: Specification(document that describes the implementation of the Java virtual machine), Implementation(program that meets the requirements of JVM specification) and Runtime Instance (instance of JVM is created whenever you write a java command on the command prompt and run class).
+Q2. Explain public static void main(String args[]).
+public : Public is an access modifier, which is used to specify who can access this method. Public means that this Method will be accessible by any Class.
+static : It is a keyword in java which identifies it is class based i.e it can be accessed without creating the instance of a Class.
+void : It is the return type of the method. Void defines the method which will not return any value.
+main: It is the name of the method which is searched by JVM as a starting point for an application with a particular signature only. It is the method where the main execution occurs.
+String args[] : It is the parameter passed to the main method.
+Q3. Why Java is platform independent?
+Platform independent practically means “write once run anywhere”. Java is called so because of its byte codes which can run on any system irrespective of its underlying operating system.
+
+Q4. Why java is not 100% Object-oriented?
+Java is not 100% Object-oriented because it makes use of eight primitive datatypes such as boolean, byte, char, int, float, double, long, short which are not objects.
+
+Q5. What are wrapper classes?
+Wrapper classes converts the java primitives into the reference types (objects). Every primitive data type has a class dedicated to it. These are known as wrapper classes because they “wrap” the primitive data type into an object of that class. Refer to the below image which displays different primitive type, wrapper class and constructor argument. 
+
+WrapperClass - Java Interview Questions - Edureka
+
+Q6. What are constructors in Java?
+In Java, constructor refers to a block of code which is used to initialize an object. It must have the same name as that of the class. Also, it has no return type and it is automatically called when an object is created.
+
+There are two types of constructors:
+
+Default constructor
+Parameterized constructor
+Q7. What is singleton class and how can we make a class singleton?
+Singleton class is a class whose only one instance can be created at any given time, in one JVM. A class can be made singleton by making its constructor private.
+
+Q8. What is the difference between Array list and vector?
+Array List	Vector
+Array List is not synchronized.	Vector is synchronized.
+Array List is fast as it’s non-synchronized.	Vector is slow as it is thread safe.
+If an element is inserted into the Array List, it increases its Array size by 50%.	Vector defaults to doubling size of its array.
+Array List does not define the increment size.	Vector defines the increment size.
+Array List can only use Iterator for traversing an Array List.	Except Hashtable, Vector is the only other class which uses both Enumeration and Iterator.
+Q9. What is the difference between equals() and == ?
+Equals() method is defined in Object class in Java and used for checking equality of two objects defined by business logic.
+“==” or equality operator in Java is a binary operator provided by Java programming language and used to compare primitives and objects. public boolean equals(Object o) is the method provided by the Object class. The default implementation uses == operator to compare two objects. For example: method can be overridden like String class. equals() method is used to compare the values of two objects.
+
+public class Equaltest {
+public static void main(String[] args) {
+String str1= new String(“ABCD”);
+String str2= new String(“ABCD”);
+if(Str1 == str2)
+{
+System.out.println("String 1 == String 2 is true");
+}
+else
+{
+System.out.println("String 1 == String 2 is false");
+String Str3 = Str2;
+if( Str2 == Str3)
+{
+System.out.println("String 2 == String 3 is true");
+}
+else
+{
+System.out.println("String 2 == String 3 is false");
+}
+if(Str1.equals(str2))
+{
+System.out.println("String 1 equals string 2 is true");
+}
+else
+{
+System.out.prinltn("String 1 equals string 2 is false");
+}
+}}
+Q10. What are the differences between Heap and Stack Memory?
+The major difference between Heap and Stack memory are:
+
+
+Features	Stack	Heap
+Memory	Stack memory is used only by one thread of execution.	Heap memory is used by all the parts of the application.
+Access	Stack memory can’t be accessed by other threads.	Objects stored in the heap are globally accessible.
+Memory Management	Follows LIFO manner to free memory.	Memory management is based on generation associated to each object.
+Lifetime	Exists until the end of execution of the thread.	Heap memory lives from the start till the end of application execution.
+Usage	Stack memory only contains local primitive and reference variables to objects in heap space.	Whenever an object is created, it’s always stored in the Heap space.
+ 
+
+In case you are facing any challenges with these java interview questions, please comment your problems in the section below. Apart from this Java Interview Questions Blog, if you want to get trained from professionals on this technology, you can opt for a structured training from edureka! Click below to know more. 
+
+
+Have a Ridiculously Committed Mentor at work? NOMINATE THEM FOR AN AWARD
+OOPS Java Interview Questions: 
+Q1. What is Polymorphism?
+ 
+
+
+
+Polymorphism is briefly described as “one interface, many implementations”. Polymorphism is a characteristic of being able to assign a different meaning or usage to something in different contexts – specifically, to allow an entity such as a variable, a function, or an object to have more than one form. There are two types of polymorphism:
+
+Compile time polymorphism
+Run time polymorphism
+ 
+
+Compile time polymorphism is method overloading whereas Runtime time polymorphism is done using inheritance and interface.
+
+Q2. What is runtime polymorphism or dynamic method dispatch?
+In Java, runtime polymorphism or dynamic method dispatch is a process in which a call to an overridden method is resolved at runtime rather than at compile-time. In this process, an overridden method is called through the reference variable of a superclass. Let’s take a look at the example below to understand it better.
+
+class Car {
+void run()
+{
+System.out.println(“car is running”); 
+}
+}
+class Audi extends Car {
+void run()
+{
+System.out.prinltn(“Audi is running safely with 100km”);
+}
+public static void main(String args[])
+{
+Car b= new Audi();    //upcasting
+b.run();
+}
+}
+Q3. What is the difference between abstract classes and interfaces?
+Abstract Class	Interfaces
+An abstract class can provide complete, default code and/or just the details that have to be overridden.	An interface cannot provide any code at all,just the signature.
+In case of abstract class, a class may extend only one abstract class.	A Class may implement several interfaces.
+An abstract class can have non-abstract methods.	All methods of an Interface are abstract.
+An abstract class can have instance variables.	An Interface cannot have instance variables
+An abstract class can have any visibility: public, private, protected.	An Interface visibility must be public (or) none.
+If we add a new method to an abstract class then we have the option of providing default implementation and therefore all the existing code might work properly	If we add a new method to an Interface then we have to track down all the implementations of the interface and define implementation for the new method
+An abstract class can contain constructors	An Interface cannot contain constructors
+Abstract classes are fast	Interfaces are slow as it requires extra indirection to find corresponding method in the actual class
+Q4. What is method overloading and method overriding?
+Method Overloading :
+In Method Overloading, Methods of the same class shares the same name but each method must have different number of parameters or parameters having different types and order.
+Method Overloading is to “add” or “extend” more to method’s behavior.
+It is a compile time polymorphism.
+The methods must have different signature.
+It may or may not need inheritance in Method Overloading.
+Let’s take a look at the example below to understand it better.
+
+class Adder {
+Static int add(int a, int b)
+{
+return a+b;
+}
+Static double add( double a, double b)
+{
+return a+b;
+}
+public static void main(String args[])
+{
+System.out.println(Adder.add(11,11));
+System.out.println(Adder.add(12.3,12.6));
+}}
+Method Overriding:  
+In Method Overriding, sub class have the same method with same name and exactly the same number and type of parameters and same return type as a super class.
+Method Overriding is to “Change” existing behavior of method.
+It is a run time polymorphism.
+The methods must have same signature.
+It always requires inheritance in Method Overriding.
+Let’s take a look at the example below to understand it better.
+
+class Car {
+void run(){
+System.out.println(“car is running”); 
+}
+Class Audi extends Car{
+void run()
+{
+System.out.prinltn(“Audi is running safely with 100km”);
+}
+public static void main( String args[])
+{
+Car b=new Audi();
+b.run();
+}
+}
+Q5. Can you override a private or static method in Java?
+You cannot override a private or static method in Java. If you create a similar method with same return type and same method arguments in child class then it will hide the super class method; this is known as method hiding. Similarly, you cannot override a private method in sub class because it’s not accessible there. What you can do is create another private method with the same name in the child class. Let’s take a look at the example below to understand it better.
+
+class Base {
+private static void display() {
+System.out.println("Static or class method from Base");
+}
+public void print() {
+System.out.println("Non-static or instance method from Base");
+}
+class Derived extends Base {
+private static void display() {
+System.out.println("Static or class method from Derived");
+}
+public void print() {
+System.out.println("Non-static or instance method from Derived");
+}
+public class test {
+public static void main(String args[])
+{
+Base obj= new Derived();
+obj1.display();
+obj1.print();
+}
+}
+Q6. What is multiple inheritance? Is it supported by Java?
+MultipleInheritance - Java Interview Questions - EdurekaIf a child class inherits the property from multiple classes is known as multiple inheritance. Java does not allow to extend multiple classes.
+
+The problem with multiple inheritance is that if multiple parent classes have a same method name, then at runtime it becomes difficult for the compiler to decide which method to execute from the child class.
+
+Therefore, Java doesn’t support multiple inheritance. The problem is commonly referred as Diamond Problem.
+
+ 
+
+Q7. What is association?
+Association is a relationship where all object have their own lifecycle and there is no owner. Let’s take an example of Teacher and Student. Multiple students can associate with a single teacher and a single student can associate with multiple teachers but there is no ownership between the objects and both have their own lifecycle. These relationship can be one to one, One to many, many to one and many to many.
+
+Q8. What do you mean by aggregation?
+Aggregation is a specialized form of Association where all object have their own lifecycle but there is ownership and child object can not belongs to another parent object. Let’s take an example of Department and teacher. A single teacher can not belongs to multiple departments, but if we delete the department teacher object will not destroy. 
+
+Q9. What is composition in Java?
+Composition is again specialized form of Aggregation and we can call this as a “death” relationship. It is a strong type of Aggregation. Child object dose not have their lifecycle and if parent object deletes all child object will also be deleted. Let’s take again an example of relationship between House and rooms. House can contain multiple rooms there is no independent life of room and any room can not belongs to two different house if we delete the house room will automatically delete.
+
+In case you are facing any challenges with these java interview questions, please comment your problems in the section below. Apart from this Java Interview Questions Blog, if you want to get trained from professionals on this technology, you can opt for a structured training from edureka! Click below to know more.
