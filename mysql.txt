@@ -61,5 +61,3293 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDial
 spring.jpa.hibernate.ddl-auto = update
 
 
+Topics - 
+1. Java 8
+2. Spring boot
+3. Microservices
+4. CI/CD
+5. SDLC
+6. Angular
+
+Questions
+---------
+1.	Java 8 features
+
+Java 8 provides following features for Java Programming:
+
+Lambda expressions,
+Method references,
+Functional interfaces,
+Stream API,
+Default methods,
+Base64 Encode Decode,
+Static methods in interface,
+Optional class,
+Collectors class,
+ForEach() method,
+Parallel array sorting,
+Nashorn JavaScript Engine,
+Parallel Array Sorting,
+Type and Repating Annotations,
+IO Enhancements,
+Concurrency Enhancements,
+JDBC Enhancements etc.
+
+
+Lambda Expressions
+Lambda expression helps us to write our code in functional style. It provides a clear and concise way to implement SAM interface(Single Abstract Method) by using an expression. It is very useful in collection library in which it helps to iterate, filter and extract data.
+For more information and examples: click here
+________________________________________
+Method References
+Java 8 Method reference is used to refer method of functional interface . It is compact and easy form of lambda expression. Each time when you are using lambda expression to just referring a method, you can replace your lambda expression with method reference.
+For more information and examples: click here
+________________________________________
+Functional Interface
+An Interface that contains only one abstract method is known as functional interface. It can have any number of default and static methods. It can also declare methods of object class.
+Functional interfaces are also known as Single Abstract Method Interfaces (SAM Interfaces).
+For more information and examples: click here
+________________________________________
+Optional
+Java introduced a new class Optional in Java 8. It is a public final class which is used to deal with NullPointerException in Java application. We must import java.util package to use this class. It provides methods to check the presence of value for particular variable.
+For more information and examples: click here
+________________________________________
+forEach
+Java provides a new method forEach() to iterate the elements. It is defined in Iterable and Stream interfaces.
+It is a default method defined in the Iterable interface. Collection classes which extends Iterable interface can use forEach() method to iterate elements.
+This method takes a single parameter which is a functional interface. So, you can pass lambda expression as an argument.
+For more information and examples: click here
+________________________________________
+Date/Time API
+Java has introduced a new Date and Time API since Java 8. The java.time package contains Java 8 Date and Time classes.
+For more information and examples: click here
+________________________________________
+Default Methods
+Java provides a facility to create default methods inside the interface. Methods which are defined inside the interface and tagged with default keyword are known as default methods. These methods are non-abstract methods and can have method body.
+For more information and examples: click here
+________________________________________
+Nashorn JavaScript Engine
+Nashorn is a JavaScript engine. It is used to execute JavaScript code dynamically at JVM (Java Virtual Machine). Java provides a command-line tool jjs which is used to execute JavaScript code.
+You can execute JavaScript code by two ways:
+1.	Using jjs command-line tool, and
+2.	By embedding into Java source code.
+For more information and examples: click here
+________________________________________
+StringJoiner
+Java added a new final class StringJoiner in java.util package. It is used to construct a sequence of characters separated by a delimiter. Now, you can create string by passing delimiters like comma(,), hyphen(-) etc.
+For more information and examples: click here
+________________________________________
+Collectors
+Collectors is a final class that extends Object class. It provides reduction operations, such as accumulating elements into collections, summarizing elements according to various criteria etc.
+For more information and examples: click here
+________________________________________
+Stream API
+Java 8 java.util.stream package consists of classes, interfaces and an enum to allow functional-style operations on the elements. It performs lazy computation. So, it executes only when it requires.
+For more information and examples: click here
+________________________________________
+Stream Filter
+Java stream provides a method filter() to filter stream elements on the basis of given predicate. Suppose, you want to get only even elements of your list, you can do this easily with the help of filter() method.
+This method takes predicate as an argument and returns a stream of resulted elements.
+For more information and examples: click here
+________________________________________
+Java Base64 Encoding and Decoding
+Java provides a class Base64 to deal with encryption and decryption. You need to import java.util.Base64 class in your source file to use its methods.
+This class provides three different encoders and decoders to encrypt information at each level.
+For more information and examples: click here
+________________________________________
+Java Parallel Array Sorting
+Java provides a new additional feature in Arrays class which is used to sort array elements parallelly. The parallelSort() method has added to java.util.Arrays class that uses the JSR 166 Fork/Join parallelism common pool to provide sorting of arrays. It is an overloaded method.
+For more information and examples: click here
+2.What is the use of stream api? Advantages of stream api over for loop method in collections?
+
+the Stream API is used to process collections of objects
+Advantage :
+functional-style operations on the elements. It performs lazy computation. So, it executes only when it requires.
+
+3.Classes that are available in collection
+     (ArrayList, Vector, LinkedList, PriorityQueue, HashSet, LinkedHashSet, TreeSet).
+
+4.When to use linked list and array list
+ArrayList provides constant time for search operation, so it is better to use ArrayList if searching is more frequent operation than add and remove operation. The LinkedList provides constant time for add and remove operations. So it is better to use LinkedList for manipulation.
+
+5.Can we store objects like student or employee class in hashmap and what are the rules to do that?
+
+http://samgaut.blogspot.com/2006/11/store-objects-in-memory-with-java.html#:~:text=Store%20objects%20in%20memory%20with%20Java%20HashMap,as%20the%20keys%20are%20unique.
+
+In Java HashMap object provides key/value pairs for storing information in memory. You can store any data type combination as long as the keys are unique. For example, you can store a phone number as a key and a name as the value, or you can store a phone number as a key and an object that holds customer information as the value.
+
+The HashMap supports "get" and "put" methods to store and retrieve information. You can also use "contains" to determine if a key exists before trying to retrieve information. HashMaps are defined under the java.util interface and support additional methods such as map.remove(key), map.containskey(key), map.containsValue(value), map.size() and map.clear(). Let's say that you have a set of Employee objects that you would like to store into memory. To simplify things, we will have an employee object that has a firstname, lastname and Id. The Employee object will inherit from the Person class. Let's create a package named hashLoadObject and
+start out with the Person class.
+
+In order to use the HashMap class within Java, you need to import the Java.util Namespace as follows:
+
+import Java.util.*;
+
+Create an employee object and store it in the HashMap
+
+    String m_key = "999999999";
+    Employee e = new Employee("Sam", "Gaut", m_key);
+    putObject(m_key, e);
+
+    Now you can get an employee object
+    Employee newE = GetEmployee(m_key);
+
+    The HashMap also supports the containsKey method
+
+    Employee newE2;
+    if(employeeMap.containsKey(m_key)){
+      newE2=(Employee)employeeMap.get(m_key);
+    }
+  }
+
+This method puts Employee objects into the HashMap
+  static void putObject(String mKey, Employee e) {
+    employeeMap.put(mKey, e);
+  }
+
+This method gets Employee objects from the HashMap based on the Key
+  static Employee GetEmployee(String mKey) {
+    Cast the object to a type Employee
+    return((Employee)employeeMap.get(mKey));
+  }
+
+
+2.	6.Immutable class
+Immutable class means that once an object is created, we cannot change its content. In Java, all the wrapper classes (like Integer, Boolean, Byte, Short) and String class is immutable. We can create our own immutable class as well.
+Following are the requirements:
+•	The class must be declared as final (So that child classes can’t be created)
+•	Data members in the class must be declared as final (So that we can’t change the value of it after object creation)
+•	A parameterized constructor
+•	Getter method for all the variables in it
+•	No setters(To not have the option to change the value of the instance variable)
+
+
+1.	Design patterns like Singleton, prototype, abstract factory
+2.	Singleton Pattern says that just"define a class that has only one instance and provides a global point of access to it".
+3.	In other words, a class must ensure that only single instance should be created and single object can be used by all other classes
+Prototype Pattern says that cloning of an existing object instead of creating new one and can also be customized as per the requirement.
+
+Abstract Factory Pattern says that just define an interface or abstract class for creating families of related (or dependent) objects but without specifying their concrete sub-classes.That means Abstract Factory lets a class returns a factory of classes. So, this is the reason that Abstract Factory Pattern is one level higher than the Factory Pattern.
+An Abstract Factory Pattern is also known as Kit.
+8. What does @springbootapplication do?
+   Which method will get called on start of spring boot application?
+@SpringBootApplication annotation can be used to enable those three features, that is:
+•	@EnableAutoConfiguration: enable Spring Boot’s auto-configuration mechanism
+•	@ComponentScan: enable @Component scan on the package where the application is located (see the best practices)
+•	@Configuration: allow to register extra beans in the context or import additional configuration classes
+public static void main(String[] args) {
+SpringApplication.run(Application.class);
+}
+
+
+
+1.	How does @enableautoconfiguration works?
+
+@EnableAutoConfiguration annotation auto-configures the beans that are present in the classpath. This simplifies the developers work by guessing the required beans from the classpath and configure it to run the application. This annotation is part of the spring boot project.
+2.	Have you worked on any caching frameworks
+NO
+
+
+3.	How to connect to database in spring boot and what are the changes and dependencies need to be done for that
+
+Connect to H2 database
+To connect the H2 database, we need to add the H2 database dependency in our build configuration file.
+For Maven users, add the below dependency in your pom.xml file.
+<dependency>
+   <groupId>com.h2database</groupId>
+   <artifactId>h2</artifactId>
+</dependency>
+For Gradle users, add the below dependency in your build.gradle file.
+compile('com.h2database:h2')
+We need to create the schema.sql file and data.sql file under the classpath src/main/resources directory to connect the H2 database.
+The schema.sql file is given below.
+CREATE TABLE PRODUCT (ID INT PRIMARY KEY, PRODUCT_NAME VARCHAR(25));
+The data.sql file is given below.
+INSERT INTO PRODUCT (ID,PRODUCT_NAME) VALUES (1,'Honey');
+INSERT INTO PRODUCT (ID,PRODUCT_NAME) VALUES (2,'Almond');
+Connect MySQL
+To connect the MySQL database, we need to add the MySQL dependency into our build configuration file.
+For Maven users, add the following dependency in your pom.xml file.
+<dependency>
+   <groupId>mysql</groupId>
+   <artifactId>mysql-connector-java</artifactId>
+</dependency>
+For Gradle users, add the following dependency in your build.gradle file.
+compile('mysql:mysql-connector-java')
+Now, create database and tables in MySQL as shown −
+ 
+For properties file users, add the following properties in the application.properties file.
+spring.datasource.driverClassName = com.mysql.jdbc.Driver
+spring.datasource.url = jdbc:mysql://localhost:3306/PRODUCTSERVICE?autoreconnect = true
+spring.datasource.username = root
+spring.datasource.password = root
+spring.datasource.testOnBorrow = true
+spring.datasource.testWhileIdle = true
+spring.datasource.timeBetweenEvictionRunsMillis = 60000
+spring.datasource.minEvictableIdleTimeMillis = 30000
+spring.datasource.validationQuery = SELECT 1
+spring.datasource.max-active = 15
+spring.datasource.max-idle = 10
+spring.datasource.max-wait = 8000
+For YAML users, add the following properties in the application.yml file.
+spring:
+   datasource: 
+      driverClassName: com.mysql.jdbc.Driver
+      url: "jdbc:mysql://localhost:3306/PRODUCTSERVICE?autoreconnect=true"
+      username: "root"
+      password: "root"
+      testOnBorrow: true
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 30000
+      validationQuery: SELECT 1
+      max-active: 15
+      max-idle: 10
+      max-wait: 8000
+
+
+
+
+12. Profiles in spring boot and what are the ways to have the properties and how to call active profile
+Spring Boot Profiles
+You can define default configuration in application.properties. Environment specific overrides can be configured in specific files:
+•	application-dev.properties
+•	application-qa.properties
+•	application-stage.properties
+•	application-prod.properties
+Setting A Spring Boot Profile
+Here are a couple of ways of setting the active profile:
+•	At the time of launching the Java application
+o	-Dspring.profiles.active=qa - in the VM properties, OR
+•	Do the following in the application.properties file
+o	spring.application.profiles=qa.
+Depending on which profile is currently the active, the appropriate configuration is picked up.
+Using Profiles In Code
+A profile can be used in code to define your beans. For example, have a look at the following piece of code:
+
+	@Profile("dev")
+	@Bean
+	public String devBean() {
+		return "I will be available in profile dev";
+	}
+
+	@Profile("prod")
+	@Bean
+	public String prodBean() {
+		return "I will be available in profile prod";
+	}
+
+The bean devBean() will only be available with the dev profile, as it has been annotated with @Profile("dev"). Similarly, the bean prodBean() is only available with the profile prod.
+
+
+
+
+
+
+13. How to connect to web based applications?
+A brief overview of all files:
+•	LoginService, TodoService - Contains the business logic. LoginService has simple hard coded validation for user ids and passwords. TodoService contains a service method to retrieve a list of todos.
+•	login.jsp, welcome.jsp, list-todos.jsp - The name clearly explains what each of these views contains.
+•	LoginController, TodoController - Act as Controllers in the MVC pattern. LoginController has a little bit of flow. If the user enters a valid user id and password combination, they would be redirected to the welcome page. Otherwise, the login page will be shown with the error message.
+•	pom.xml - Important dependencies are Spring Boot Starter Web and tomcat-embed-jasper. We will talk about these later.
+•	application.properties - This is typically used to configure frameworks in Spring Boot. In this example, we would configure our view resolver in application.properties.
+
+14. What is a microservice? How to register the small services? Do we need to create each service as a separate spring boot application
+
+Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of services that are. Highly maintainable and testable. Loosely coupled. Independently deployable. Organized around business capabilities.
+
+https://spring.io/guides/gs/service-registration-and-discovery/
+
+15. Eureka server and client configuration details
+
+https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/
+Server : application.properties file is given below −
+eureka.client.registerWithEureka = false
+eureka.client.fetchRegistry = false
+server.port = 8761
+
+Client :
+
+eureka.client.serviceUrl.defaultZone  = http://localhost:8761/eureka
+eureka.client.instance.preferIpAddress = true
+spring.application.name = eurekaclient
+
+
+Name	Description
+spring.application.name	Unique name for a Eureka server service.
+eureka.client.serviceUrl.defaultZone	It consults with other Eureka servers to sync the service registry. 
+server.port	In which port the server will be bound.
+eureka.client.register-with-eureka	This determines if this server registers itself as a client;, the Eureka server is also acting as a client so that it can sync the registry. The value being false means it prevents itself from acting as a client.
+eureka.client.fetch-registry	Does not register itself in the service registry.
+
+https://dzone.com/articles/microservice-spring-cloud-eureka-server-configurat#:~:text=The%20Eureka%20server%20is%20nothing%20but%20another%20microservice,itself%20as%20a%20Eureka%20client.&text=The%20Eureka%20server%20communicates%20its,by%20just%20configuring%20the%20eureka.
+
+16. Have u worked on any testing frameworks like mockito with junit
+https://examples.javacodegeeks.com/core-java/mockito/junit-mockito-example/
+4.	How to create immutable class
+
+Immutable class means that once an object is created, we cannot change its content. In Java, all the wrapper classes (like Integer, Boolean, Byte, Short) and String class is immutable. ... No setters(To not have the option to change the value of the instance variable)
+5.	Flatmap in stream api
+A flatMap() method is a Java8 programming operation which takes a single function as an argument.
+Stream’s flatMap() method is a merger of two operations
+
+6.	Which map to use in multithreading environment?
+
+
+ConcurrentHashMap
+•	You should use ConcurrentHashMap when you need very high concurrency in your project.
+•	It is thread safe without synchronizing the whole map.
+•	Reads can happen very fast while write is done with a lock.
+•	There is no locking at the object level.
+•	The locking is at a much finer granularity at a hashmap bucket level.
+•	ConcurrentHashMap doesn’t throw a ConcurrentModificationException if one thread tries to modify it while another is iterating over it.
+•	ConcurrentHashMap uses multitude of locks.
+
+
+7.	What are the ways to create Singleton instance?
+Eager initialization:
+Using static block, 
+Lazy initialization, 
+Thread Safe Singleton, 
+Lazy initialization with Double check locking, 
+Bill Pugh Singleton Implementation
+
+8.	Eager initialization is easy to implement but it may cause resource and CPU time wastage. Use it only if cost of initializing a class is less in terms of resources or your program will always need the instance of class.
+9.	By using Static block in Eager initialization we can provide exception handling and also can control over instance.
+10.	Using synchronized we can create singleton class in multi-threading environment also but it can cause slow performance, so we can use Double check locking mechanism.
+11.	Bill Pugh implementation is most widely used approach for singleton classes. Most developers prefer it because of its simplicity and advantages.
+21. Autocloseable interface. How it works internally?
+An object that may hold resources (such as file or socket handles) until it is closed
+
+try-with-resources and AutoCloseable
+•	All the classes cannot be used in try-with-resources. AutoCloseable is an interface used as a contract to implement try-with-resources. Classes that implements AutoCloseable must be used as a resource in try-with-resources, else we will get compilation error.
+•	close is the only method in AutoCloseable and it gets automatically invoked at runtime.
+•	Multiple classes can be declared within the same try as “try (Lion lion = new Lion(); Tiger tiger = new Tiger()) {…”
+•	During initialization of multiple resources in ‘try’, if there is any issue then immediately in the reverse order those resources that are already initialized will be closed.
+•	When multiple classes are used in ‘try’, then the close method is called in the reverse order. To understand this, check the below example.
+•	try-with-resources, can have catch and finally. They work as usual and no change in it.
+•	In try-with-resources on exception, before going to catch the close statements will be executed.
+•	While implementing AutoCloseable, best practice is to throw specific exception and not the highest level ‘Exception’ itself. This needs to highlighted because the signature of ‘close’ in AutoCloseable throws Exception.
+•	On implementation, AutoCloseable.close should not throw InterrupedException, because at runtime if this exception is suppressed it will cause issues in thread handling.
+•	By specification this close method is not required to be idempotent. But still, it is best practice to implement it as idempotent. That is, even if the close method is invoked multiple times, it should act as same.
+•	Closeable is an interface that extends AutoCloseable and its close method must be idempotent.
+•	Resource declared in try gets instantiated just before the start of the try-block.
+•	Resource is implicitly declared as final.
+
+22. Fail fast and fail safe collection? Which will throw exception? Examples for fail fast and fail safe collection
+Fail Fast 
+
+	Fail-Fast iterators doesn’t allow modifications of a collection while iterating over it.
+
+	These iterators throw ConcurrentModificationException if a collection is modified while iterating over it.
+
+	They use original collection to traverse over the elements of the collection.
+
+	These iterators don’t require extra memory.
+
+	Ex : Iterators returned by ArrayList, Vector, HashMap.	
+
+	
+
+	Fail Safe	
+
+	Fail-Safe iterators allow modifications of a collection while iterating over it.
+
+	These iterators don’t throw any exceptions if a collection is modified while iterating over it.
+
+	They use copy of the original collection to traverse over the elements of the collection.
+
+	These iterators require extra memory to clone the collection.
+
+	Ex : Iterator returned by ConcurrentHashMap.
+
+23. How to implement queue using linked list?
+In a Queue data structure, we maintain two pointers, front and rear. The front points the first item of queue and rear points to last item. enQueue() This operation adds a new node after rear and moves rear to the next node. deQueue() This operation removes the front node and moves front to the next node.
+
+24. How to implement tree datastructure?
+1.	if the new node's value is lower than the current node's, go to the left child.
+2.	if the new node's value is greater than the current node's, go to the right child.
+3.	when the current node is null, we've reached a leaf node, we insert the new node in that position.
+
+12.	Volatile keyword in Java
+Volatile keyword is used to modify the value of a variable by different threads. 
+It is also used to make classes thread safe. It means that multiple threads can use a method and instance of the classes at the same time without any problem.
+26. Synchronization and how to achieve that?
+ynchronization in java is the capability to control the access of multiple threads to any shared resource.
+1.	Synchronized method.
+2.	Synchronized block.
+3.	static synchronization.
+If you make any static method as synchronized, the lock will be on the class not on object.
+
+13.	Synchronized vs volatile keyword difference
+volatile keyword synchronizes the value of one variable between Thread memory and "main" memory 
+synchronized keyword synchronizes the value of all variable between thread memory and "main" memory and locks and releases a monitor to boot.
+14.	How to achieve asynchronization in Java?
+An Asynchronous call does not block the program from the code execution. When the call returns from the event, the call returns back to the callback function. So in the context of Java, we have to Create a new thread and invoke the callback method inside that thread. The callback function may be invoked from a thread but is not a requirement. A Callback may also start a new thread, thus making themselves asynchronous.
+
+2.1. Thread
+We can create a new thread to perform any operation asynchronously. With the release of lambda expressions in Java 8, it's cleaner and more readable.
+Let's create a new thread that computes and prints the factorial of a number:
+1
+2
+3
+4
+5	int number = 20;
+Thread newThread = new Thread(() -> {
+    System.out.println("Factorial of " + number + " is: " + factorial(number));
+});
+newThread.start();
+2.2. FutureTask
+Since Java 5, the Future interface provides a way to perform asynchronous operations using the FutureTask.
+We can use the submit method of the ExecutorService to perform the task asynchronously and return the instance of the FutureTask.
+So, let's find the factorial of a number:
+1
+2
+3
+4
+5
+6
+7
+8
+9	ExecutorService threadpool = Executors.newCachedThreadPool();
+Future<Long> futureTask = threadpool.submit(() -> factorial(number));
+ 
+while (!futureTask.isDone()) {
+    System.out.println("FutureTask is not finished yet..."); 
+} 
+long result = futureTask.get(); 
+ 
+threadpool.shutdown();
+Here, we've used the isDone method provided by the Future interface to check if the task is completed. Once finished, we can retrieve the result using the get method.
+2.3. CompletableFuture
+Java 8 introduced CompletableFuture with a combination of a Future and CompletionStage. It provides various methods like supplyAsync, runAsync, and thenApplyAsync for asynchronous programming.
+So, let's use the CompletableFuture in place of the FutureTask to find the factorial of a number:
+1
+2
+3
+4
+5	CompletableFuture<Long> completableFuture = CompletableFuture.supplyAsync(() -> factorial(number));
+while (!completableFuture.isDone()) {
+    System.out.println("CompletableFuture is not finished yet...");
+}
+long result = completableFuture.get();
+
+
+15.	Executor service and future
+There are several ways to delegate a task to ExecutorService: –execute(Runnable) – returns void and cannot access the result. –submit(Runnable or Callable<T>) – returns a Future object. ... All tasks are executed and the outcome can be obtained via the returned result list.
+
+16.	How to copy the collection in Java?
+The copy() method of java.util.Collections class is used to copy all of the elements from one list into another.
+
+17.	Deep copy vs shallow copy
+In shallow copy, only fields of primitive data type are copied while the objects references are not copied. 
+Deep copy involves the copy of primitive data type as well as objet references.
+
+18.	When to go for mockito?
+Mockito is a mocking framework, 
+JAVA-based library that is used for effective unit testing of JAVA applications.
+Mockito is used to mock interfaces so that a dummy functionality can be added to a mock interface that can be used in unit testing
+
+19.	How to inject mock objects?
+Create the new service pass the mock object as argument
+
+20.	@Mock
+21.	ServiceProxy mockProxy;
+22.	
+23.	//This will inject the "ServiceProxy" mock into your "Service" instance.
+24.	@InjectMocks
+25.	Service service = new Service(mockProxy);
+
+34. @spy in mockito
+Mockito provides option to create spy on real objects.
+ When spy is called, then actual method of real object is called.
+Syntax
+//create a spy on actual object
+calcService = spy(calculator);
+
+//perform operation on real object
+//test the add functionality
+Assert.assertEquals(mathApplication.add(20.0, 10.0),30.0,0);
+
+35. Functional interface. If parent class has one abstract method and the child class has one abstract method. Does the child class is functional interface?examples of functional interface in Java – ANS invalid
+A functional interface can extends another interface only when it does not have any abstract method.
+
+
+36. Object class
+
+Instance of class definition
+
+The Object class, in the java.lang package, sits at the top of the class hierarchy tree. Every class is a descendant, direct or indirect, of the Object class. Every class you use or write inherits the instance methods of Object. You need not use any of these methods, but, if you choose to do so, you may need to override them with code that is specific to your class. The methods inherited from Object that are discussed in this section are:
+•	protected Object clone() throws CloneNotSupportedException
+      Creates and returns a copy of this object.
+•	public boolean equals(Object obj)
+      Indicates whether some other object is "equal to" this one.
+•	protected void finalize() throws Throwable
+      Called by the garbage collector on an object when garbage
+      collection determines that there are no more references to the object
+•	public final Class getClass()
+      Returns the runtime class of an object.
+•	public int hashCode()
+      Returns a hash code value for the object.
+•	public String toString()
+      Returns a string representation of the object.
+The notify, notifyAll, and wait methods of Object all play a part in synchronizing the activities of independently running threads in a program, which is discussed in a later lesson and won't be covered here. There are five of these methods:
+•	public final void notify()
+•	public final void notifyAll()
+•	public final void wait()
+•	public final void wait(long timeout)
+•	public final void wait(long timeout, int nanos)
+
+37. Predicate 
+Predicate<T> is a generic functional interface
+ single argument function that returns a boolean value. ...
+ It contains a test(T t) method that evaluates the predicate 
+
+ // Creating predicate 
+        Predicate<Integer> lesserthan = i -> (i < 18);  
+  
+        // Calling Predicate method 
+        System.out.println(lesserthan.test(10));
+
+
+
+
+
+38. Consumer. Example of consumer in stream api
+Consumer<T> is an in-built functional interface introduced in Java 8 in the java. util. function package. 
+Consumer can be used in all contexts where an object needs to be consumed,
+i.e. taken as input, and some operation is to be performed on the object without returning any result.
+
+public static void main(String args[]){
+    Consumer<Integer> consumer= i-> System.out.print(" "+i);
+    List<Integer> integerList=Arrays.asList(new Integer(1), 
+                              new Integer(10), new Integer(200),
+                              new Integer(101), new Integer(-10),
+                              new Integer(0));
+    printList(integerList, consumer);
+ }
+ public static void printList(List<Integer> listOfIntegers, Consumer<Integer> consumer){
+  for(Integer integer:listOfIntegers){
+    consumer.accept(integer);
+  }
+ }
+}
+ OUTPUT on executing the above code
+ 1  10  200  101  -10  0
+
+39. How to find the top five maximum values from list using stream api provided the list has 10 values.
+40. Serialization and deserialization and how to achieve it?
+
+// Java code for serialization and deserialization  
+// of a Java object 
+import java.io.*; 
+  
+class Demo implements java.io.Serializable 
+{ 
+    public int a; 
+    public String b; 
+  
+    // Default constructor 
+    public Demo(int a, String b) 
+    { 
+        this.a = a; 
+        this.b = b; 
+    } 
+  
+} 
+  
+class Test 
+{ 
+    public static void main(String[] args) 
+    {    
+        Demo object = new Demo(1, "geeksforgeeks"); 
+        String filename = "file.ser"; 
+          
+        // Serialization  
+        try
+        {    
+            //Saving of object in a file 
+            FileOutputStream file = new FileOutputStream(filename); 
+            ObjectOutputStream out = new ObjectOutputStream(file); 
+              
+            // Method for serialization of object 
+            out.writeObject(object); 
+              
+            out.close(); 
+            file.close(); 
+              
+            System.out.println("Object has been serialized"); 
+  
+        } 
+          
+        catch(IOException ex) 
+        { 
+            System.out.println("IOException is caught"); 
+        } 
+  
+  
+        Demo object1 = null; 
+  
+        // Deserialization 
+        try
+        {    
+            // Reading the object from a file 
+            FileInputStream file = new FileInputStream(filename); 
+            ObjectInputStream in = new ObjectInputStream(file); 
+              
+            // Method for deserialization of object 
+            object1 = (Demo)in.readObject(); 
+              
+            in.close(); 
+            file.close(); 
+              
+            System.out.println("Object has been deserialized "); 
+            System.out.println("a = " + object1.a); 
+            System.out.println("b = " + object1.b); 
+        } 
+          
+        catch(IOException ex) 
+        { 
+            System.out.println("IOException is caught"); 
+        } 
+          
+        catch(ClassNotFoundException ex) 
+        { 
+            System.out.println("ClassNotFoundException is caught"); 
+        } 
+  
+    } 
+} 
+Output :
+
+26.	Comparator and comparable interface
+Comparable	Comparator
+1) Comparable provides a single sorting sequence. In other words, we can sort the collection on the basis of a single element such as id, name, and price.	The Comparator provides multiple sorting sequences. In other words, we can sort the collection on the basis of multiple elements such as id, name, and price etc.
+2) Comparable affects the original class, i.e., the actual class is modified.	Comparator doesn't affect the original class, i.e., the actual class is not modified.
+3) Comparable provides compareTo() method to sort elements.	Comparator provides compare() method to sort elements.
+4) Comparable is present in java.lang package.	A Comparator is present in the java.util package.
+5) We can sort the list elements of Comparable type by Collections.sort(List) method.	We can sort the list elements of Comparator type by Collections.sort(List, Comparator) method.
+
+42.Transient in serialization. Can we serialize static variables.
+
+In case of transient variables:- A variable defined with transient keyword is not serialized during serialization process.This variable will be initialized with default value during deserialization. (e.g: for objects it is null, for int it is 0).
+
+In case of static Variables:- A variable defined with static keyword is not serialized during serialization process.This variable will be loaded with current value defined in the class during deserialization.
+
+27.	Arraylist vs linked list vs vector. When to use each of these?
+ArrayList is implemented as a resizable array. ... LinkedList is implemented as a double linked list. Its performance on add and remove is better than Arraylist, but worse on get and set methods. Vector is similar with ArrayList, but it is synchronized.
+
+ArrayList provides constant time for search operation, so it is better to use ArrayList if searching is more frequent operation than add and remove operation. The LinkedList provides constant time for add and remove operations. So it is better to use LinkedList for manipulation.
+
+
+
+
+28.	Have you worked on any other language apart from java?
+No
+
+29.	Why Java 8 is called functional  programming
+Functional programming is a paradigm that allows programming using expressions i.e. declaring functions, passing functions as arguments and using functions as statements (rightly called expressions in Java8)
+
+30.	What is functional programming and advantages of it?
+31.	Functional programming moves more basic programming ideas into the compiler, ideas such as list comprehensions and caching.
+32.	The biggest benefit of Functional programming is brevity, because code can be more concise.
+
+33.	What is the advantage of streams
+
+Streams have a strong affinity with functions.
+ Streams provide the most convenient and natural way to apply functions to sequences of objects.
+
+48. Result of SOP(collectionObj.stream())
+
+49. What are all intermediate operations and terminal operations in stream
+
+The operations which return another stream as a result are called intermediate operations 
+the operations which return non-stream values like primitive or object or collection or return nothing are called terminal operations.
+
+34.	How will you sort using stream
+// Creating a list of integers 
+        List<Integer> list = Arrays.asList(5, 2, 0, 25, 4); 
+  
+        System.out.println("The sorted stream is : "); 
+  
+        // displaying the stream with elements 
+        // sorted in natural order 
+        list.stream().sorted().limit(2).forEach(System.out::println);
+
+
+35.	How to get top 10 highly paid employees in the list of 1000 employees
+36.	List<Employee> empList = new ArrayList<>();
+37.	        empList.add(new Employee("Nataraja G", "Accounts", 8000));
+38.	        empList.add(new Employee("Nagesh Y", "Admin", 15000));
+39.	        empList.add(new Employee("Vasu V", "Security", 2500));
+40.	        empList.add(new Employee("Amar", "Entertinment", 12500));
+41.	 
+42.	        // find employees whose salaries are above 10000
+43.	        empList.stream().filter(emp->emp.getSalary() > 10000).limit(10).forEach(System.out::println);
+
+
+
+
+55. Can we declare int array as volatile?
+
+The answer is, Yes, you can make an array (both primitive and reference type array e.g. an int array and String array) volatile in Java 
+but only changes to reference pointing to an array will be visible to all threads, not the whole array
+
+56. What is the functional interface and few examples
+1.	@FunctionalInterface  
+2.	interface sayable{  
+3.	    void say(String msg);  
+4.	}
+
+1.	@FunctionalInterface  
+2.	interface sayable{  
+3.	    void say(String msg);   // abstract method  
+4.	    // It can contain any number of Object class methods.  
+5.	    int hashCode();  
+6.	    String toString();  
+7.	    boolean equals(Object obj);  
+8.	}  
+
+1.	interface sayable{  
+2.	    void say(String msg);   // abstract method  
+3.	}  
+4.	@FunctionalInterface  
+5.	interface Doable extends sayable{  
+6.	    // Invalid '@FunctionalInterface' annotation; Doable is not a functional interface  
+7.	    void doIt();  
+8.	}  
+Output:
+compile-time error
+
+1.	interface Doable{  
+2.	    default void doIt(){  
+3.	        System.out.println("Do it now");  
+4.	    }  
+5.	}  
+6.	@FunctionalInterface  
+7.	interface Sayable extends Doable{  
+8.	    void say(String msg);   // abstract method  
+9.	}  
+
+
+
+57. Class A is functional interface, Class B extends  A, How could be Class B can be functional interface
+A functional interface can extends another interface only when it does not have any abstract method.
+
+
+44.	What are all the 4 types of functional interface
+ java 8 functional interfaces are 
+Consumer , Supplier , Function and Predicate
+
+
+59. What is Predicate?
+60. What is the Consumer
+61. What is Function in Java 8
+Function<String, Integer> func = x -> x.length();
+
+        Integer apply = func.apply("mkyong");   // 6
+
+        System.out.println(apply);
+
+The Function Interface is a part of the java. util. function package which has been introduced since Java 8, to implement functional programming in Java. 
+It represents a function which takes in one argument and produces a result.
+
+62. Have you worked on any multithreaded programming framework
+63. What is the future?
+64. How is your application deployed?
+65. How CICD tool is connected to Git
+66. Internal & external iterator in java 8
+
+External Iterators- This Iterator is also known as active iterator or explicit iterator. For this to control over iteration of elements 
+To define how the next element of iteration is called.
+1.	//Traditional java for-each iterator which is an External Iterator.
+2.			for (String item : items) {
+3.				System.out.println(item);
+4.			}
+
+
+Internal Iterators- This Iterator is also known as passive iterator, implicit iterator or callback iterator. For this type of iterator the control over the iteration of elements lies with the iterator itself.
+ does not manage and control how the iteration of individual elements take place.
+1.	//iterate over list items
+2.			//Java 8 forEach iterator which is an Internal Iterator.
+3.			items.forEach(item -> System.out.println(item));
+
+67. how to handle single sorting and multiple sorting by using comparable & comparator?
+class Movie implements Comparable<Movie> 
+{ 
+    private double rating; 
+    private String name; 
+    private int year; 
+  
+    // Used to sort movies by year 
+    public int compareTo(Movie m) 
+    { 
+        return this.year - m.year; 
+    } 
+
+Collections.sort(list);
+
+
+// Class to compare Movies by ratings 
+class RatingCompare implements Comparator<Movie> 
+{ 
+    public int compare(Movie m1, Movie m2) 
+    { 
+        if (m1.getRating() < m2.getRating()) return -1; 
+        if (m1.getRating() > m2.getRating()) return 1; 
+        else return 0; 
+    } 
+} 
+  
+// Class to compare Movies by name 
+class NameCompare implements Comparator<Movie> 
+{ 
+    public int compare(Movie m1, Movie m2) 
+    { 
+        return m1.getName().compareTo(m2.getName()); 
+    } 
+} 
+
+System.out.println("Sorted by rating"); 
+        RatingCompare ratingCompare = new RatingCompare(); 
+        Collections.sort(list, ratingCompare); 
+
+System.out.println("\nSorted by name");
+NameCompare nameCompare = new NameCompare(); 
+        Collections.sort(list, nameCompare);
+
+
+
+68. How to write test cases for private method in junit/mockito
+
+For Mockito, there is no direct support to mock private and static methods. In order to test private methods, you will need to refactor the code to change the access to protected (or package) and you will have to avoid static/final methods.
+
+69. How to write test cases for static method in junit/mockito
+
+There are four easy steps in setting up a test that mocks a static call:
+1.	Use the PowerMock JUnit runner:
+
+@RunWith(PowerMockRunner.class)
+2.	Declare the test class that we’re mocking:
+@PrepareForTest(UsesResourceBundle.class)
+3.	Tell PowerMock the name of the class that contains static methods:
+mockStatic(ResourceBundle.class);
+4.	Setup the expectations, telling PowerMock to expect a call to a static method:
+expect(ResourceBundle.getBundle("SomeBundleName", Locale.ENGLISH)).andReturn(bundle);
+
+70. how to create jenkin job to make autonomous build (commands to create it)
+I have added the following windows commands:
+javac HelloWorld.java
+java HelloWorld
+
+
+
+
+
+71. Optional in java? why is it necessary?
+
+Java 8 has introduced a new class Optional in java.util package. 
+It can help in writing a neat code without using too many null checks. 
+By using Optional, we can specify alternate values to return or alternate code to run. 
+To avoid abnormal termination, we use the Optional class. 
+
+In the following example, we are using Optional. So, our program can execute without crashing.
+
+String[] words = new String[10];   
+        Optional<String> checkNull =  
+                      Optional.ofNullable(words[5]);   
+        if (checkNull.isPresent()) {   
+            String word = words[5].toLowerCase();   
+            System.out.print(word);   
+        } else  
+            System.out.println("word is null");  
+
+
+72. what kind of value stored in optional? when to use it? 
+
+Optional is a container object used to contain not-null objects.
+ Optional object is used to represent null with absent value. 
+to facilitate code to handle values as 'available' or 'not available' instead of checking null values.
+
+73. callable and runnable?
+
+Runnable interface should be implemented by any class whose instances are intended to be executed by a Thread. The class must define a method of no arguments called run.
+Callable: A task that returns a result and may throw an exception. Implementors define a single method with no arguments called call. The Callable interface is similar to Runnable, in that both are designed for classes whose instances are potentially executed by another thread. A Runnable, however, does not return a result and cannot throw a checked exception.
+
++-------------------------------------+--------------------------------------------------------------------------------------------------+
+|              Runnable               |                                           Callable<T>                                            |
++-------------------------------------+--------------------------------------------------------------------------------------------------+
+| Introduced in Java 1.0 of java.lang | Introduced in Java 1.5 of java.util.concurrent library                                           |
+| Runnable cannot be parametrized     | Callable is a parametrized type whose type parameter indicates the return type of its run method |
+| Runnable has run() method           | Callable has call() method                                                                       |
+| Runnable.run() returns void         | Callable.call() returns a value of Type T                                                        |
+| Can not throw Checked Exceptions    | Can throw Checked Exceptions                                                                     |
++-------------------------------------+--------------------------------------------------------------------------------------------------+
+
+
+
+
+74. return type of callable? why do we use it?
+Once a task is completed by the thread, that thread returns to the pool as an available thread.
+ Callable is same as Runnable but it can return any type of Object
+ if we want to get a result or status from work (callable)
+
+75. How to get random values by streaming?
+
+A random stream is generated using a random number generator or equation. 
+The random number generator begins with an initial seed value after which, each successive value uses the previous value as input to the generator.
+
+new Random().ints(5);  
+Now our random stream will only contain 5 elements.
+
+76. how to achieve parallel and sequential operation in java streaming
+
+Parallel streams divide the provided task into many and run them in different threads, utilizing multiple cores of the computer. 
+
+On the other hand sequential streams work just like for-loop using a single core.
+
+public static void main (String[] args) {
+        String[] strings = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+
+        System.out.println("-------\nRunning sequential\n-------");
+        run(Arrays.stream(strings).sequential());
+        System.out.println("-------\nRunning parallel\n-------");
+        run(Arrays.stream(strings).parallel());
+    }
+
+    public static void run (Stream<String> stream) {
+
+        stream.forEach(s -> {
+            System.out.println(LocalTime.now() + " - value: " + s +
+                                " - thread: " + Thread.currentThread().getName());
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+}
+
+77. Does hashmap work in multithreaded environment? If yes how/ if no why/how?
+
+It is a problem if multiple threads are adding to the same HashMap instance without it being synchronized.
+ Even if just 1 thread is modifying a HashMap and other threads are reading from that same map without synchronization, you will run into problems.
+
+78. ConcurrentHashMap? how it internally works?
+
+ConcurrentHashMap: It allows concurrent access to the map. Part of the map called Segment (internal data structure) is only getting locked while adding or updating the map. So ConcurrentHashMap allows concurrent threads to read the value without locking at all. This data structure was introduced to improve performance.
+
+After getting the hashVal we can decide the Segment as below:
+Segment seg = segments[(hash & 0x1F)];     // segments is an array defined above 
+   
+Since it's all about concurrency, we need synchronized block on the above Segment as below:
+synchronized (seg) {
+  // code to add
+  int index = hash & table.length - 1; // hash we have calculated for key and table is Entry[] table
+  Entry first = table[index];
+  for (Entry e = first; e != null; e = e.next) {
+    if ((e.hash == hash) && (eq(key, e.key))) { // if key already exist means updating the value
+      Object oldValue = e.value;
+      e.value = value;
+      return oldValue;
+    }
+  }
+  Entry newEntry = new Entry(hash, key, value, first); // new entry, i.e. this key not exist in map
+  table[index] = newEntry; // Putting the Entry object at calculated Index 
+}
+
+79. How CopyOnWriteArrayList/CopyOnWriteArraySet internally works?
+CopyOnWriteArraySet:
+It share some properties of Set and also has its own properties:
+•	The internal implementation of CopyOnWriteArraySet is CopyOnWriteArrayList only.
+•	Multiple Threads are able to perform update operation simultaneously but for every update operation a separate cloned copy is created. As for every update a new cloned copy will be created which is costly. Hence if multiple update operation are required then it is not recommended to use CopyOnWriteArraySet.
+•	While one thread iterating the Set, other threads can perform updation, here we wont get any runtime exception like ConcurrentModificationException.
+•	Iterator of CopyOnWriteArraySet class can perform only read only and wont perform deletion, otherwise we will get Run-time exception UnsupportedOperationException.
+
+•	As the name indicates, CopyOnWriteArrayList creates a Cloned copy of underlying ArrayList, for every update operation at certain point both will be synchronized automatically ,which is taken care by JVM. Therefore there is no effect for threads which are performing read operation.
+•	It is costly to use because for every update operation a cloned copy will be created. Hence CopyOnWriteArrayList is the best choice if our frequent operation is read operation.
+•	It extends object and implements Serializable, Cloneable, Iterable<E>, Collection<E>, List<E> and RandomAccess
+•	The underlined data structure is grow-able array.
+•	It is thread-safe version of ArrayList.
+•	Insertion is preserved, duplicates are allowed and heterogeneous Objects are allowed.
+•	The main important point about CopyOnWriteArrayList is Iterator of CopyOnWriteArrayList can not perform remove operation otherwise we get Run-time exception saying UnsupportedOperationException.
+
+
+
+80. Blocking queue? 
+
+A blocking queue is a queue that blocks when you try to dequeue from it and the queue is empty, or if you try to enqueue items to it and the queue is already full.
+ A thread trying to dequeue from an empty queue is blocked until some other thread inserts an item into the queue.
+
+
+1.	Java 8 Stream Api: Find top 10 employees from a list of 1000 employees who are having salary > 30000
+
+// find employees whose salaries are above 10000
+        empList.stream().filter(emp->emp.getSalary() > 10000).limit(1).forEach(System.out::println);
+
+2. How did you handled exception in your spring boot application? 
+
+The @ExceptionHandler is an annotation used to handle the specific exceptions and sending the custom responses to the client.
+
+ @ControllerAdvice and @ExceptionHandler annotations to create global error handling. That allows you to keep your logic in a central place, thus removing possible duplication, and, when applied globally,
+
+4.	Checked exception , unchecked exception
+5.	
+6.	Java verifies checked exceptions at compile-time.
+7.	Therefore, we should use the throws keyword to declare a checked exception:
+1
+2
+3
+4	private static void checkedExceptionWithThrows() throws FileNotFoundException {
+    File file = new File("not_existing_file.txt");
+    FileInputStream stream = new FileInputStream(file);
+}
+8.	We can also use a try-catch block to handle a checked exception:
+1
+2
+3
+4
+5
+6
+7
+8	private static void checkedExceptionWithTryCatch() {
+    File file = new File("not_existing_file.txt");
+    try {
+        FileInputStream stream = new FileInputStream(file);
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }
+}
+
+If a program throws an unchecked exception, it reflects some error inside the program logic. For example, if we divide a number by 0, Java will throw ArithmeticException:
+1
+2
+3
+4
+5	private static void divideByZero() {
+    int numerator = 1;
+    int denominator = 0;
+    int result = numerator / denominator;
+}
+
+4.	
+5.	
+6.	
+7.	How would you write a hello world spring boot application ?
+1.	package com.javatpoint.controller;  
+2.	import org.springframework.web.bind.annotation.RequestMapping;  
+3.	import org.springframework.web.bind.annotation.RestController;  
+4.	@RestController  
+5.	public class HelloWorldController   
+6.	{  
+7.	@RequestMapping("/")  
+8.	public String hello()   
+9.	{  
+10.	return "Hello javaTpoint";  
+11.	}  
+12.	}  
+Step 11: Run the SpringBootHelloWorldExampleApplication.java file.
+SpringBootHelloWorldExampleApplication.java
+1.	package com.javatpoint;  
+2.	import org.springframework.boot.SpringApplication;  
+3.	import org.springframework.boot.autoconfigure.SpringBootApplication;  
+4.	@SpringBootApplication  
+5.	public class SpringBootHelloWorldExampleApplication  
+6.	{  
+7.	public static void main(String[] args)   
+8.	{  
+9.	SpringApplication.run(SpringBootHelloWorldExampleApplication.class, args);  
+10.	}  
+11.	}  
+
+4. What are the new features in java 8 ?
+5. How did you deploy your spring boot application (CI/CD)?
+
+6. Have you used multi-threading in your application ? How ?
+// Java code for thread creation by extending 
+// the Thread class 
+class MultithreadingDemo extends Thread 
+{ 
+    public void run() 
+    { 
+        try
+        { 
+            // Displaying the thread that is running 
+            System.out.println ("Thread " + 
+                  Thread.currentThread().getId() + 
+                  " is running"); 
+  
+        } 
+        catch (Exception e) 
+        { 
+            // Throwing an exception 
+            System.out.println ("Exception is caught"); 
+        } 
+    } 
+} 
+  
+// Main Class 
+public class Multithread 
+{ 
+    public static void main(String[] args) 
+    { 
+        int n = 8; // Number of threads 
+        for (int i=0; i<n; i++) 
+        { 
+            MultithreadingDemo object = new MultithreadingDemo(); 
+            object.start(); 
+        } 
+    } 
+
+7. What are the best practices did you follow when writing 
+   multi-threading application ? 
+
+1) Use Local Variables
+Always try to use local variables instead of creating class or instance variables. Some time, developer use instance variable to save memory and reusing them, because they think creating local variable every time method invoked may take a lot of memory. One example of this is declaring Collection as member and reusing them by using clear() method.
+2) Prefer Immutable Classes
+Another and most widely known Java multi-threading best practice is to prefer an Immutable class. Immutable classes like String, Integer and other wrapper classes greatly simplify writing concurrent code in Java because you don't need to worry about there state. Immutable classes reduce the amount of synchronization in code.
+10) Avoid Using static variables
+As shown in first multi-threading best practice, static variables can create lots of issues during concurrent execution. If you happen to use static variable, consider it making static final constants and if static variables are used to store Collections like List or Map then consider using only read only collections. If you are thinking of reusing Collection to save memory, please see the example in first best practice to learn how static variables can cause problem in concurrent programs.
+11) Prefer Lock over synchronized keyword
+This is a bonus multi-threading best practice, but it's double edge sword at same time. Lock interface is powerful but every power comes with responsibility. Different locks for read and write operation allows to build scalable data structures like ConcurrentHashMap, but it also require lot of care during coding.
+
+8.	Asked use cases uning java 8 stream Api - filter, map, sorted, foreach, etc
+
+9.	List<String> myList = Arrays.asList("a1", "a2", "a3", "a4", "b1", "b2", "c1", "c3", "c2");
+10.	
+11.	myList.stream()
+12.		.filter(s -> s.starstWith("c"))
+13.		.map(String::toUpperCase)
+14.		.sorted()
+15.		.forEach(System.out::println);
+In above example filter, map and sorted are intermediate operations, while forEach is terminal operation.
+
+forEach
+Loop a Map with forEach and lambda expression.
+Map<String, Integer> items = new HashMap<>();
+
+items.put("A", 10);
+items.put("B", 10);
+items.put("C", 10);
+items.put("D", 70);
+items.put("E", 100);
+
+// stream() and filter()
+items.stream()
+	.filter((k, v) -> v > 0 && v < 50)
+	.forEach((k, v)->{
+		System.out.println("Item : " + k + " Count : " + v);
+	});
+Loop a List with forEach and lambda expression.
+List<String> items = new ArrayList<>();
+items.add("Mohammed");
+items.add("Yuri");
+items.add("Cha");
+items.add("Doe");
+
+// Lambda
+items.forEach(item -> System.out.println(item));
+Filter
+Filter a List and collect() to convert a stream into a List.
+List<String> studentName = Arrays.asList("hector", "hana", "stone");
+
+List<String> result = studentName.stream()	// Convert list to stream
+	.filter(name -> !"hana".equals(name))	// remove "hana" hana from list
+	.collect(Collectors.toList());			// collect the output and convert Stream to List
+
+// print using method reference
+result.forEach(System.out::println);
+Map
+In Java 8, Map let us convert an object into something else.
+Just for example, below using List of object using HashMap. The use of Entity instead of HashMap is way better for more serious code.
+Sample json object:
+[{"name": "koko", "age": 24 },
+{ "name": "jahe", "age": 31 },
+{ "name": "santi", "age": 44 }]
+Java code to create that structure using List of Map is like this:
+List<HashMap<String, Object> listEmployee = new ArrayList<HashMap<String, Object>>();
+HashMap<String, Object> employee = new HashMap<String, Object>();
+employee.put("name", "koko");
+employee.put("age", 24);
+listEmployee.add(employee);
+
+employee = new HashMap<String, Object>();
+employee.put("name", "jahe");
+employee.put("age", 31);
+listEmployee.add(employee);
+
+employee = new HashMap<String, Object>();
+employee.put("name", "santi");
+employee.put("age", 44);
+listEmployee.add(employee);
+We want to mutate attribute from my Map so beside having name and age, We can put new attribute grade. Here is how we mutate them directly using map() + lambda expression.
+listEmployee.stream()
+	.map(employee -> {
+		HashMap<String, Object> mapEmployee = new HashMap<String, Object>((Map) employee) // Convert employee to HashMap
+		mapEmployee.put("grade", "Manager"); // add new field 'grade' with value 'manager' for each object
+		return mapEmployee;
+	})
+	.collect(Collectors.toList()); // Collect stream and convert to List
+
+
+
+9. What are the Functional interfaces available in java 8 ?
+10. What is databinding in Angular ?
+11. What is component in Angular ?
+
+12. Why did you use Custom Thread Pool for CompletableFuture in your application ?
+A CompletableFuture is an extension to Java's Future API which was introduced in Java 8. A Future is used for asynchronous Programming. It provides two methods, isDone() and get(). The methods retrieve the result of the computation when it completes.
+
+13. What is the difference between supplyAsync and runAsync ?
+12
+runAsync takes Runnable as input parameter and returns CompletableFuture<Void>, which means it does not return any result.
+CompletableFuture<Void> run = CompletableFuture.runAsync(()-> System.out.println("hello"));
+
+But suppyAsync takes Supplier as argument and returns the CompletableFuture<U> with result value, which means it does not take any input parameters but it returns result as output.
+CompletableFuture<String> supply = CompletableFuture.supplyAsync(() -> {
+        System.out.println("Hello");
+        return "result";
+    });
+
+ System.out.println(supply.get());  //result
+Conclusion : So if you want the result to be returned, then choose supplyAsync or if you just want to run an async action, then choose runAsync.
+
+13.	Difference between RestController and Controller ?
+
+The @Controller is a common annotation that is used to mark a class as Spring MVC Controller while @RestController is a special controller used in RESTFul web services and the equivalent of @Controller + @ResponseBody
+
+
+14.	Did you use aggregation in MongoDB ?
+
+15.	What is singleton class ? How will you create a singleton class in multithreaded environment.
+
+
+Singleton Class in Java. In object-oriented programming, a singleton class is a class that can have only one object (an instance of the class) at a time. ... To design a singleton class: Make constructor as private. Write a static method that has return type object of this singleton class.
+
+// static variable single_instance of type Singleton 
+    private static Singleton single_instance = null; 
+  
+    // variable of type String 
+    public String s; 
+  
+    // private constructor restricted to this class itself 
+    private Singleton() 
+    { 
+        s = "Hello I am a string part of Singleton class"; 
+    } 
+  
+    // static method to create instance of Singleton class 
+    public static Singleton getInstance() 
+    { 
+        if (single_instance == null) 
+            single_instance = new Singleton(); 
+  
+        return single_instance; 
+    } 
+
+Thread Safe Singleton: A thread safe singleton in created so that singleton property is maintained even in multithreaded environment. To make a singleton class thread-safe, getInstance() method is made synchronized so that multiple threads can’t access it simultaneously.
+filter_none
+edit
+play_arrow
+brightness_4
+// Java program to create Thread Safe 
+// Singleton class 
+public class GFG  
+{ 
+  // private instance, so that it can be 
+  // accessed by only by getInstance() method 
+  private static GFG instance; 
+  
+  private GFG()  
+  { 
+    // private constructor 
+  } 
+  
+ //synchronized method to control simultaneous access 
+  synchronized public static GFG getInstance()  
+  { 
+    if (instance == null)  
+    { 
+      // if instance is null, initialize 
+      instance = new GFG(); 
+    } 
+    return instance; 
+  } 
+} 
+
+17. Explain how did you work in Agile methodology ?
+
+Agile SDLC model is a combination of iterative and incremental process models with focus on process adaptability and customer satisfaction by rapid delivery of working software product. Agile Methods break the product into small incremental builds. These builds are provided in iterations.
+
+
+
+
+18. How did you fix performance issues that you faced in your application ?
+Use StringBuilder to concatenate Strings programmatically
+Use primitives where possible
+
+
+19. What tool did you use to monitor jvm based application performance ?
+1. Eclipse MAT
+The Eclipse Memory Analyzer is a Java heap analyzer that can help you pinpoint memory leaks and reduce memory consumption. It can be used to analyze productive heap dumps to calculate the retained sizes of objects, see who is preventing the Garbage Collector from collecting objects, and run a report to automatically extract leak suspects.
+
+20. what are the differnce between margin and padding ?
+21. How would you write a responsive web page ?
+22. I want a div always to the right-bottom of a web page ? how would you do that ?
+23. What is responsiveness of a webpage ? how to write responsive page?
+
+24. How would you combine result of three different threads and do some further operation with the result?
+public class TestJoin {
+     public static void main(String...args) throws InterruptedException {
+           Printer.print("start main()...");
+
+           MyThread runnable = new MyThread();
+           Thread thread1=new Thread(runnable);
+           Thread thread2=new Thread(runnable);
+
+           thread1.start();
+           thread1.join();
+
+           thread2.start();
+           thread2.join();
+
+           Printer.print("end main()");
+     }
+}
+
+class Printer {
+     public static void print(String str) {
+           System.out.println(str);
+     }
+}
+
+25. Do you know writing script ? Was asking about writing script for jenkins pileline for CI/CD deloyment
+26. Asked some analytical question in between like - you have three bucket of capacity 10, 5, 4 litres respectively. 
+You need to fill upto 7 litre in the 10 litre bucket using 5 litre and 4 litre size buckets.  
+
+5-4 = 1
+5+1+1
+
+27. Brief about yourself.
+28. How do you follow the technology trends ?
+CNET, the verge
+29. What are the latest things did you learn recently ?
+A Saga is a sequence of local transactions where each transaction updates data within a single service. The first transaction is initiated by an external request corresponding to the system operation, and then each subsequent step is triggered by the completion of the previous one.
+
+In transaction processing, databases, and computer networking, the two-phase commit protocol (2PC) is a type of atomic commitment protocol (ACP). ... The protocol achieves its goal even in many cases of temporary system failure (involving either process, network node, communication, etc. failures), and is thus widely used.
+
+30. We have vastly experienced (17-18 years of experienced) java experts in client-side. 
+    You have to work with them directly and independently. 
+31. Why did you use custom ThreadPoll though CompletableFuture provides inbuilt executor ?
+
+•	The CompletableFuture API allows to easily chain more calls with thenApply(), thenCompose() etc. It is thus more flexible than the simple Future returned by ExecutorService.submit();
+•	Using CompletableFuture allows to easily return a future from your child() method using return CompletableFuture.allOf(the previously created futures).
+•	
+•	thenApply is used if you have a synchronous mapping function.
+•	CompletableFuture<Integer> future = 
+•	    CompletableFuture.supplyAsync(() -> 1)
+•	                     .thenApply(x -> x+1);
+•	thenCompose is used if you have an asynchronous mapping function (i.e. one that returns a CompletableFuture). It will then return a future with the result directly, rather than a nested future.
+•	CompletableFuture<Integer> future = 
+•	    CompletableFuture.supplyAsync(() -> 1)
+•	                     .thenCompose(x -> CompletableFuture.supplyAsync(() -> x+1));
+
+
+32. What are the database did you work on ?
+33. what do you mean by clean code ? How did you follow in your application ?
+
+1.	Make code readable for people. It is true that the code we write will be interpreted by machines. ...
+2.	Use meaningful names for variables, functions and methods. ...
+3.	Let one function or method perform only one task. ...
+4.	Use comments for clarification. ...
+5.	Be consistent. ...
+6.	Review your code regularly.
+
+34. Cross questions after telling new features in Java 8.
+35. There is a global static arraylist in a class. Does it have any impact in multithreaded environment ?
+
+When i ran the application 10 times and at least 3 to 4 times the program did not print correct number of completed tasks. Ideally it should print 100(if no exceptions happen). But in some cases it was printing 98, 99 etc.
+Thus it proves that concurrent updates of ArrayList will not give correct results.
+If i replace the ArrayList with a Synchronized version, the program outputs the correct results.
+
+// Should be replaced with Collections.synchronizedList(new ArrayList<Integer>())
+    public List<Integer> completed = new ArrayList<Integer>();
+
+
+
+36. What are the precautions do you follow to prevent memory leaks in your application ?
+Static Field Holding On to the Object Reference
+Unclosed Streams
+Unclosed Connections
+Do Profiling
+Review Your Code
+
+
+1>	what is the disadvantages of singleton pattern ?
+
+One of the main disadvantages of singletons is that they make unit testing very hard. 
+They introduce global state to the application. The problem is that you cannot completely isolate classes dependent on singletons. When you are trying to test such a class, you inevitably test the Singleton as well.
+
+2>	Why we should use spring cloud ?
+
+Spring Cloud config provides client-side and server support for various configurations in distributed systems. It provides a centralized platform to manage various properties for all applications across different environments.
+
+3>	Spring cloud concepts - Eureka, Zuul, Zookeeper, Hystrix
+
+Spring Boot - Eureka Server. Advertisements. Eureka Server is an application that holds the information about all client-service applications. Every Micro service will register into the Eureka server and Eureka server knows all the client applications running on each port and IP address.
+
+4>	What is microservices ?
+Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of services that are. Highly maintainable and testable. Loosely coupled. Independently deployable. Organized around business capabilities.
+
+5>	what is race condition ? how to resolve that ?
+A race condition occurs when two or more threads can access shared data and they try to change it at the same time. Because the thread scheduling algorithm can swap between threads at any time, you don't know the order in which the threads will attempt to access the shared data.
+
+What is a Race Condition?
+You are planning to go to a movie at 5 pm. You inquire about the availability of the tickets at 4 pm. The representative says that they are available. You relax and reach the ticket window 5 minutes before the show. I'm sure you can guess what happens: it's a full house. The problem here was in the duration between the check and the action. You inquired at 4 and acted at 5. In the meantime, someone else grabbed the tickets. That's a race condition - specifically a "check-then-act" scenario of race conditions.
+How do you detect them?
+Religious code review, multi-threaded unit tests. There is no shortcut. There are few Eclipse plugin emerging on this, but nothing stable yet.
+How do you handle and prevent them?
+The best thing would be to create side-effect free and stateless functions, use immutables as much as possible. But that is not always possible. So using java.util.concurrent.atomic, concurrent data structures, proper synchronization, and actor based concurrency will help.
+
+
+6>	CompletableFuture - thencompose method with use case
+CompletableFuture is used for asynchronous programming in Java. Asynchronous programming is a means of writing non-blocking code by running a task on a separate thread than the main application thread and notifying the main thread about its progress, completion or failure.
+
+thenCompose is used if you have an asynchronous mapping function (i.e. one that returns a CompletableFuture). It will then return a future with the result directly, rather than a nested future.
+CompletableFuture<Integer> future = 
+    CompletableFuture.supplyAsync(() -> 1)
+                     .thenCompose(x -> CompletableFuture.supplyAsync(() -> x+1));
+
+
+7>	How to create an immutable class ?
+3.1. Simple Immutable Class
+Let’s follow the above steps and create our own immutable class (ImmutableStudent.java).
+package com.programmer.gate.beans;
+public final class ImmutableStudent {
+    private final int id;
+    private final String name;
+    public ImmutableStudent(int id, String name) {
+        this.name = name;
+        this.id = id;
+    }
+    public int getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+}
+The above class is a very simple immutable class which doesn’t hold any mutable object and never expose its fields in any way; these type of classes are normally used for caching purposes.
+3.2. Passing Mutable Objects to Immutable Class
+Now, let’s complicate our example a bit, we create a mutable class called Age and add it as a field to ImmutableStudent:
+package com.programmer.gate.beans;
+public class Age {
+    private int day;
+    private int month;
+    private int year;
+    public int getDay() {
+        return day;
+    }
+    public void setDay(int day) {
+    this.day = day;
+    }
+    public int getMonth() {
+    return month;
+    }
+    public void setMonth(int month) {
+    this.month = month;
+    }
+    public int getYear() {
+    return year;
+    }
+    public void setYear(int year) {
+    this.year = year;
+    }
+}
+package com.programmer.gate.beans;
+public final class ImmutableStudent {
+    private final int id;
+    private final String name;
+    private final Age age;
+    public ImmutableStudent(int id, String name, Age age) {
+    this.name = name;
+    this.id = id;
+    this.age = age;
+    }
+    public int getId() {
+    return id;
+    }
+    public String getName() {
+    return name;
+    }
+    public Age getAge() {
+    return age;
+    }
+}
+So, we added a new mutable field of type Age to our immutable class and assign it as normal inside the constructor.
+Let’s create a simple test class and verify that ImmutableStudent is no more immutable:
+public static void main(String[] args) {
+    Age age = new Age();
+    age.setDay(1);
+    age.setMonth(1);
+    age.setYear(1992);
+    ImmutableStudent student = new ImmutableStudent(1, "Alex", age);
+    System.out.println("Alex age year before modification = " + student.getAge().getYear());
+    age.setYear(1993);
+    System.out.println("Alex age year after modification = " + student.getAge().getYear());
+}
+After running the above test, we get the following output:
+Alex age year before modification = 1992
+Alex age year after modification = 1993
+We claim that ImmutableStudent is an immutable class whose state is never modified after construction, however in the above example we are able to modify the age of Alex even after constructing Alex object. If we go back to the implementation of ImmutableStudent constructor, we find that age field is being assigned to the instance of the Age argument, so whenever the referenced Age is modified outside the class, the change is reflected directly on the state of Alex. Check out my Pass by value OR pass by reference article to more deeply understand this concept.
+In order to fix this and make our class again immutable, we follow step #5 from the steps that we mention above for creating an immutable class. So we modify the constructor in order to clone the passed argument of Age and use a clone instance of it.
+public ImmutableStudent(int id, String name, Age age) {
+    this.name = name;
+    this.id = id;
+    Age cloneAge = new Age();
+    cloneAge.setDay(age.getDay());
+    cloneAge.setMonth(age.getMonth());
+    cloneAge.setYear(age.getYear());
+    this.age = cloneAge;
+}
+Now, if we run our test, we get the following output:
+Alex age year before modification = 1992
+Alex age year after modification = 1992
+As you see now, the age of Alex is never affected after construction and our class is back to immutable.
+3.3. Returning Mutable Objects From Immutable Class
+However, our class still has a leak and is not fully immutable, let’s take the following test scenario:
+public static void main(String[] args) {
+    Age age = new Age();
+    age.setDay(1);
+    age.setMonth(1);
+    age.setYear(1992);
+    ImmutableStudent student = new ImmutableStudent(1, "Alex", age);
+    System.out.println("Alex age year before modification = " + student.getAge().getYear());
+    student.getAge().setYear(1993);
+    System.out.println("Alex age year after modification = " + student.getAge().getYear());
+}
+Output:
+Alex age year before modification = 1992
+Alex age year after modification = 1993
+Again according to step #4, when returning mutable fields from immutable object, you should return a clone instance of them and not the real instance of the field.
+So we modify getAge() in order to return a clone of the object’s age:
+public Age getAge() {
+    Age cloneAge = new Age();
+    cloneAge.setDay(this.age.getDay());
+    cloneAge.setMonth(this.age.getMonth());
+    cloneAge.setYear(this.age.getYear());
+    return cloneAge;
+}
+Now the class becomes fully immutable and provides no way or method for other objects to modify its state.
+Alex age year before modification = 1992
+Alex age year after modification = 1992
+
+8> How did you follow agile scrum methodology in your project ?
+     Basically asked - different calls/ meetings and terminologies in agile.
+
+Agile is a continuous iteration of development and testing in the software development process whereas Scrum is an Agile process to focus on delivering the business value in the shortest time. Agile methodology delivers the software on a regular basis for feedback while Scrum delivers the software after each sprint.
+
+9> Difference between collection and stream 
+Difference Between Collections Vs Streams In Java :
+Collections	Streams
+Collections are mainly used to store and group the data.	Streams are mainly used to perform operations on data.
+You can add or remove elements from collections.	You can’t add or remove elements from streams.
+Collections have to be iterated externally.	Streams are internally iterated.
+Collections can be traversed multiple times.	Streams are traversable only once.
+Collections are eagerly constructed.	Streams are lazily constructed.
+Ex : List, Set, Map…	Ex : filtering, mapping, matching…
+
+10> Give one instance where you had made contribution outside your work in the team
+11> what keep you motivated and keep going ?
+12> why do we use spring boot ?
+The main goal of Spring Boot Framework is to reduce Development, Unit Test and Integration Test time and to ease the development of Production ready web applications very easily compared to existing Spring Framework, which really takes more time. To provide some defaults to quick start new projects within no time.
+
+13> what is actuator ?
+The actuator endpoints allow us to monitor and interact with our Spring Boot application. Spring Boot includes number of built-in endpoints and we can also add custom endpoints in Spring Boot application.
+
+Open the application.properties file and disable the security feature of the actuator by adding the following statement.
+application.properties
+1.	management.security.enabled=false 
+
+There are three main features of Spring Boot Actuator:
+o	Endpoints
+o	Metrics
+o	Audit
+
+
+14> How did you deploy your microservices ? Is it in cloud / dedicated server 
+
+One way to deploy your microservices is to use the Multiple Service Instances per Host pattern. When using this pattern, you provision one or more physical or virtual hosts and run multiple service instances on each one. In many ways, this the traditional approach to application deployment.
+
+15> How did you take care for the performance of your application ?
+
+ 
+
+16> Which front end technologies have you worked on ?
+
+1. What is the difference between display none and visibility hidden.
+2. what is singleton design pattern.
+3. when to use prototype scope in spring.
+Prototype	A new bean instance is created each time the bean is requested from the IOC container
+
+4. what is lambda expression.
+5. How to find odd numbers from list in java 8.
+    
+list.stream()
+   .filter(n -> n % 2 != 0)
+   .forEach(System.out::println);
+     
+
+6. What is functional interface.
+7. Difference between @component and @bean.
+
+1.	@Component auto detects and configures the beans using classpath scanning whereas @Bean explicitly declares a single bean, rather than letting Spring do it automatically.
+2.	@Component does not decouple the declaration of the bean from the class definition where as @Bean decouples the declaration of the bean from the class definition.
+3.	@Component is a class level annotation where as @Bean is a method level annotation and name of the method serves as the bean name.
+4.	@Component need not to be used with the @Configuration annotation where as @Bean annotation has to be used within the class which is annotated with @Configuration.
+5.	We cannot create a bean of a class using @Component, if the class is outside spring container whereas we can create a bean of a class using @Bean even if the class is present outside the spring container.
+6.	@Component has different specializations like @Controller, @Repository and @Service whereas @Bean has no specializations.
+
+
+Difference between Bean and Component:
+ 
+
+
+
+
+
+
+
+1) java 8 features
+2) Internal working mechanisum of Autocloseable interface.
+3) What is immutable? can we create userdefined immutable object?
+4) Explain about volatile key word
+5) What is stack?
+
+A Stack is a Last In First Out (LIFO) data structure. It supports two basic operations called push and pop. The push operation adds an element at the top of the stack, and the pop operation removes an element from the top of the stack.
+
+6) Comparable and Comparator interface
+7) Producer and Consumer problem
+
+Problem
+To make sure that the producer won’t try to add data into the buffer if it’s full and that the consumer won’t try to remove data from an empty buffer.
+Solution
+The producer is to either go to sleep or discard data if the buffer is full. The next time the consumer removes an item from the buffer, it notifies the producer, who starts to fill the buffer again. In the same way, the consumer can go to sleep if it finds the buffer to be empty. The next time the producer puts data into the buffer, it wakes up the sleeping consumer.
+An inadequate solution could result in a deadlock where both processes are waiting to be awakened.
+
+
+
+Recommended Reading- Multithreading in JAVA, Synchronized in JAVA, Inter-thread Communication
+Implementation of Producer Consumer Class
+•	A LinkedList list – to store list of jobs in queue.
+•	A Variable Capacity – to check for if the list is full or not
+•	A mechanism to control the insertion and extraction from this list so that we do not insert into list if it is full or remove from it if it is empty.
+
+Note: It is recommended to test the below program on a offline IDE as infinite loops and sleep method may lead to it time out on any online IDE
+filter_none
+edit
+play_arrow
+brightness_4
+// Java program to implement solution of producer 
+// consumer problem. 
+  
+import java.util.LinkedList; 
+  
+public class Threadexample { 
+    public static void main(String[] args) 
+        throws InterruptedException 
+    { 
+        // Object of a class that has both produce() 
+        // and consume() methods 
+        final PC pc = new PC(); 
+  
+        // Create producer thread 
+        Thread t1 = new Thread(new Runnable() { 
+            @Override
+            public void run() 
+            { 
+                try { 
+                    pc.produce(); 
+                } 
+                catch (InterruptedException e) { 
+                    e.printStackTrace(); 
+                } 
+            } 
+        }); 
+  
+        // Create consumer thread 
+        Thread t2 = new Thread(new Runnable() { 
+            @Override
+            public void run() 
+            { 
+                try { 
+                    pc.consume(); 
+                } 
+                catch (InterruptedException e) { 
+                    e.printStackTrace(); 
+                } 
+            } 
+        }); 
+  
+        // Start both threads 
+        t1.start(); 
+        t2.start(); 
+  
+        // t1 finishes before t2 
+        t1.join(); 
+        t2.join(); 
+    } 
+  
+    // This class has a list, producer (adds items to list 
+    // and consumber (removes items). 
+    public static class PC { 
+  
+        // Create a list shared by producer and consumer 
+        // Size of list is 2. 
+        LinkedList<Integer> list = new LinkedList<>(); 
+        int capacity = 2; 
+  
+        // Function called by producer thread 
+        public void produce() throws InterruptedException 
+        { 
+            int value = 0; 
+            while (true) { 
+                synchronized (this) 
+                { 
+                    // producer thread waits while list 
+                    // is full 
+                    while (list.size() == capacity) 
+                        wait(); 
+  
+                    System.out.println("Producer produced-"
+                                       + value); 
+  
+                    // to insert the jobs in the list 
+                    list.add(value++); 
+  
+                    // notifies the consumer thread that 
+                    // now it can start consuming 
+                    notify(); 
+  
+                    // makes the working of program easier 
+                    // to  understand 
+                    Thread.sleep(1000); 
+                } 
+            } 
+        } 
+  
+        // Function called by consumer thread 
+        public void consume() throws InterruptedException 
+        { 
+            while (true) { 
+                synchronized (this) 
+                { 
+                    // consumer thread waits while list 
+                    // is empty 
+                    while (list.size() == 0) 
+                        wait(); 
+  
+                    // to retrive the ifrst job in the list 
+                    int val = list.removeFirst(); 
+  
+                    System.out.println("Consumer consumed-"
+                                       + val); 
+  
+                    // Wake up producer thread 
+                    notify(); 
+  
+                    // and sleep 
+                    Thread.sleep(1000); 
+                } 
+            } 
+        } 
+    } 
+} 
+Output:
+Producer produced-0
+Producer produced-1
+Consumer consumed-0
+Consumer consumed-1
+Producer produced-2
+
+8) Internal working mechanisum of Generics
+They kind of don't work internally :) they work at the compiler level only.
+•	Generics is the ability to reuse code written for a placeholder type, such that several types can be used on instance-declaration (compile-time), maintaining type safety and reuse.
+•	When you write generic code in certain frameworks like .NET, then the Generics is built into the compiler and byte code. That means the CLR understands it and will enforce type safety at runtime as well.
+•	But with Java, this doesn't happen. The Generics is only at the compiler level, so that the IDE and compiler help the developers to avoid mistakes. (which is sufficient in most of the cases)
+•	So you cannot do:
+1.	List<String> stringList = new ArrayList<SomethingElse>();
+•	Once the compiler has assisted the developer, it erases this generic type information when the Java byte code is being generated.
+•	This is called as Type Erasure
+•	This is done to maintain binary backward compatibility of Java written in previous non-generic versions.
+
+9) How to create Stack? what are the methods availble in stack
+
+
+        Stack<Integer> stack = new Stack<Integer>(); 
+  
+        stack_push(stack); 
+        stack_pop(stack); 
+        stack_push(stack); 
+        stack_peek(stack); 
+        stack_search(stack, 2); 
+        stack_search(stack, 6); 
+
+
+
+10) Difference b/w map and flatmap?
+
+ 
+11) Design patterns (creational)
+12) How substring method works internally?
+Every time you call substring() method in Java, it will return a new String because String is immutable in Java.
+A String is basically a char[] that contains the characters of the string with an offset and a count (i.e. the string is composed of count characters starting from the offset position in the char[]).
+
+13) What is hashcode and equals method? how hashcode method works internally?
+hashCode() method
+It returns the hashcode value as an Integer. Hashcode value is mostly used in hashing based collections like HashMap, HashSet, HashTable….etc. This method must be overridden in every class which overrides equals() method.
+In java equals() method is used to compare equality of two Objects. The equality can be compared in two ways:
+
+•	During the execution of the application, if hashCode() is invoked more than once on the same Object then it must consistently return the same Integer value, provided no information used in equals(Object) comparison on the Object is modified. It is not necessary that this Integer value to be remained same from one execution of the application to another execution of the same application.
+•	If two Objects are equal, according to the equals(Object) method, then hashCode() method must produce the same Integer on each of the two Objects.
+•	If two Objects are unequal, according to the equals(Object) method, It is not necessary the Integer value produced by hashCode() method on each of the two Objects will be distinct. It can be same but producing the distinct Integer on each of the two Objects is better for improving the performance of hashing based Collections like HashMap, HashTable…etc.
+
+
+14) How the Bridge Design pattern works internally?
+
+15) What is the return type of filter method?
+The filter() method returns an iterator that passed the function check for each element in the iterable.
+
+16) Method Reference in java
+Java provides a new feature called method reference in Java 8. Method reference is used to refer method of functional interface. It is compact and easy form of lambda expression. Each time when you are using lambda expression to just referring a method, you can replace your lambda expression with method reference. In this tutorial, we are explaining method reference concept in detail.
+________________________________________
+Types of Method References
+There are following types of method references in java:
+1.	Reference to a static method.
+2.	Reference to an instance method.
+3.	Reference to a constructor.
+
+17) Can we create own generics class? if yes how? / if no why?
+18) Dead lock condition
+
+Deadlock describes a situation where two or more threads are blocked forever, waiting for each other. ... A Java multithreaded program may suffer from the deadlock condition because the synchronized keyword causes the executing thread to block while waiting for the lock, or monitor, associated with the specified object.
+
+1.	public class TestDeadlockExample1 {  
+2.	  public static void main(String[] args) {  
+3.	    final String resource1 = "ratan jaiswal";  
+4.	    final String resource2 = "vimal jaiswal";  
+5.	    // t1 tries to lock resource1 then resource2  
+6.	    Thread t1 = new Thread() {  
+7.	      public void run() {  
+8.	          synchronized (resource1) {  
+9.	           System.out.println("Thread 1: locked resource 1");  
+10.	  
+11.	           try { Thread.sleep(100);} catch (Exception e) {}  
+12.	  
+13.	           synchronized (resource2) {  
+14.	            System.out.println("Thread 1: locked resource 2");  
+15.	           }  
+16.	         }  
+17.	      }  
+18.	    };  
+19.	  
+20.	    // t2 tries to lock resource2 then resource1  
+21.	    Thread t2 = new Thread() {  
+22.	      public void run() {  
+23.	        synchronized (resource2) {  
+24.	          System.out.println("Thread 2: locked resource 2");  
+25.	  
+26.	          try { Thread.sleep(100);} catch (Exception e) {}  
+27.	  
+28.	          synchronized (resource1) {  
+29.	            System.out.println("Thread 2: locked resource 1");  
+30.	          }  
+31.	        }  
+32.	      }  
+33.	    };  
+34.	  
+35.	      
+36.	    t1.start();  
+37.	    t2.start();  
+38.	  }  
+
+
+19) Brief about yourself.
+20) Checked exceptions
+21) Can we use our custom object as a key of map? if yes, is there any thing we have to do?
+
+If you want to make a mutable object as key in hashmap, then you have to make sure that state change for key object does not change the hash code of object. This can be done by overriding the hashCode() method. But, you must make sure you are honoring the contract with equals() also
+
+22) have you worked on multithreding?
+23) Stream api
+24) Explain about Optional Class and how it works?
+
+public static void main(String args[]) {
+      Java8Tester java8Tester = new Java8Tester();
+      Integer value1 = null;
+      Integer value2 = new Integer(10);
+		
+      //Optional.ofNullable - allows passed parameter to be null.
+      Optional<Integer> a = Optional.ofNullable(value1);
+		
+      //Optional.of - throws NullPointerException if passed parameter is null
+      Optional<Integer> b = Optional.of(value2);
+      System.out.println(java8Tester.sum(a,b));
+   }
+	
+   public Integer sum(Optional<Integer> a, Optional<Integer> b) {
+      //Optional.isPresent - checks the value is present or not
+		
+      System.out.println("First parameter is present: " + a.isPresent());
+      System.out.println("Second parameter is present: " + b.isPresent());
+		
+      //Optional.orElse - returns the value if present otherwise returns
+      //the default value passed.
+      Integer value1 = a.orElse(new Integer(0));
+		
+      //Optional.get - gets the value, value should be present
+      Integer value2 = b.get();
+      return value1 + value2;
+   }
+}
+
+25) how sorted method workes internally?
+
+Collections. sort works is that it actually takes the collection's underlying array, and calls its sort method to sort the actual elements. That sorting algorithm used by Java is the lightning-fast Timsort. The method returns void because it sorts the collection in-place
+
+26) Predifined functional interfaces , logic for find list of employes where employee salaray > 5000 using stream api
+27) What is configuration Interface in hibernate? what is the use of this interface?
+28) what is the role of hbm.xml and is it mandatory to mention the xml file name as hbm.xml?
+29) Fetch types in hibernate
+30) what is Spring ioc and how it will works?
+Spring BeanFactory Container
+This is the simplest container providing the basic support for DI and is defined by the org.springframework.beans.factory.BeanFactory interface. The BeanFactory and related interfaces, such as BeanFactoryAware, InitializingBean, DisposableBean, are still present in Spring for the purpose of backward compatibility with a large number of third-party frameworks that integrate with Spring.
+
+31) Dependency Injection
+
+The Dependency Injection is a design pattern that removes the dependency of the programs. In such case we provide the information from the external source such as XML file. It makes our code loosely coupled and easier for testing.
+
+In such case, instance of Address class is provided by external souce such as XML file either by constructor or setter method.
+
+1.	<bean id="e" class="com.javatpoint.Employee">  
+2.	<constructor-arg value="10" type="int" ></constructor-arg>  
+3.	<constructor-arg value="Sonoo"></constructor-arg>  
+4.	</bean>  
+
+32) what is Autowiring? how we can achieve in spring?
+Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor injection.
+Autowiring can't be used to inject primitive and string values. It works with reference only.
+
+33) Modules of Spring
+Spring comprises of seven modules.
+1.The Core container module
+ 2.Application context module
+ 3.AOP module (Aspect Oriented Programming)
+ 4.JDBC abstraction and DAO module
+ 5.O/R mapping integration module (Object/Relational)
+ 6.Web module
+ 7.MVC framework module
+
+34) Explain about Spring AOP
+AOP is mostly used in following cases:
+o	to provide declarative enterprise services such as declarative transaction management.
+o	It allows users to implement custom aspects.
+
+35) Have you worked on spring transactions?
+36) Some cross questions on Spring transactions
+1.	37) How to create a springboot application?
+package com.javatpoint.springbootexample;  
+2.	import org.springframework.boot.SpringApplication;  
+3.	import org.springframework.boot.autoconfigure.SpringBootApplication;  
+4.	@SpringBootApplication  
+5.	public class SpringBootExampleApplication   
+6.	{  
+7.	public static void main(String[] args)   
+8.	{  
+9.	SpringApplication.run(SpringBootExampleApplication.class, args);  
+10.	}  
+11.	}
+
+38) why we use microservice architechture and explain about architecture
+39) why we register individual microservices in Eureka?
+40) Object class
+41) Behaviour of String object
+
+
+
+42) If we are comparing String objects, is it mandatory to override equals and hashcode methods to compare the objects
+
+HashMap and HashSet use the hashcode value of an object to find out how the object would be stored in the collection, and subsequently hashcode is used to help locate the object in the collection. Hashing retrieval involves:
+1.	First, find out the right bucket using hashCode().
+2.	Secondly, search the bucket for the right element using equals()
+
+
+
+1.core java brush cloning and serialization and multithreading
+2 . design pattern 
+3.resttenplate,circuit braker,loging fuit and gifkin fiber
+4,stream max and min
+5,compar and bean 
+
+
+
+
+OOPS Concepts
+--------------------
+
+Encapsulation
+Inheritance
+Types of Inheritance
+Polymorphism
+Method Overloading
+Method Overriding
+Rules for Exception in Method Overriding
+Method Overriding vs Method Overloading
+Abstraction
+Abstract class
+Interface
+Abstract Class vs Interface
+
+
+Exception Handling
+-------------------------
+
+try catch block
+finally block
+How to throw Exception
+How to create Custom Exception?
+Exception methods
+throw vs throws keyword
+final vs finally vs finalize 
+Checked vs Unchecked Exception
+
+Collections
+---------------
+
+ArrayList
+LinkedList
+Vector
+ArrayList vs LinkedList vs Vector
+HashSet
+TreeSet
+LinkedHashSet
+HashSet vs TreeSet vs LinkedHashSet
+HashMap
+LinkedHashMap
+TreeMap
+HashTable
+HashMap vs LinkedHashMap vs TreeMap vs HashTable
+Queue
+Stack
+BlockingQueue
+Fail fast and fail safe iteration. Examples for those
+ConcurrentHashMap, CopyOnWriteArraySet, CopyOnWriteArrayList
+IdentityHashMap
+
+Which collection to use in multithreading environment?
+How to convert collection to synchronized collection?
+// how to store custom object as key in hashmap? Consider I have a Student class with the properties id, name and gender. I'm creating one hashmap as below.
+
+Map<Student, String> studentMap = new HashMap<Student, String>();
+studentMap.put(new Student(101, "Karthi", 'M'), "India");
+studentMap.put(new Student(101, "Karthi", 'M'), "India");
+
+In this case studentMap will contain both. I don't want this behaviour. How can we achieve this? //check by overriding equals and hashCode method
+
+Comparator interface
+Comparable interface
+Comparable vs Comparator interface
+Generics
+Internal working mechanism of Generics
+
+
+Object Cloning
+Types of Cloning (Deep and Shallow cloning)
+
+
+Serialization
+What is serialversion uid?
+
+During serialization, java runtime associates a version number with each serializable class. This number called serialVersionUID, which is used during deserialization to verify that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization.
+
+Deserialization
+transient keyword
+Externalizable interface
+
+Externalization serves the purpose of custom Serialization, where we can decide what to store in stream.
+Externalizable interface present in java.io, is used for Externalization which extends Serializable interface. It consist of two methods which we have to override to write/read object into/from stream which are-
+// to read object from stream
+void readExternal(ObjectInput in) 
+
+// to write object into stream
+void writeExternal(ObjectOutput out) 
+
+
+
+Constructor
+static keyword
+The static keyword in Java is used for memory management mainly
+this keyword
+In java, this is a reference variable that refers to the current object.
+
+Here is given the 6 usage of java this keyword.
+1.	this can be used to refer current class instance variable.
+2.	this can be used to invoke current class method (implicitly)
+3.	this() can be used to invoke current class constructor.
+4.	this can be passed as an argument in the method call.
+5.	this can be passed as argument in the constructor call.
+6.	this can be used to return the current class instance from the method.
+
+super keyword
+
+The super keyword in Java is a reference variable which is used to refer immediate parent class object.
+Whenever you create the instance of subclass, an instance of parent class is created implicitly which is referred by super reference variable.
+1.	super can be used to refer immediate parent class instance variable.
+2.	super can be used to invoke immediate parent class method.
+3.	super() can be used to invoke immediate parent class constructor.
+
+
+final keyword
+The final keyword in java is used to restrict the user. The java final keyword can be used in many context. Final can be:
+1.	variable
+2.	method
+3.	class
+
+Access modifiers(public,default,private,protected)
+
+ 
+
+
+volatile keyword
+
+Volatile keyword is used to modify the value of a variable by different threads. It is also used to make classes thread safe. It means that multiple threads can use a method and instance of the classes at the same time without any problem.
+
+
+String, StringBuilder and StringBuffer
+
+ 
+
+Which String is best to use in multithreading environment?
+
+StringBuffer is to used when multiple threads are working on the same String
+
+Arrays
+array is collection number of variables
+
+Can we declare int array as volatile?
+Wrapper class
+we can wrap a primitive value into a wrapper class object.
+
+ 
+
+AutoBoxing and Unboxing
+
+Autoboxing: Automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. For example – conversion of int to Integer, long to Long, double to Double etc.
+
+Unboxing: It is just the reverse process of autoboxing. Automatically converting an object of a wrapper class to its corresponding primitive type is known as unboxing. For example – conversion of Integer to int, Long to long, Double to double etc.
+
+Typecasting
+
+The process of converting the value of one data type (int, float, double, etc.) to another data type is known as typecasting.
+
+instanceof operator
+The java instanceof operator is used to test whether the object is an instance of the specified type (class or subclass or interface).
+
+1.	Simple1 s=new Simple1();  
+2.	 System.out.println(s instanceof Simple1);//true  
+
+
+Immutable class
+
+Immutable class means that once an object is created, we cannot change its content. In Java, all the wrapper classes (like Integer, Boolean, Byte, Short) and String class is immutable. ... No setters(To not have the option to change the value of the instance variable)
+
+How to create Immutable class?
+
+Autocloseable interface
+
+
+Multithreading
+--------------------
+
+1. How to create threads? Which approach is the best to create thread?
+2. Thread Scheduler
+3. How to prevent threads from execution? (yield, join and sleep method - differences)
+yield(): Suppose there are three threads t1, t2, and t3. Thread t1 gets the processor and starts its execution and thread t2 and t3 are in Ready/Runnable state. Completion time for thread t1 is 5 hour and completion time for t2 is 5 minutes. Since t1 will complete its execution after 5 hours, t2 has to wait for 5 hours to just finish 5 minutes job. In such scenarios where one thread is taking too much time to complete its execution, we need a way to prevent execution of a thread in between if something important is pending. yeild() helps us in doing so.
+yield() basically means that the thread is not doing anything particularly important and if any other threads or processes need to be run, they should run. Otherwise, the current thread will continue to run.
+ 
+
+
+
+Use of yield method:
+•	Whenever a thread calls java.lang.Thread.yield method, it gives hint to the thread scheduler that it is ready to pause its execution. Thread scheduler is free to ignore this hint.
+•	If any thread executes yield method , thread scheduler checks if there is any thread with same or high priority than this thread. If processor finds any thread with higher or same priority then it will move the current thread to Ready/Runnable state and give processor to other thread and if not – current thread will keep executing.
+Syntax:
+public static native void yield()
+filter_none
+edit
+play_arrow
+brightness_4
+// Java program to illustrate yield() method 
+// in Java 
+import java.lang.*; 
+  
+// MyThread extending Thread 
+class MyThread extends Thread 
+{ 
+    public void run() 
+    { 
+        for (int i=0; i<5 ; i++) 
+            System.out.println(Thread.currentThread().getName() 
+                                + " in control"); 
+    } 
+} 
+  
+// Driver Class 
+public class yieldDemo 
+{ 
+    public static void main(String[]args) 
+    { 
+        MyThread t = new MyThread(); 
+        t.start(); 
+  
+        for (int i=0; i<5; i++) 
+        { 
+            // Control passes to child thread 
+            Thread.yield(); 
+  
+            // After execution of child Thread 
+            // main thread takes over 
+            System.out.println(Thread.currentThread().getName() 
+                                + " in control"); 
+        } 
+    } 
+} 
+Output:
+Thread-0 in control
+Thread-0 in control
+Thread-0 in control
+Thread-0 in control
+Thread-0 in control
+main in control
+main in control
+main in control
+main in control
+main in control
+Output may vary in machine to machine but chances of execution of yield() thread first is higher than the other thread because main thread is always pausing its execution and giving chance to child thread(with same priority).
+Note:
+•	Once a thr
+
+4. How a thread can interrupt other thread?
+5. Synchronization
+6. Object level lock 
+7. Class level lock
+8. How to achieve synchronization? Which approach is the best?
+9. How 2 threads will communicate each other?(wait, notify, notifyAll)
+
+The wait() method causes the current thread to wait until another thread invokes the notify() or notifyAll() methods for that object. The notify() method wakes up a single thread that is waiting on that object's monitor. The notifyAll() method wakes up all threads that are waiting on that object's monitor.
+
+10. Producer Consumer problem
+11. Race condition
+12. Deadlock
+13. Daemon thread? What is the purpose of it?
+14. ThreadGroup
+15. java.util.concurrent
+16. Executor framework
+17. Callable interface
+18. Runnable vs Callable interface
+19. Future
+20. CompletableFuture
+// Difference between execute and submit in Future
+// Difference between runAsync and supplyAsync in CompletableFuture?
+// Purpose of thenCompose method in CompletableFuture
+
+
+Java8 features
+--------------
+
+1. forEach method in iterable interface
+2. default and static methods in interface
+3. Functional interface
+4. Lambda expressions
+5. Method reference & Constructor reference
+6. Streams API
+7. Date API
+8. Optional class
+
+Design Patter DP
+--------------------
+Singleton - creational
+, 
+
+1.	Singleton Pattern says that just"define a class that has only one instance and provides a global point of access to it".
+
+2.	What are the ways to create Singleton instance?
+Eager initialization:
+Using static block, 
+Lazy initialization, 
+Thread Safe Singleton, 
+Lazy initialization with Double check locking, 
+Bill Pugh Singleton Implementation
+
+
+// static variable single_instance of type Singleton 
+    private static Singleton single_instance = null; 
+  
+    // variable of type String 
+    public String s; 
+  
+    // private constructor restricted to this class itself 
+    private Singleton() 
+    { 
+        s = "Hello I am a string part of Singleton class"; 
+    } 
+  
+    // static method to create instance of Singleton class 
+    public static Singleton getInstance() 
+    { 
+        if (single_instance == null) 
+            single_instance = new Singleton(); 
+  
+        return single_instance; 
+    } 
+
+Thread Safe Singleton: A thread safe singleton in created so that singleton property is maintained even in multithreaded environment. To make a singleton class thread-safe, getInstance() method is made synchronized so that multiple threads can’t access it simultaneously.
+filter_none
+edit
+play_arrow
+brightness_4
+// Java program to create Thread Safe 
+// Singleton class 
+public class GFG  
+{ 
+  // private instance, so that it can be 
+  // accessed by only by getInstance() method 
+  private static GFG instance; 
+  
+  private GFG()  
+  { 
+    // private constructor 
+  } 
+  
+ //synchronized method to control simultaneous access 
+  synchronized public static GFG getInstance()  
+  { 
+    if (instance == null)  
+    { 
+      // if instance is null, initialize 
+      instance = new GFG(); 
+    } 
+    return instance; 
+  } 
+} 
+
+
+
+Prototype - creational
+
+Prototype Pattern says that cloning of an existing object instead of creating new one and can also be customized as per the requirement.
+
+Example of Prototype Design Pattern
+Let's see the example of prototype design pattern.
+File: Prototype.java
+1.	interface Prototype {  
+2.	  
+3.	     public Prototype getClone();  
+4.	      
+5.	}//End of Prototype interface.  
+File: EmployeeRecord.java
+1.	class EmployeeRecord implements Prototype{  
+2.	      
+3.	   private int id;  
+4.	   private String name, designation;  
+5.	   private double salary;  
+6.	   private String address;  
+7.	      
+8.	   public EmployeeRecord(){  
+9.	            System.out.println("   Employee Records of Oracle Corporation ");  
+10.	            System.out.println("---------------------------------------------");  
+11.	            System.out.println("Eid"+"\t"+"Ename"+"\t"+"Edesignation"+"\t"+"Esalary"+"\t\t"+"Eaddress");  
+12.	      
+13.	}  
+14.	  
+15.	 public  EmployeeRecord(int id, String name, String designation, double salary, String address) {  
+16.	          
+17.	        this();  
+18.	        this.id = id;  
+19.	        this.name = name;  
+20.	        this.designation = designation;  
+21.	        this.salary = salary;  
+22.	        this.address = address;  
+23.	    }  
+24.	      
+25.	  public void showRecord(){  
+26.	          
+27.	        System.out.println(id+"\t"+name+"\t"+designation+"\t"+salary+"\t"+address);  
+28.	   }  
+29.	  
+30.	    @Override  
+31.	    public Prototype getClone() {  
+32.	          
+33.	        return new EmployeeRecord(id,name,designation,salary,address);  
+34.	    }  
+35.	}//End of EmployeeRecord class.  
+File: PrototypeDemo.java
+1.	import java.io.BufferedReader;  
+2.	import java.io.IOException;  
+3.	import java.io.InputStreamReader;  
+4.	  
+5.	class PrototypeDemo{  
+6.	     public static void main(String[] args) throws IOException {  
+7.	          
+8.	        BufferedReader br =new BufferedReader(new InputStreamReader(System.in));  
+9.	        System.out.print("Enter Employee Id: ");  
+10.	        int eid=Integer.parseInt(br.readLine());  
+11.	        System.out.print("\n");  
+12.	          
+13.	        System.out.print("Enter Employee Name: ");  
+14.	        String ename=br.readLine();  
+15.	        System.out.print("\n");  
+16.	          
+17.	        System.out.print("Enter Employee Designation: ");  
+18.	        String edesignation=br.readLine();  
+19.	        System.out.print("\n");  
+20.	          
+21.	        System.out.print("Enter Employee Address: ");  
+22.	        String eaddress=br.readLine();  
+23.	        System.out.print("\n");  
+24.	          
+25.	        System.out.print("Enter Employee Salary: ");  
+26.	        double esalary= Double.parseDouble(br.readLine());  
+27.	        System.out.print("\n");  
+28.	           
+29.	        EmployeeRecord e1=new EmployeeRecord(eid,ename,edesignation,esalary,eaddress);  
+30.	          
+31.	        e1.showRecord();  
+32.	        System.out.println("\n");  
+33.	        EmployeeRecord e2=(EmployeeRecord) e1.getClone();  
+34.	        e2.showRecord();  
+35.	    }     
+36.	}//End of the ProtoypeDemo class.  
+
+
+Abstract factory - creational
+
+Abstract Factory Pattern says that just define an interface or abstract class for creating families of related (or dependent) objects but without specifying their concrete sub-classes.
+
+o	See the diagram carefully which is given below:
+  
+Example of Abstract Factory Pattern
+Here, we are calculating the loan payment for different banks like HDFC, ICICI, SBI etc.
+Step 1: Create a Bank interface
+1.	import java.io.*;     
+2.	interface Bank{  
+3.	        String getBankName();  
+4.	}  
+Step 2: Create concrete classes that implement the Bank interface.
+1.	class HDFC implements Bank{  
+2.	         private final String BNAME;  
+3.	         public HDFC(){  
+4.	                BNAME="HDFC BANK";  
+5.	        }  
+6.	        public String getBankName() {  
+7.	                  return BNAME;  
+8.	        }  
+9.	}  
+1.	class ICICI implements Bank{  
+2.	       private final String BNAME;  
+3.	       ICICI(){  
+4.	                BNAME="ICICI BANK";  
+5.	        }  
+6.	        public String getBankName() {  
+7.	                  return BNAME;  
+8.	       }  
+9.	}  
+1.	class SBI implements Bank{  
+2.	      private final String BNAME;  
+3.	      public SBI(){  
+4.	                BNAME="SBI BANK";  
+5.	        }  
+6.	       public String getBankName(){  
+7.	                  return BNAME;  
+8.	       }  
+9.	}  
+Step 3: Create the Loan abstract class.
+1.	abstract class Loan{  
+2.	   protected double rate;  
+3.	   abstract void getInterestRate(double rate);  
+4.	   public void calculateLoanPayment(double loanamount, int years)  
+5.	   {  
+6.	        /* 
+7.	              to calculate the monthly loan payment i.e. EMI   
+8.	                            
+9.	              rate=annual interest rate/12*100; 
+10.	              n=number of monthly installments;            
+11.	              1year=12 months. 
+12.	              so, n=years*12; 
+13.	 
+14.	            */  
+15.	                
+16.	         double EMI;  
+17.	         int n;  
+18.	  
+19.	         n=years*12;  
+20.	         rate=rate/1200;  
+21.	         EMI=((rate*Math.pow((1+rate),n))/((Math.pow((1+rate),n))-1))*loanamount;  
+22.	  
+23.	System.out.println("your monthly EMI is "+ EMI +" for the amount"+loanamount+" you have borrowed");     
+24.	 }  
+25.	}// end of the Loan abstract class.  
+Step 4: Create concrete classes that extend the Loan abstract class..
+1.	class HomeLoan extends Loan{  
+2.	     public void getInterestRate(double r){  
+3.	         rate=r;  
+4.	    }  
+5.	}//End of the HomeLoan class.  
+1.	class BussinessLoan extends Loan{  
+2.	    public void getInterestRate(double r){  
+3.	          rate=r;  
+4.	     }  
+5.	  
+6.	}//End of the BusssinessLoan class.  
+1.	class EducationLoan extends Loan{  
+2.	     public void getInterestRate(double r){  
+3.	       rate=r;  
+4.	 }  
+5.	}//End of the EducationLoan class.  
+Step 5: Create an abstract class (i.e AbstractFactory) to get the factories for Bank and Loan Objects.
+1.	abstract class AbstractFactory{  
+2.	  public abstract Bank getBank(String bank);  
+3.	  public abstract Loan getLoan(String loan);  
+4.	}  
+Step 6: Create the factory classes that inherit AbstractFactory class to generate the object of concrete class based on given information.
+1.	class BankFactory extends AbstractFactory{  
+2.	   public Bank getBank(String bank){  
+3.	      if(bank == null){  
+4.	         return null;  
+5.	      }  
+6.	      if(bank.equalsIgnoreCase("HDFC")){  
+7.	         return new HDFC();  
+8.	      } else if(bank.equalsIgnoreCase("ICICI")){  
+9.	         return new ICICI();  
+10.	      } else if(bank.equalsIgnoreCase("SBI")){  
+11.	         return new SBI();  
+12.	      }  
+13.	      return null;  
+14.	   }  
+15.	  public Loan getLoan(String loan) {  
+16.	      return null;  
+17.	   }  
+18.	}//End of the BankFactory class.  
+1.	class LoanFactory extends AbstractFactory{  
+2.	           public Bank getBank(String bank){  
+3.	                return null;  
+4.	          }  
+5.	        
+6.	     public Loan getLoan(String loan){  
+7.	      if(loan == null){  
+8.	         return null;  
+9.	      }  
+10.	      if(loan.equalsIgnoreCase("Home")){  
+11.	         return new HomeLoan();  
+12.	      } else if(loan.equalsIgnoreCase("Business")){  
+13.	         return new BussinessLoan();  
+14.	      } else if(loan.equalsIgnoreCase("Education")){  
+15.	         return new EducationLoan();  
+16.	      }  
+17.	      return null;  
+18.	   }  
+19.	     
+20.	}  
+Step 7: Create a FactoryCreator class to get the factories by passing an information such as Bank or Loan.
+1.	class FactoryCreator {  
+2.	     public static AbstractFactory getFactory(String choice){  
+3.	      if(choice.equalsIgnoreCase("Bank")){  
+4.	         return new BankFactory();  
+5.	      } else if(choice.equalsIgnoreCase("Loan")){  
+6.	         return new LoanFactory();  
+7.	      }  
+8.	      return null;  
+9.	   }  
+10.	}//End of the FactoryCreator.  
+Step 8: Use the FactoryCreator to get AbstractFactory in order to get factories of concrete classes by passing an information such as type.
+1.	import java.io.*;  
+2.	class AbstractFactoryPatternExample {  
+3.	      public static void main(String args[])throws IOException {  
+4.	       
+5.	      BufferedReader br=new BufferedReader(new InputStreamReader(System.in));  
+6.	  
+7.	      System.out.print("Enter the name of Bank from where you want to take loan amount: ");  
+8.	      String bankName=br.readLine();  
+9.	  
+10.	System.out.print("\n");  
+11.	System.out.print("Enter the type of loan e.g. home loan or business loan or education loan : ");  
+12.	  
+13.	String loanName=br.readLine();  
+14.	AbstractFactory bankFactory = FactoryCreator.getFactory("Bank");  
+15.	Bank b=bankFactory.getBank(bankName);  
+16.	  
+17.	System.out.print("\n");  
+18.	System.out.print("Enter the interest rate for "+b.getBankName()+ ": ");  
+19.	  
+20.	double rate=Double.parseDouble(br.readLine());  
+21.	System.out.print("\n");  
+22.	System.out.print("Enter the loan amount you want to take: ");  
+23.	  
+24.	double loanAmount=Double.parseDouble(br.readLine());  
+25.	System.out.print("\n");  
+26.	System.out.print("Enter the number of years to pay your entire loan amount: ");  
+27.	int years=Integer.parseInt(br.readLine());  
+28.	  
+29.	System.out.print("\n");  
+30.	System.out.println("you are taking the loan from "+ b.getBankName());  
+31.	  
+32.	AbstractFactory loanFactory = FactoryCreator.getFactory("Loan");  
+33.	           Loan l=loanFactory.getLoan(loanName);  
+34.	           l.getInterestRate(rate);  
+35.	           l.calculateLoanPayment(loanAmount,years);  
+36.	  }  
+37.	}//End of the  AbstractFactoryPatternEx
+
+
+Builder
+
+
+Strategy - Behavioural
+In Strategy pattern, a class behavior or its algorithm can be changed at run time. This type of design pattern comes under behavior pattern.
+In Strategy pattern, we create objects which represent various strategies and a context object whose behavior varies as per its strategy object. The strategy object changes the executing algorithm of the context object.
+
+We are going to create a Strategy interface defining an action and concrete strategy classes implementing the Strategy interface. Context is a class which uses a Strategy.
+StrategyPatternDemo, our demo class, will use Context and strategy objects to demonstrate change in Context behaviour based on strategy it deploys or uses.
+
+StrategyPatternDemo, our demo class, will use Context and strategy objects to demonstrate change in Context behaviour based on strategy it deploys or uses.
+ 
+1.Create an interface.
+Strategy.java
+public interface Strategy {
+   public int doOperation(int num1, int num2);
+}
+2.Create concrete classes implementing the same interface.
+OperationAdd.java
+public class OperationAdd implements Strategy{
+   @Override
+   public int doOperation(int num1, int num2) {
+      return num1 + num2;
+   }
+}
+OperationSubstract.java
+public class OperationSubstract implements Strategy{
+   @Override
+   public int doOperation(int num1, int num2) {
+      return num1 - num2;
+   }
+}
+OperationMultiply.java
+public class OperationMultiply implements Strategy{
+   @Override
+   public int doOperation(int num1, int num2) {
+      return num1 * num2;
+   }
+}
+3.
+Create Context Class.
+Context.java
+public class Context {
+   private Strategy strategy;
+
+   public Context(Strategy strategy){
+      this.strategy = strategy;
+   }
+
+   public int executeStrategy(int num1, int num2){
+      return strategy.doOperation(num1, num2);
+   }
+}
+4
+Use the Context to see change in behaviour when it changes its Strategy.
+StrategyPatternDemo.java
+public class StrategyPatternDemo {
+   public static void main(String[] args) {
+      Context context = new Context(new OperationAdd());		
+      System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
+
+      context = new Context(new OperationSubstract());		
+      System.out.println("10 - 5 = " + context.executeStrategy(10, 5));
+
+      context = new Context(new OperationMultiply());		
+      System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
+   }
+}
+Verify the output.
+10 + 5 = 15
+10 - 5 = 5
+10 * 5 = 50
+
+
+Bridge - Structural
+Bridge is used when we need to decouple an abstraction from its implementation so that the two can vary independently. This type of design pattern comes under structural pattern as this pattern decouples implementation class and abstract class by providing a bridge structure between them.
+This pattern involves an interface which acts as a bridge which makes the functionality of concrete classes independent from interface implementer classes. Both types of classes can be altered structurally without affecting each other.
+We are demonstrating use of Bridge pattern via following example in which a circle can be drawn in different colors using same abstract class method but different bridge implementer classes.
+We have a DrawAPI interface which is acting as a bridge implementer and concrete classes RedCircle, GreenCircle implementing the DrawAPI interface. Shape is an abstract class and will use object of DrawAPI. BridgePatternDemo, our demo class will use Shape class to draw different colored circle.
+ 
+1.
+Create bridge implementer interface.
+DrawAPI.java
+public interface DrawAPI {
+   public void drawCircle(int radius, int x, int y);
+}
+2.
+Create concrete bridge implementer classes implementing the DrawAPI interface.
+RedCircle.java
+public class RedCircle implements DrawAPI {
+   @Override
+   public void drawCircle(int radius, int x, int y) {
+      System.out.println("Drawing Circle[ color: red, radius: " + radius + ", x: " + x + ", " + y + "]");
+   }
+}
+GreenCircle.java
+public class GreenCircle implements DrawAPI {
+   @Override
+   public void drawCircle(int radius, int x, int y) {
+      System.out.println("Drawing Circle[ color: green, radius: " + radius + ", x: " + x + ", " + y + "]");
+   }
+}
+3.
+Create an abstract class Shape using the DrawAPI interface.
+Shape.java
+public abstract class Shape {
+   protected DrawAPI drawAPI;
+   
+   protected Shape(DrawAPI drawAPI){
+      this.drawAPI = drawAPI;
+   }
+   public abstract void draw();	
+}
+4.
+Create concrete class implementing the Shape interface.
+Circle.java
+public class Circle extends Shape {
+   private int x, y, radius;
+
+   public Circle(int x, int y, int radius, DrawAPI drawAPI) {
+      super(drawAPI);
+      this.x = x;  
+      this.y = y;  
+      this.radius = radius;
+   }
+
+   public void draw() {
+      drawAPI.drawCircle(radius,x,y);
+   }
+}
+5.
+Use the Shape and DrawAPI classes to draw different colored circles.
+BridgePatternDemo.java
+public class BridgePatternDemo {
+   public static void main(String[] args) {
+      Shape redCircle = new Circle(100,100, 10, new RedCircle());
+      Shape greenCircle = new Circle(100,100, 10, new GreenCircle());
+
+      redCircle.draw();
+      greenCircle.draw();
+   }
+}
+Verify the output.
+Drawing Circle[ color: red, radius: 10, x: 100, 100]
+Drawing Circle[  color: green, radius: 10, x: 100, 100]
+
+
+Adapter - Structural
+Adapter pattern works as a bridge between two incompatible interfaces. This type of design pattern comes under structural pattern as this pattern combines the capability of two independent interfaces.
+This pattern involves a single class which is responsible to join functionalities of independent or incompatible interfaces. A real life example could be a case of card reader which acts as an adapter between memory card and a laptop. You plugin the memory card into card reader and card reader into the laptop so that memory card can be read via laptop.
+We are demonstrating use of Adapter pattern via following example in which an audio player device can play mp3 files only and wants to use an advanced audio player capable of playing vlc and mp4 files.
+
+An Adapter Pattern says that just "converts the interface of a class into another interface that a client wants".
+
+mplementation of above UML:
+Step 1
+Create a CreditCard interface (Target interface).
+1.	public interface CreditCard {  
+2.	    public void giveBankDetails();  
+3.	    public String getCreditCard();  
+4.	}// End of the CreditCard interface.  
+Step 2
+Create a BankDetails class (Adaptee class).
+File: BankDetails.java
+1.	// This is the adapter class.  
+2.	public class BankDetails{  
+3.	    private String bankName;  
+4.	    private String accHolderName;  
+5.	    private long accNumber;  
+6.	      
+7.	    public String getBankName() {  
+8.	        return bankName;  
+9.	    }  
+10.	    public void setBankName(String bankName) {  
+11.	        this.bankName = bankName;  
+12.	    }  
+13.	    public String getAccHolderName() {  
+14.	        return accHolderName;  
+15.	    }  
+16.	    public void setAccHolderName(String accHolderName) {  
+17.	        this.accHolderName = accHolderName;  
+18.	    }  
+19.	    public long getAccNumber() {  
+20.	        return accNumber;  
+21.	    }  
+22.	    public void setAccNumber(long accNumber) {  
+23.	        this.accNumber = accNumber;  
+24.	    }  
+25.	}// End of the BankDetails class.  
+Step 3
+Create a BankCustomer class (Adapter class).
+File: BankCustomer.java
+1.	// This is the adapter class  
+2.	  
+3.	import java.io.BufferedReader;  
+4.	import java.io.InputStreamReader;  
+5.	public class BankCustomer extends BankDetails implements CreditCard {  
+6.	 public void giveBankDetails(){  
+7.	  try{  
+8.	   BufferedReader br=new BufferedReader(new InputStreamReader(System.in));  
+9.	      
+10.	   System.out.print("Enter the account holder name :");  
+11.	   String customername=br.readLine();  
+12.	   System.out.print("\n");  
+13.	      
+14.	   System.out.print("Enter the account number:");  
+15.	   long accno=Long.parseLong(br.readLine());  
+16.	   System.out.print("\n");  
+17.	      
+18.	   System.out.print("Enter the bank name :");  
+19.	   String bankname=br.readLine();  
+20.	      
+21.	   setAccHolderName(customername);  
+22.	   setAccNumber(accno);  
+23.	   setBankName(bankname);  
+24.	   }catch(Exception e){  
+25.	        e.printStackTrace();  
+26.	   }  
+27.	  }  
+28.	  @Override  
+29.	  public String getCreditCard() {  
+30.	   long accno=getAccNumber();  
+31.	   String accholdername=getAccHolderName();  
+32.	   String bname=getBankName();  
+33.	          
+34.	   return ("The Account number "+accno+" of "+accholdername+" in "+bname+ "  
+35.	                        bank is valid and authenticated for issuing the credit card. ");  
+36.	  }  
+37.	}//End of the BankCustomer class.  
+Step 4
+Create a AdapterPatternDemo class (client class).
+File: AdapterPatternDemo.java
+1.	//This is the client class.  
+2.	public class AdapterPatternDemo {  
+3.	 public static void main(String args[]){  
+4.	  CreditCard targetInterface=new BankCustomer();  
+5.	  targetInterface.giveBankDetails();  
+6.	  System.out.print(targetInterface.getCreditCard());  
+7.	 }   
+8.	}//End of the BankCustomer class.  
+________________________________________
+download this example
+Output
+1.	Enter the account holder name :Sonoo Jaiswa
+
+//Please go through all design patterns
+
+Spring Boot
+---------------
+
+Dependency Injection
+Autoconfiguration
+How @SpringBootApplication annotation works internally?
+Component Scanning
+Actuators
+How to create war file?
+
+To Create a Deployable WAR File
+1) Extend the SpringBootServletInitializer
+
+
+How to create jar file?
+Profiles
+Restful webservice annotations
+
+o	@GetMapping: It maps the HTTP GET requests on the specific handler method. It is used to create a web service endpoint that fetches It is used instead of using: @RequestMapping(method = RequestMethod.GET)
+o	@PostMapping: It maps the HTTP POST requests on the specific handler method. It is used to create a web service endpoint that creates It is used instead of using: @RequestMapping(method = RequestMethod.POST)
+o	@PutMapping: It maps the HTTP PUT requests on the specific handler method. It is used to create a web service endpoint that creates or updates It is used instead of using: @RequestMapping(method = RequestMethod.PUT)
+o	@DeleteMapping: It maps the HTTP DELETE requests on the specific handler method. It is used to create a web service endpoint that deletes a resource. It is used instead of using: @RequestMapping(method = RequestMethod.DELETE)
+o	@PatchMapping: It maps the HTTP PATCH requests on the specific handler method. It is used instead of using: @RequestMapping(method = RequestMethod.PATCH)
+o	@RequestBody: It is used to bind HTTP request with an object in a method parameter. Internally it uses HTTP MessageConverters to convert the body of the request. When we annotate a method parameter with @RequestBody, the Spring framework binds the incoming HTTP request body to that parameter.
+o	@ResponseBody: It binds the method return value to the response body. It tells the Spring Boot Framework to serialize a return an object into JSON and XML format.
+o	@PathVariable: It is used to extract the values from the URI. It is most suitable for the RESTful web service, where the URL contains a path variable. We can define multiple @PathVariable in a method.
+o	@RequestParam: It is used to extract the query parameters form the URL. It is also known as a query parameter. It is most suitable for web applications. It can specify default values if the query parameter is not present in the URL.
+o	@RequestHeader: It is used to get the details about the HTTP request headers. We use this annotation as a method parameter. The optional elements of the annotation are name, required, value, defaultValue. For each detail in the header, we should specify separate annotations. We can use it multiple time in a method
+o	@RestController: It can be considered as a combination of @Controller and @ResponseBody annotations. The @RestController annotation is itself annotated with the @ResponseBody annotation. It eliminates the need for annotating each method with @ResponseBody.
+o	@RequestAttribute: It binds a method parameter to request attribute. It provides convenient access to the request attributes from a controller method. With the help of @RequestAttribute annotation, we can access objects that are populated on the server-side.
+
+
+Spring Boot Dev tools
+Caching
+Spring Boot annotations
+ Spring Boot Call back methods 
+@PostConstruct
+@PreDestroy
+
+Spring Boot Exception Handling(@ControllerAdvice, @ExceptionHandler)
+Spring boot jpa using hibernate
+Spring transactions
+
+Builder Design Pattern - Creational
+Builder Pattern says that "construct a complex object from simple objects using step-by-step approach"
+
+Transaction
+
+
+Propagation	Behavior
+REQUIRED	Always executes in a transaction. If there is an existing transaction, it uses it. If none exists, then only a new one is created.
+SUPPORTS	It may or may not run in a transaction. If the current transaction exists, then it is supported. If none exists, then it gets executed without a transaction.
+NOT_SUPPORTED	Always executes without a transaction. If there is an existing transaction, it gets suspended.
+REQUIRES_NEW	Always executes in a new transaction. If there is an existing transaction, it gets suspended.
+NEVER	Always executes without any transaction. It throws an exception if there is an existing transaction
+MANDATORY	Always executes in a transaction. If there is an existing transaction, it is used. If there is no existing transaction, it will throw an exception.
+
+
+Spring Boot Security
+
+Spring security
+
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Override
+	public void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication().withUser("javainuse")
+				.password("javainuse").roles("USER");
+	}
+
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+		http.antMatcher("/**").authorizeRequests().anyRequest().hasRole("USER")
+				.and().formLogin().loginPage("/login.jsp")
+				.failureUrl("/login.jsp?error=1").loginProcessingUrl("/login")
+				.permitAll().and().logout()
+				.logoutSuccessUrl("/listEmployees.html");
+
+	}
+
+
+Swagger
+
+
+Rest Template is used to create applications that consume RESTful Web Services. You can use the exchange() method to consume the web services for all HTTP methods. The code given below shows how to create Bean for Rest Template to auto wiring the Rest Template object.
+
+@Bean
+   public RestTemplate getRestTemplate() {
+      return new RestTemplate();
+   }
+
+
+
+Spring Boot Microservices(Eureka server, Eureka client, Config Server, Config client, Hystrix, Zuul, Zookeeper)
+
+Junit
+Jenkins
+
+
+
+How to get a list of unique elements from a list using streams ?
+
+// Creating a list of integers 
+        List<Integer> list = Arrays.asList(1, 1, 2, 3, 3, 4, 5, 5); 
+  
+        System.out.println("The distinct elements are :"); 
+  
+        // Displaying the distinct elements in the list 
+        // using Stream.distinct() method 
+        list.stream().distinct().forEach(System.out::println); 
+
+
+
+How will you run 3 independent tasks ?
+
+new Thread(new Runnable() {
+    public void run() {
+        System.out.println("Look ma, no hands");
+    }
+}).start();
+
+new Thread(new Runnable() {
+    public void run() {
+        System.out.println("Look at me, look at me...");
+    }
+}).start();
+
+
+
+public static void main(String[] args) throws InterruptedException {
+    ExecutorService service = Executors.newFixedThreadPool(2);
+    service.submit(new PathScanner());
+    service.submit(new Counter());
+
+    service.shutdown();
+    service.awaitTermination(1, TimeUnit.DAYS);
+
+    System.exit(0);
+}
+
+public static class PathScanner implements Callable<Object> {
+
+    @Override
+    public Object call() throws Exception {
+        scan(new File("C:/"), 0);
+        return null;
+    }
+
+    protected void scan(File path, int deepth) {
+        if (deepth < 15) {
+            System.out.println("Scanning " + path + " at a deepth of " + deepth);
+
+            File[] files = path.listFiles();
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    scan(file, ++deepth);
+                }
+            }
+        }
+    }
+}
+
+public static class Counter implements Callable<Object> {
+
+    @Override
+    public Object call() throws Exception {
+        for (int index = 0; index < 1000; index++) {
+            Thread.sleep(1);
+            System.out.println(index);
+        }
+        return null;
+    }
+}
+
+
+
+How to run 3 inter-dependent tasks, like if the output of one task is an input to another and so on.
+What is volatile ?
+What is ReadWriteLock ?
+
+•	Read Lock − If no thread has locked the ReadWriteLock for writing then multiple thread can access the read lock.
+•	Write Lock − If no thread is reading or writing, then one thread can access the write lock.
+
+Live Demo
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+public class TestThread {
+   private static final ReentrantReadWriteLock lock = new ReentrantReadWriteLock(true);
+   private static String message = "a";
+
+   public static void main(String[] args) throws InterruptedException {
+      Thread t1 = new Thread(new WriterA());
+      t1.setName("Writer A");
+      
+      Thread t2 = new Thread(new WriterB());
+      t2.setName("Writer B");
+      
+      Thread t3 = new Thread(new Reader());
+      t3.setName("Reader");
+      t1.start();
+      t2.start();
+      t3.start();
+      t1.join();
+      t2.join();
+      t3.join();
+   }
+
+   static class Reader implements Runnable {
+
+      public void run() {
+         
+         if(lock.isWriteLocked()) {
+            System.out.println("Write Lock Present.");
+         }
+         lock.readLock().lock();
+
+         try {
+            Long duration = (long) (Math.random() * 10000);
+            System.out.println(Thread.currentThread().getName() 
+               + "  Time Taken " + (duration / 1000) + " seconds.");
+            Thread.sleep(duration);
+         } catch (InterruptedException e) {
+            e.printStackTrace();
+         } finally {
+            System.out.println(Thread.currentThread().getName() +": "+ message );
+            lock.readLock().unlock();
+         }
+      }
+   }
+
+   static class WriterA implements Runnable {
+
+      public void run() {
+         lock.writeLock().lock();
+         
+         try {
+            Long duration = (long) (Math.random() * 10000);
+            System.out.println(Thread.currentThread().getName() 
+               + "  Time Taken " + (duration / 1000) + " seconds.");
+            Thread.sleep(duration);
+         } catch (InterruptedException e) {
+            e.printStackTrace();
+         } finally {
+            message = message.concat("a");
+            lock.writeLock().unlock();
+         }
+      }
+   }
+
+   static class WriterB implements Runnable {
+
+      public void run() {
+         lock.writeLock().lock();
+         
+         try {
+            Long duration = (long) (Math.random() * 10000);
+            System.out.println(Thread.currentThread().getName() 
+               + "  Time Taken " + (duration / 1000) + " seconds.");
+            Thread.sleep(duration);
+         } catch (InterruptedException e) {
+            e.printStackTrace();
+         } finally {
+            message = message.concat("b");
+            lock.writeLock().unlock();
+         }
+      }
+   }
+}
+This will produce the following result.
+Output
+Writer A  Time Taken 6 seconds.
+Write Lock Present.
+Writer B  Time Taken 2 seconds.
+Reader  Time Taken 0 seconds.
+Reader: aab
+
+
+
+What are all the design patterns you have used and how have you used them ?
+Give a description of work you have done with Jmeter.
+Suppose there are 3 apis a, b, c where a calls b and b calls c. How will you plan to test the apis using Jmeter ?
+They proceeded to task if the output of one api can be directed to another api in Jemeter and how to do it if possible.
+What is distributed performance testing ?
+How can you do distributed performance testing in Jmeter ?
+In which element of Jmeter we can write loops ?
+What is Jmeter workbench ?
+What is result tree and what are all the information can we view there ? 
+How can we schdule threads in thread group of a test plan ?
+What are samplers and listeners ?
+Which of the Jmeter element provides Controllers ?
+
+
+1.Features of java 8
+2.Explain about parallel sort
+3.Sequential and parallel internal workflow
+4.Sorting with list of list employee firstname and lastname
+5.produces and consumer problem ? how to handle for multiple produces and consumes
+6.singleton design pattern, without synchronized how to handle multithreading
+7.spring security
+8.Oauth functionality
+9.How to connect data base in spring boot
+10.@Repository usage and customization with DAO layer
+11.Java IO, how to read a file
+12.Buffered output stream reader , how to read and write a file
+13.how to execute multiple thread and example for submit and awaiting termination
+14.notify and notify all difference
+15. spring mvc with samples
+16.what are all the dependency to be added for web development
+17.jenkins build jobs
+18.how 	to add multiple host in Jenkins jobs
+19.how microservice works
+20.@Enable auto configuration uses and how to exclude
+21.instead of return json value how to get it in object
+22.Two to three api run parallel how to combine the results
+23.spring aop and uses
+24.Explain about junit, before and after
+25.How to test the exception in service
+26.how to test the exception in junit method
+27.Actuator uses
+29.Spring transaction
+30.profile in spring boot
+31.Transaction method types and samples
+32.map and flatmap , sample in flatmap
+33.Volatile
+34.Immutable class
+35.How to handle another class in immutable class.
+
+Hi, Saw your proposal in iaspire, Any opening in your account? Please let me know
+
+
+Java
+Spring Boot
+REST webservices
+Application server - JBoss, tomcat
+how the deployment process done
+Code repository - BitBucket 
+Design Patterns - 
+Design Patterns - what u have to used?
+Unit Testing ?  JUnit?
+Best practices -testing
+Agile team? sprint responsibilities?
+Build & deployment tool
+Coding Best practices -testing
+update profile if he is good in all
+ 
+Java, RestfulWeb service,JSON, Spring Boot
+ 
+
+1. what Spring Boot differs from Spring
+2. Streaming
+3. Api - when we can modify a method or when we can extend a resource
+4. solid principles
+ 
+Datahub to Medcompass interaction need Rest API, vice versa
+ 
+Data will ready by kafka (messaging)
+ 
+REST API, hadoop, HIVE, Data Hub cloud 
+ 
+1. what Spring Boot differs from Spring
+2. Streaming
+3. Api - when we can modify a method or when we can extend a resource
+ 
+how properties file handled in different environment? how spring boot application knows that?
+annotations used in spring boot
+spring boot - port assigned to .. how we can change the default port
+autowiring a bean when container intializes
+ 
+@autowired, 
+ 
+@Service , @Component
+ 
+annotations used in REST
+what is REST and why REST
+Design involvemtn in last project
+ 
+where u used kafka?
+wat annotation u used to read kafka?
+how u will connect to kafka?
+when you will delete the data in kafka.
+
+
+
+
+
+
+
+
+
+
 
 
